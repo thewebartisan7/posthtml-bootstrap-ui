@@ -1,0 +1,19 @@
+{
+  "ignores": [
+    "test/**",
+    "tmp/**",
+    "src/**",
+    "docs/**",
+    ".idea/**",
+    "*.{html,jpg}",
+    "cache.json"
+  ],
+  "rules": {
+    "pkg-main": "off",
+    "cli": "off",
+    "xo": "off",
+    "ava": "off",
+    "use-travis": "off",
+    "pkg-schema": "off"
+  }
+}
