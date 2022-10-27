@@ -1,16 +1,11 @@
-<header class="py-3 mb-4">
-  <div class="container-lg">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-      <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none h5">
-        &lt;x-components/&gt;
-      </a>
+<script props>
+  module.exports = {
+    size: locals.size ? `container-${locals.size}` : 'container'
+  }
+</script>
 
-      <yield></yield>
-
-      <div class="col-md-3 text-end d-none d-md-block">
-        <x-btn-link href="https://www.npmjs.com/package/posthtml-component" class="me-3" target="_blank">NPM</x-btn-link>
-        <x-btn-link href="https://github.com/thewebartisan7/posthtml-components" target="_blank">GitHub</x-btn-link>
-      </div>
-    </div>
+<header>
+  <div class="{{ size }}">
+    <yield></yield>
   </div>
 </header>

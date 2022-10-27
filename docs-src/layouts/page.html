@@ -1,14 +1,26 @@
-<x-html class="h-100">
-  <x-body class="d-flex flex-column h-100 bg-light">
-    <x-header>
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><x-nav-link href="index.html">Home</x-nav-link></li>
-        <li><x-nav-link href="docs.html">Docs</x-nav-link></li>
-        <li><x-nav-link href="https://github.com/posthtml" target="_blank">PostHTML</x-nav-link></li>
-        <li><x-nav-link class="d-block d-md-none" href="https://www.npmjs.com/package/posthtml-component" target="_blank">NPM</x-nav-link></li>
-        <li><x-nav-link class="d-block d-md-none" href="https://github.com/thewebartisan7/posthtml-components" target="_blank">GitHub</x-nav-link></li>
-      </ul>
-    </x-header>
+<x-ui::html class="h-100" title="PostHTML UI">
+  <x-ui::body class="d-flex flex-column h-100 bg-light">
+    <x-ui::header computed:size="lg" class="py-3 mb-4">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
+        <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none h5">
+          PostHTML UI
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><x-nav-link href="index.html">Home</x-nav-link></li>
+          <li><x-nav-link href="docs.html">Docs</x-nav-link></li>
+          <li><x-nav-link href="demo.html">Demo</x-nav-link></li>
+          <li><x-nav-link href="https://github.com/posthtml" target="_blank">PostHTML</x-nav-link></li>
+          <li><x-nav-link class="d-block d-md-none" href="https://www.npmjs.com/package/posthtml-component" target="_blank">NPM</x-nav-link></li>
+          <li><x-nav-link class="d-block d-md-none" href="https://github.com/thewebartisan7/posthtml-components" target="_blank">GitHub</x-nav-link></li>
+        </ul>
+
+        <div class="col-md-3 text-end d-none d-md-block">
+          <x-btn-link href="https://www.npmjs.com/package/posthtml-ui" class="me-3" target="_blank">NPM</x-btn-link>
+          <x-btn-link href="https://github.com/thewebartisan7/posthtml-ui" target="_blank">GitHub</x-btn-link>
+        </div>
+      </div>
+    </x-ui::header>
 
     <main class="flex-shrink-0">
       <div class="container-lg">
@@ -16,7 +28,7 @@
       </div>
     </main>
 
-    <x-footer class="footer mt-auto py-3">
+    <x-ui::footer computed:size="lg" class="footer mt-auto py-3">
       <div class="text-muted text-center">
         Handcrafted with
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill d-inline mx-1 text-danger" viewBox="0 0 16 16">
@@ -29,10 +41,10 @@
         </svg>
         in Swiss Alp by <a href="https://github.com/thewebartisan7" class="text-muted text-decoration-none fst-italic" target="_blank">@thewebartisan7</a>
       </div>
-    </x-footer>
+    </x-ui::footer>
 
-    <x-modal
-      id="modalWithComponents"
+    <x-ui::modal
+      id="modalChangelog"
       backdrop="true"
       computed:keyboard="true"
       computed:scrollable="false"
@@ -40,21 +52,19 @@
       computed:size="lg"
       computed:fullscreen="lg"
       aware:close="true"
-      dialogClass="modal-dialog-custom"
-      contentClass="modal-content-custom"
     >
-      <x-modal.header>
-        <h5 class="modal-title" id="modalWithComponentsLabel">Changelog</h5>
-      </x-modal.header>
+      <x-ui::modal.header>
+        <h5 class="modal-title" id="modalChangelogLabel">Changelog</h5>
+      </x-ui::modal.header>
 
-      <x-modal.body>
+      <x-ui::modal.body>
         <markdown src="changelog.md"></markdown>
-      </x-modal.body>
+      </x-ui::modal.body>
 
-      <x-modal.footer></x-modal.footer>
-    </x-modal>
-  </x-body>
-</x-html>
+      <x-ui::modal.footer></x-ui::modal.footer>
+    </x-ui::modal>
+  </x-ui::body>
+</x-ui::html>
 
 <push name="styles">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">

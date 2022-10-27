@@ -3,27 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PostHTML X Components</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-      .doc-shadow {
-      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-      rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
-      rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;
-    }
-    </style>
+    <title>PostHTML UI</title>
   </head>
   <body class="d-flex flex-column h-100 bg-light">
     <header class="py-3 mb-4">
       <div class="container-lg">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
-          <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none h5">&lt;x-components/&gt;</a>
+          <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none h5">PostHTML UI</a>
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li>
               <a class="nav-link px-2 link-dark" href="index.html">Home</a>
             </li>
             <li>
               <a class="nav-link px-2 link-dark" href="docs.html">Docs</a>
+            </li>
+            <li>
+              <a class="nav-link px-2 link-dark" href="demo.html">Demo</a>
             </li>
             <li>
               <a class="nav-link px-2 link-dark" href="https://github.com/posthtml" target="_blank">PostHTML</a>
@@ -36,8 +31,8 @@
             </li>
           </ul>
           <div class="col-md-3 text-end d-none d-md-block">
-            <a class="btn btn-light bg-white doc-shadow border-white me-3" href="https://www.npmjs.com/package/posthtml-component" target="_blank">NPM</a>
-            <a class="btn btn-light bg-white doc-shadow border-white" href="https://github.com/thewebartisan7/posthtml-components" target="_blank">GitHub</a>
+            <a class="btn btn-light bg-white doc-shadow border-white me-3" href="https://www.npmjs.com/package/posthtml-ui" target="_blank">NPM</a>
+            <a class="btn btn-light bg-white doc-shadow border-white" href="https://github.com/thewebartisan7/posthtml-ui" target="_blank">GitHub</a>
           </div>
         </div>
       </div>
@@ -67,8 +62,8 @@
         </div>
       </div>
     </main>
-    <footer class="footer mt-auto py-3">
-      <div class="container-lg">
+    <footer class="footer mt-auto py-3" size="lg">
+      <div class="lg">
         <div class="text-muted text-center">
           Handcrafted with
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill d-inline mx-1 text-danger" viewbox="0 0 16 16">
@@ -84,11 +79,11 @@
         </div>
       </div>
     </footer>
-    <div class="modal fade" id="modalWithComponents" data-bs-backdrop="true" data-bs-keyboard="true" aria-labelledby="modalWithComponents" tabindex="-1" aria-hidden="true" aria-modal="true" role="dialog">
-      <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-centered modal-dialog-custom">
-        <div class="modal-content modal-content-custom">
+    <div class="modal fade" id="modalChangelog" data-bs-backdrop="true" data-bs-keyboard="true" aria-labelledby="modalChangelog" tabindex="-1" aria-hidden="true" aria-modal="true" role="dialog">
+      <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-centered" id="modalChangelog">
+        <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="modalWithComponentsLabel">Changelog</h5>
+            <h5 class="modal-title" id="modalChangelogLabel">Changelog</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <!-- /.modal-header -->
@@ -112,6 +107,5 @@
       <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

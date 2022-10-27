@@ -7,14 +7,18 @@ const anchor = require('markdown-it-anchor');
 const markdownIt = require('posthtml-markdownit');
 const markdownItToc = require('markdown-it-toc-done-right');
 
-const src = './src/pages/';
+const src = './docs-src/pages/';
 const dist = './docs/';
-const md = './src/md';
+const md = './docs-src/md';
 
 const plugins = [
   components({
-    root: './src',
+    root: './docs-src',
     folders: ['components', 'layouts'],
+    namespaces: {
+      name: 'ui',
+      root: './src'
+    },
     strict: true,
     expressions: {
       locals: {

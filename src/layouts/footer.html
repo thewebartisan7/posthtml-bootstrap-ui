@@ -1,5 +1,11 @@
+<script props>
+  module.exports = {
+    size: locals.size ? `container-${size}` : 'container'
+  }
+</script>
+
 <footer>
-  <div class="container-lg">
+  <div class="{{ size }}">
     <yield></yield>
   </div>
 </footer>

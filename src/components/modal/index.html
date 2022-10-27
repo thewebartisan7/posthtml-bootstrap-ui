@@ -11,12 +11,8 @@
    * centered:      true|false
    * size:          sm|lg|xl
    * fullscreen:    true|false|sm|md|lg|xl|xxl
-   * dialogClass:   any additional class for modal-dialog
-   * contentClass:  any additional class for modal-content
    */
   module.exports = {
-    dialogClass: '',
-    contentClass: '',
     backdrop: true,
     keyboard: locals.backdrop === "static" || locals.keyboard === true,
     scrollable: locals.scrollable === true ? 'modal-dialog-scrollable' : '',
@@ -40,25 +36,24 @@
     role="dialog"
 >
     <div
-       class="modal-dialog {{ size }} {{ fullscreen }} {{ centered }} {{ scrollable }} {{ dialogClass }}"
+       class="modal-dialog {{ size }} {{ fullscreen }} {{ centered }} {{ scrollable }}" attributes
     >
-        <div class="modal-content {{ contentClass }}">
+        <div class="modal-content">
             <yield></yield>
             <if condition="$slots.header?.filled">
-                <x-modal.header>
-                    <!-- Alternative way to <slot:header></slot:header> -->
-                    {{{ $slots.header?.source }}}
-                </x-modal.header>
+                <x-ui::modal.header>
+                  <slot:header></slot:header>
+                </x-ui::modal.header>
             </if>
             <if condition="$slots.body?.filled">
-                <x-modal.body>
+                <x-ui::modal.body>
                     <slot:body></slot:body>
-                </x-modal.body>
+                </x-ui::modal.body>
             </if>
             <if condition="$slots.footer?.filled">
-                <x-modal.footer close="{{ $slots.footer?.locals.close }}">
+                <x-ui::modal.footer>
                     <slot:footer></slot:footer>
-                </x-modal.footer>
+                </x-ui::modal.footer>
             </if>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
