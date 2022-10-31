@@ -1,12 +1,11 @@
 <script props>
   module.exports = {
-    close: true
+    close: isUndefined(props.close) ? true : props.close
   };
 </script>
 <div class="modal-footer">
-    <if condition="close">
-        <x-ui::button class="btn-secondary" data-bs-dismiss="modal">Close</x-ui::button>
-    </if>
-
-    <yield></yield>
+  <if condition="close">
+    <x-ui::button class="btn-secondary" data-bs-dismiss="modal">Close</x-ui::button>
+  </if>
+  <yield></yield>
 </div><!-- /.modal-footer -->

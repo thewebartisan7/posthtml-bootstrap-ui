@@ -3,58 +3,55 @@
    * Bootstrap Modal
    * @see https://getbootstrap.com/docs/5.0/components/modal/
    *
-   * Props
-   *
-   * backdrop:      static|true|false
-   * keyboard:      true|false
-   * scrollable:    true|false
-   * centered:      true|false
-   * size:          sm|lg|xl
-   * fullscreen:    true|false|sm|md|lg|xl|xxl
+   * Props      | Type    | Default | Values                      | Description
+   * ------------------------------------------------------------------------------------------------------------------------------
+   * backdrop   | boolean | true    | static|true|false           | Set data-bs-backdrop
+   * keyboard   | boolean | true    | true|false                  | Set data-bs-keyboard
+   * scrollable | boolean | ''      | true|false                  | Add class `modal-dialog-scrollable`
+   * centered   | boolean | ''      | true|false                  | Add class `modal-dialog-centered`
+   * size       | string  | ''      | sm|lg|xl                    | Add class `modal-${value}`
+   * fullscreen | string  | ''      | true|false|sm|md|lg|xl|xxl  | Add class `modal-fullscreen` or modal-fullscreen-${value}-down
    */
   module.exports = {
-    backdrop: true,
-    keyboard: locals.backdrop === "static" || locals.keyboard === true,
-    scrollable: locals.scrollable === true ? 'modal-dialog-scrollable' : '',
-    centered: locals.centered === true ? 'modal-dialog-centered' : '',
-    size: locals.size ? `modal-${locals.size}` : '',
-    fullscreen: [true, "sm", "md", "lg", "xl", "xxl"].includes(locals.fullscreen)
-      ? (locals.fullscreen === true ? "modal-fullscreen" : `modal-fullscreen-${locals.fullscreen}-down`)
+    backdrop: isUndefined(props.backdrop) ? true : props.backdrop,
+    keyboard: props.backdrop === "static" || props.keyboard === true,
+    scrollable: props.scrollable === true ? 'modal-dialog-scrollable' : '',
+    centered: props.centered === true ? 'modal-dialog-centered' : '',
+    size: props.size ? `modal-${props.size}` : '',
+    fullscreen: [true, "sm", "md", "lg", "xl", "xxl"].includes(props.fullscreen)
+      ? (props.fullscreen === true ? "modal-fullscreen" : `modal-fullscreen-${props.fullscreen}-down`)
       : ''
   };
 </script>
 
 <div
-    class="modal fade"
-    id="{{ id }}"
-    data-bs-backdrop="{{ backdrop }}"
-    data-bs-keyboard="{{ keyboard }}"
-    aria-labelledby="{{ id }}"
-    tabindex="-1"
-    aria-hidden="true"
-    aria-modal="true"
-    role="dialog"
+  class="modal fade"
+  data-bs-backdrop="{{ backdrop }}"
+  data-bs-keyboard="{{ keyboard }}"
+  aria-labelledby="{{ id }}"
+  tabindex="-1"
+  aria-hidden="true"
+  aria-modal="true"
+  role="dialog"
 >
-    <div
-       class="modal-dialog {{ size }} {{ fullscreen }} {{ centered }} {{ scrollable }}" attributes
-    >
-        <div class="modal-content">
-            <yield></yield>
-            <if condition="$slots.header?.filled">
-                <x-ui::modal.header>
-                  <slot:header></slot:header>
-                </x-ui::modal.header>
-            </if>
-            <if condition="$slots.body?.filled">
-                <x-ui::modal.body>
-                    <slot:body></slot:body>
-                </x-ui::modal.body>
-            </if>
-            <if condition="$slots.footer?.filled">
-                <x-ui::modal.footer>
-                    <slot:footer></slot:footer>
-                </x-ui::modal.footer>
-            </if>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+  <div
+     class="modal-dialog {{ size }} {{ fullscreen }} {{ centered }} {{ scrollable }}"
+  >
+    <div class="modal-content">
+      <if condition="$slots.header?.filled">
+        <x-ui::modal.header>
+          <slot:header></slot:header>
+        </x-ui::modal.header>
+      </if>
+      <if condition="$slots.body?.filled">
+        <slot:body></slot:body>
+      </if>
+      <yield></yield>
+      <if condition="$slots.footer?.filled">
+        <x-ui::modal.footer>
+          <slot:footer></slot:footer>
+        </x-ui::modal.footer>
+      </if>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
