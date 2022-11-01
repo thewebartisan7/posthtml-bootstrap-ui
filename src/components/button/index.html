@@ -1,1 +1,40 @@
-<button type="button" class="btn"><yield></yield></button>
+<script props>
+  /**
+   * Buttons
+   * @see https://getbootstrap.com/docs/5.2/components/buttons/
+   */
+  let buttonType = props.type;
+
+  const types = {
+    primary: ' btn-primary',
+    secondary: ' btn-secondary',
+    success: ' btn-success',
+    danger: ' btn-danger',
+    warning: ' btn-warning',
+    info: ' btn-info',
+    light: ' btn-light',
+    dark: ' btn-dark',
+    link: ' btn-link',
+  };
+
+  let type = has(types, buttonType) ? types[buttonType] : '';
+
+  if (!type) {
+    each(types, (value, key) => {
+      if (has(props, key)) {
+        buttonType = key;
+        type = types[buttonType];
+        return false;
+      }
+    });
+  }
+
+  module.exports = {
+    // Set type or default 'btn-primary only if class was not provided
+    type: type || (props.class ? '' : ' btn-primary'),
+
+    // Prevent attribute type (primary, secondary, etc.) being added as an attribute
+    [buttonType]: '',
+  };
+</script>
+<button type="button" class="btn{{ type }}"><yield></yield></button>

@@ -9,7 +9,7 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><x-nav-link href="index.html">Home</x-nav-link></li>
           <li><x-nav-link href="docs.html">Docs</x-nav-link></li>
-          <li><x-nav-link href="demo.html">Demo</x-nav-link></li>
+          <li><x-nav-link href="components.html">Components</x-nav-link></li>
           <li><x-nav-link href="https://github.com/posthtml" target="_blank">PostHTML</x-nav-link></li>
           <li><x-nav-link class="d-block d-md-none" href="https://www.npmjs.com/package/posthtml-component" target="_blank">NPM</x-nav-link></li>
           <li><x-nav-link class="d-block d-md-none" href="https://github.com/thewebartisan7/posthtml-components" target="_blank">GitHub</x-nav-link></li>
@@ -22,7 +22,7 @@
       </div>
     </x-ui::header>
 
-    <main class="flex-shrink-0">
+    <main id="page" class="flex-shrink-0">
       <div class="container-lg">
         <yield></yield>
       </div>
@@ -51,14 +51,13 @@
       centered="true"
       size="lg"
       fullscreen="lg"
-      aware:close="false"
     >
       <x-ui::modal.header>
         <h5 class="modal-title" id="modalChangelogLabel">Changelog</h5>
       </x-ui::modal.header>
 
       <x-ui::modal.body>
-        <markdown src="changelog.md"></markdown>
+        <markdown src="md/changelog.md"></markdown>
       </x-ui::modal.body>
 
       <x-ui::modal.footer></x-ui::modal.footer>
@@ -68,15 +67,120 @@
 
 <push name="head">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.6.0/styles/github.css" />
   <style>
+    @media only screen and (min-width: 1200px) {
+      .toc {
+        position: sticky;
+        top: 1rem;
+        right: 0;
+        z-index: 2;
+        height: calc(100vh - 7rem);
+        overflow-y: auto;
+      }
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-anchor,
+    h1 .header-anchor,
+    h2 .header-anchor,
+    h3 .header-anchor {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    @media only screen and (min-width: 1200px) {
+      .header-anchor {
+        margin-left: -28px;
+        line-height: 1;
+        color: inherit;
+        text-decoration: none;
+        visibility: hidden;
+      }
+
+      h1 .header-anchor {
+        margin-left: -34px;
+      }
+
+      h3 .header-anchor {
+        margin-left: -24px;
+      }
+
+      .header-anchor:hover,
+      h1:hover .header-anchor,
+      h2:hover .header-anchor,
+      h3:hover .header-anchor {
+        visibility: visible;
+      }
+    }
+
+    #header-toc .nav-link {
+      color: #6c757d;
+      padding: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    #header-toc .nav-link.active {
+      color: #212529;
+      font-weight: bold;
+    }
+
+    #header-toc .nav .nav-item > .nav {
+      padding-left: 1.5rem;
+    }
+
+    #header-toc .nav .nav-item > .nav .nav-item > .nav {
+      padding-left: 3rem;
+    }
+
     .doc-shadow {
       box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
       rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
       rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;
+    }
+
+    /* Disable collapse when it's already open */
+    .doc-demo-toggler[aria-expanded="true"] {
+      cursor: not-allowed !important;
+      pointer-events: none !important;
     }
   </style>
 </push>
 
 <push name="foot">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const destination = document.getElementById('collapse-toc');
+      const source = document.getElementById('header-toc');
+      if (destination && source) {
+        destination.appendChild(source);
+      }
+
+      const code = document.querySelectorAll("pre code");
+
+      if (code) {
+        code.forEach((c) => {
+          if (c.closest('pre')) {
+            c.closest('pre').classList.add('doc-shadow', 'rounded-3');
+          }
+        });
+        hljs.highlightAll();
+      }
+
+      const table = document.querySelectorAll("table");
+      if (table) {
+        table.forEach(t => {
+          t.classList.add('table');
+        })
+      }
+    });
+  </script>
 </push>

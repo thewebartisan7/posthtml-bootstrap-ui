@@ -1,7 +1,7 @@
 <script props>
   /**
-   * Bootstrap Modal
-   * @see https://getbootstrap.com/docs/5.0/components/modal/
+   * Modal
+   * @see https://getbootstrap.com/docs/5.2/components/modal/
    *
    * Props      | Type    | Default | Values                      | Description
    * ------------------------------------------------------------------------------------------------------------------------------
@@ -40,18 +40,22 @@
     <div class="modal-content">
       <if condition="$slots.header?.filled">
         <x-ui::modal.header>
-          <slot:header></slot:header>
+          {{{ $slots.header?.source }}}
         </x-ui::modal.header>
       </if>
+
       <if condition="$slots.body?.filled">
-        <slot:body></slot:body>
+        <x-ui::modal.body>
+          {{{ $slots.body?.source }}}
+        </x-ui::modal.body>
       </if>
-      <yield></yield>
+
       <if condition="$slots.footer?.filled">
         <x-ui::modal.footer>
-          <slot:footer></slot:footer>
+          {{{ $slots.footer?.source }}}
         </x-ui::modal.footer>
       </if>
+      <yield></yield>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

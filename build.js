@@ -7,9 +7,26 @@ const anchor = require('markdown-it-anchor');
 const markdownIt = require('posthtml-markdownit');
 const markdownItToc = require('markdown-it-toc-done-right');
 
+// Lodash
+const each = require('lodash/each');
+const defaults = require('lodash/defaults');
+const assignWith = require('lodash/assignWith');
+const mergeWith = require('lodash/mergeWith');
+const template = require('lodash/template');
+const get = require('lodash/get');
+const has = require('lodash/has');
+const isObjectLike = require('lodash/isObjectLike');
+const isArray = require('lodash/isArray');
+const isEmpty = require('lodash/isEmpty');
+const isBoolean = require('lodash/isBoolean');
+const isUndefined = require('lodash/isUndefined'); // value === undefined
+const isNull = require('lodash/isNull'); // value === null
+const isNil = require('lodash/isNil'); // value == null
+// end
+
 const src = './docs-src/pages/';
 const dist = './docs/';
-const md = './docs-src/md';
+const md = './docs-src';
 
 const plugins = [
   components({
@@ -24,6 +41,22 @@ const plugins = [
       locals: {
         title: 'PostHTML UI'
       }
+    },
+    utilities: {
+      each,
+      defaults,
+      assign: assignWith,
+      merge: mergeWith,
+      template,
+      get,
+      has,
+      isObject: isObjectLike,
+      isArray,
+      isEmpty,
+      isBoolean,
+      isUndefined,
+      isNull,
+      isNil
     }
   }),
 
@@ -69,13 +102,15 @@ const plugins = [
 const options = {};
 
 readdirSync(src).forEach(file => {
-  const html = readFileSync(path.resolve(`${src}${file}`), 'utf-8');
+  if (file.endsWith('.html')) {
+    const html = readFileSync(path.resolve(`${src}${file}`), 'utf-8');
 
-  posthtml(plugins)
-    .process(html, options)
-    .then(result => {
-      writeFileSync(path.resolve(`${dist}${file}`), result.html, 'utf-8');
-    });
+    posthtml(plugins)
+      .process(html, options)
+      .then(result => {
+        writeFileSync(path.resolve(`${dist}${file}`), result.html, 'utf-8');
+      });
+  }
 });
 
 function processCodeTags() {
@@ -90,7 +125,8 @@ function processCodeTags() {
           contentNode = '';
         } else if (contentNode.tag === 'code' && contentNode.attrs?.class?.startsWith('language-') && Array.isArray(contentNode.content)) {
           contentNode.content.forEach((c, i) => {
-            contentNode.content[i] = c.trim();
+            contentNode.content[i] = c.trim()
+              .replace(/(\r\n|\r|\n){2}/g, '$1');
           });
         }
 

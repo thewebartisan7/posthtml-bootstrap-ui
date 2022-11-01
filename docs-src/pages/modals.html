@@ -1,0 +1,56 @@
+<x-page-components active="modals">
+  <x-demo name="Modals" id="modals">
+    <x-ui::button data-bs-toggle="modal" data-bs-target="#myModal">Launch default modal</x-ui::button>
+    <x-ui::button data-bs-toggle="modal" data-bs-target="#myModal2">Launch customized modal</x-ui::button>
+    <x-ui::button data-bs-toggle="modal" data-bs-target="#myModal3">Launch using slots modal</x-ui::button>
+
+    <x-ui::modal
+      id="myModal"
+    >
+      <x-ui::modal.header>
+        <h5 class="modal-title" id="myModalLabel">Modal</h5>
+      </x-ui::modal.header>
+
+      <x-ui::modal.body>
+        Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+      </x-ui::modal.body>
+
+      <x-ui::modal.footer></x-ui::modal.footer>
+    </x-ui::modal>
+
+    <x-ui::modal
+      id="myModal2"
+      backdrop="true"
+      keyboard="true"
+      scrollable="false"
+      centered="true"
+      size="lg"
+      fullscreen="lg"
+    >
+      <x-ui::modal.header>
+        <h5 class="modal-title" id="myModal2Label">Modal title</h5>
+      </x-ui::modal.header>
+
+      <x-ui::modal.body>
+        Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+      </x-ui::modal.body>
+
+      <x-ui::modal.footer></x-ui::modal.footer>
+    </x-ui::modal>
+
+
+    <x-ui::modal
+      id="myModal3"
+    >
+      <fill:header>
+        <h5 class="modal-title" id="myModal3Label">Modal title</h5>
+      </fill:header>
+
+      <fill:body>
+        Use Bootstrap's JavaScript modal plugin to add dialogs to your site for lightboxes, user notifications, or completely custom content.
+      </fill:body>
+
+      <fill:footer></fill:footer>
+    </x-ui::modal>
+  </x-demo>
+</x-page-components>

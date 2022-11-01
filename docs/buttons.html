@@ -124,26 +124,113 @@
     </header>
     <main id="page" class="flex-shrink-0">
       <div class="container-lg">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-8 text-center">
-            <h1 class="display-1 fw-bold mb-4">Build the web with PostHTML &amp; Bootstrap</h1>
-            <p class="lead mb-4">
-              Quickly design and customize responsive mobile-first sites with Bootstrap, the world's most popular front-end open source toolkit, and with
-        PostHTML, the simple, yet powerful tool for transforming HTML/XML with JS plugins.
-        Fueled with
-              <strong class="font-monospace">x-components</strong>
-              plugin which give you additional superpowers!
-            </p>
-            <div class="text-center mb-4">
-              <a class="btn btn-light bg-white doc-shadow border-white btn-lg me-3" href="docs.html">Read the docs</a>
-              <a class="btn btn-light bg-white doc-shadow border-white btn-lg" href="https://www.npmjs.com/package/posthtml-component" target="_blank">Download</a>
+        <div class="row">
+          <div class="col-3 col-lg-2 d-none d-md-block">
+            <nav class="nav flex-column doc-shadow bg-white rounded-3">
+              <!-- TODO add aria-current="page" -->
+              <a class="nav-link active" href="buttons.html">Buttons</a>
+              <a class="nav-link text-muted" href="modals.html">Modals</a>
+            </nav>
+          </div>
+          <div class="col-12 col-md-9 col-lg-10">
+            <div class="d-flex justify-content-center justify-content-md-between align-items-end">
+              <div class="d-none d-md-block">
+                <h2>Buttons</h2>
+              </div>
+              <div class="mb-4 d-flex">
+                <button type="button" class="btn btn-secondary btn-sm ms-3 fw-bold border-white text-body bg-white doc-shadow rounded-2 d-flex align-items-center doc-demo-toggler" data-bs-toggle="collapse" data-bs-target="#doc-demo-preview-buttons" aria-expanded="true" aria-controls="doc-demo-preview-buttons">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  <span>Preview</span>
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm ms-3 fw-bold border-white text-body bg-white doc-shadow rounded-2 d-flex align-items-center doc-demo-toggler" data-bs-toggle="collapse" data-bs-target="#doc-demo-posthtml-buttons" aria-expanded="false" aria-controls="doc-demo-posthtml-buttons">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
+                  </svg>
+                  <span>PostHTML</span>
+                </button>
+                <button type="button" class="btn btn-secondary btn-sm ms-3 fw-bold border-white text-body bg-white doc-shadow rounded-2 d-flex align-items-center doc-demo-toggler" data-bs-toggle="collapse" data-bs-target="#doc-demo-html-buttons" aria-expanded="false" aria-controls="doc-demo-html-buttons">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"></path>
+                  </svg>
+                  <span>HTML</span>
+                </button>
+              </div>
             </div>
-            <p class="text-muted">
-              Currently
-              <strong>v1.0.0-beta.1</strong>
-              <span class="px-1">·</span>
-              <a href="#" class="link-secondary" data-bs-toggle="modal" data-bs-target="#modalChangelog">Changelog</a>
-            </p>
+            <div id="doc-demo-preview-buttons" class="collapse show" data-bs-parent="#page">
+              <div class="bg-white p-3 doc-shadow rounded-3">
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-light">Light</button>
+                <button type="button" class="btn btn-dark">Dark</button>
+                <button type="button" class="btn btn-link">Link</button>
+              </div>
+            </div>
+            <div id="doc-demo-posthtml-buttons" class="collapse" data-bs-parent="#page">
+              <div>
+                <h2 id="default" tabindex="-1">
+                  <a class="header-anchor" href="#default">#</a>
+                  Default
+                </h2>
+                <pre><code class="language-html">&lt;x-button&gt;Primary&lt;/x-button&gt;</code></pre>
+                <h2 id="prop-type" tabindex="-1">
+                  <a class="header-anchor" href="#prop-type">#</a>
+                  Prop
+                  <code>type</code>
+                </h2>
+                <pre><code class="language-html">&lt;x-button type=&quot;primary&quot;&gt;Primary&lt;/x-button&gt;</code></pre>
+                <h2 id="alternative-way-to-set-type" tabindex="-1">
+                  <a class="header-anchor" href="#alternative-way-to-set-type">#</a>
+                  Alternative way to set type
+                </h2>
+                <pre><code class="language-html">&lt;x-button primary&gt;Primary&lt;/x-button&gt;
+&lt;x-button secondary&gt;Secondary&lt;/x-button&gt;
+&lt;x-button success&gt;Success&lt;/x-button&gt;
+&lt;x-button danger&gt;Danger&lt;/x-button&gt;
+&lt;x-button warning&gt;Warning&lt;/x-button&gt;
+&lt;x-button info&gt;Info&lt;/x-button&gt;
+&lt;x-button light&gt;Light&lt;/x-button&gt;
+&lt;x-button dark&gt;Dark&lt;/x-button&gt;
+&lt;x-button link&gt;Link&lt;/x-button&gt;</code></pre>
+                <h2 id="custom-class" tabindex="-1">
+                  <a class="header-anchor" href="#custom-class">#</a>
+                  Custom class
+                </h2>
+                <pre><code class="language-html">&lt;x-button class=&quot;btn-custom&quot;&gt;Custom&lt;/x-button&gt;</code></pre>
+                <h2 id="override-class" tabindex="-1">
+                  <a class="header-anchor" href="#override-class">#</a>
+                  Override class
+                </h2>
+                <pre><code class="language-html">&lt;x-button override:class=&quot;btn button-custom&quot;&gt;Override&lt;/x-button&gt;</code></pre>
+              </div>
+            </div>
+            <div id="doc-demo-html-buttons" class="collapse" data-bs-parent="#page">
+              <div>
+                <pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-secondary&quot;&gt;Secondary&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-light&quot;&gt;Light&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/button&gt;
+    
+&lt;button type=&quot;button&quot; class=&quot;btn btn-link&quot;&gt;Link&lt;/button&gt;</code></pre>
+              </div>
+            </div>
           </div>
         </div>
       </div>

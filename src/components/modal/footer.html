@@ -1,9 +1,9 @@
 <script props>
   module.exports = {
-    close: isUndefined(props.close) ? true : props.close
+    close: isBoolean(props.close) ? props.close : true
   };
 </script>
-<div class="modal-footer">
+<div class="modal-footer">¨
   <if condition="close">
     <x-ui::button class="btn-secondary" data-bs-dismiss="modal">Close</x-ui::button>
   </if>
