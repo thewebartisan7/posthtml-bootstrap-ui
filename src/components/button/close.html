@@ -1,0 +1,13 @@
+<script props>
+  /**
+   * Close button
+   * A generic close button for dismissing content like modals and alerts.
+   *
+   * @see https://getbootstrap.com/docs/5.2/components/close-button
+   */
+  module.exports = {
+    label: props.label || 'Close',
+    light: isUndefined(props.light) ? '' : ' btn-close-white'
+  };
+</script>
+<button type="button" class="btn-close{{ light }}" aria-label="{{ label }}"></button>

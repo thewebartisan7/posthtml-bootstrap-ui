@@ -1,0 +1,29 @@
+<script props>
+  /**
+   * Button group
+   * Group a series of buttons together on a single line or stack them in a vertical column.
+   *
+   * @see https://getbootstrap.com/docs/5.2/components/button-group
+   */
+
+  let size = isUndefined(props.size) ? '' : ` btn-group-${props.size}`;
+  let sm = !isUndefined(props.sm);
+  let lg = !isUndefined(props.lg);
+
+  if (!size && (sm || lg)) {
+    size = sm ? ' btn-group-sm' : ' btn-group-lg';
+  }
+
+  const vertical = isUndefined(props.vertical) ? '' : ` btn-group-vertical`;
+
+  module.exports = {
+    size,
+    sm,
+    lg,
+    vertical,
+    label: props.label || 'Button group'
+  };
+</script>
+<div class="btn-group{{ size }}{{ vertical }}" role="group" arial-label="{{ label }}">
+  <yield></yield>
+</div>
