@@ -1,13 +1,187 @@
 <x-page-components active="buttons">
-  <x-demo name="Buttons" id="buttons">
-    <x-ui::button>Primary</x-ui::button>
-    <x-ui::button secondary>Secondary</x-ui::button>
-    <x-ui::button success>Success</x-ui::button>
-    <x-ui::button danger>Danger</x-ui::button>
-    <x-ui::button warning>Warning</x-ui::button>
-    <x-ui::button info>Info</x-ui::button>
-    <x-ui::button light>Light</x-ui::button>
-    <x-ui::button dark>Dark</x-ui::button>
-    <x-ui::button link>Link</x-ui::button>
-  </x-demo>
+<md>
+## Default
+
+```html
+<x-button>Primary</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button>Primary</x-ui::button>
+</x-box>
+
+<md>
+## Prop `type`
+
+```html
+<x-button type="warning">Warning</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button type="warning">Warning</x-ui::button>
+</x-box>
+
+<md>
+### Alternative way to set type
+
+```html
+<x-button primary>Primary</x-button>
+<x-button secondary>Secondary</x-button>
+<x-button success>Success</x-button>
+<x-button danger>Danger</x-button>
+<x-button warning>Warning</x-button>
+<x-button info>Info</x-button>
+<x-button light>Light</x-button>
+<x-button dark>Dark</x-button>
+<x-button link>Link</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button primary>Primary</x-ui::button>
+  <x-ui::button secondary>Secondary</x-ui::button>
+  <x-ui::button success>Success</x-ui::button>
+  <x-ui::button danger>Danger</x-ui::button>
+  <x-ui::button warning>Warning</x-ui::button>
+  <x-ui::button info>Info</x-ui::button>
+  <x-ui::button light>Light</x-ui::button>
+  <x-ui::button dark>Dark</x-ui::button>
+  <x-ui::button link>Link</x-ui::button>
+</x-box>
+
+<md>
+## Prop `outline`
+
+```html
+<x-button outline>Primary outline</x-button>
+<x-button success outline>Success outline</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button outline>Primary outline</x-ui::button>
+  <x-ui::button success outline>Success outline</x-ui::button>
+</x-box>
+
+<md>
+## Prop `size`
+
+```html
+<x-button size="sm">Small</x-button>
+<x-button>Default</x-button>
+<x-button size="lg">Large</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button size="sm">Small</x-ui::button>
+  <x-ui::button>Default</x-ui::button>
+  <x-ui::button size="lg">Large</x-ui::button>
+</x-box>
+
+<md>
+### Alternative way to set size
+
+```html
+<x-button sm>Small</x-button>
+<x-button>Default</x-button>
+<x-button lg>Large</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button sm>Small</x-ui::button>
+  <x-ui::button>Default</x-ui::button>
+  <x-ui::button lg>Large</x-ui::button>
+</x-box>
+
+<md>
+## Custom class
+
+You can set any custom class you want. In this case take into account that only `btn` class will be added, and not `btn-primary` like default.
+This is intentionally for allow to style the button as you wish.
+
+```html
+<x-button class="bg-info text-white">Custom</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button class="bg-info text-white">Custom</x-ui::button>
+</x-box>
+
+<md>
+## Override class
+
+```html
+<x-button override:class="btn bg-warning text-white">Override</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button override:class="btn bg-warning text-white">Override</x-ui::button>
+</x-box>
+
+<md>
+## Combine all
+
+Find below an example with all props combined: a large button with dark outline style and custom class `btn-custom`.
+
+```html
+<x-button class="btn-custom" dark outline lg>Dark outline large</x-button>
+```
+</md>
+
+<x-box>
+  <x-ui::button class="btn-custom" dark outline lg>Dark outline large</x-ui::button>
+</x-box>
+
+<md>
+## Link tag
+
+If you need a button as a `link` tag then use `x-button.link` tag name as shown below.
+Everything else works like for button tag explained above.
+
+```html
+<x-button.link href="https://github.com/thewebartisan7/posthtml-components">As link tag</x-button.link>
+```
+</md>
+
+<x-box>
+  <x-ui::button.link href="https://github.com/thewebartisan7/posthtml-components">As link tag</x-ui::button.link>
+</x-box>
+
+<md>
+## Additional attributes
+
+You can pass any additional attributes like for example a `target`:
+
+```html
+<x-button.link href="https://github.com/thewebartisan7/posthtml-components" target="_blank">Link with target blank</x-button.link>
+```
+</md>
+
+<x-box>
+  <x-ui::button.link href="https://github.com/thewebartisan7/posthtml-components" target="_blank">Link with target blank</x-ui::button.link>
+</x-box>
+
+<md>
+## Disabled
+
+For make a button or link disabled, pass a class `disabled` and `aria-disabled="true"`, as shown below.
+For link as explained [here](https://getbootstrap.com/docs/5.2/components/buttons/#link-functionality-caveat) for disabled link
+use also `tabindex="-1"`
+
+```html
+<x-button class="disabled" aria-disabled="true" primary>Disabled</x-button>
+<x-button.link class="disabled" aria-disabled="true" tabindex="-1" primary>A disabled link</x-button.link>
+```
+</md>
+
+<x-box>
+  <x-ui::button class="disabled" aria-disabled="true" primary>Disabled</x-ui::button>
+  <x-ui::button.link class="disabled" aria-disabled="true" tabindex="-1" primary>A disabled link</x-ui::button.link>
+</x-box>
 </x-page-components>

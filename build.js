@@ -2,10 +2,10 @@ const {readdirSync, readFileSync, writeFileSync} = require('fs');
 const path = require('path');
 const posthtml = require('posthtml');
 const components = require('posthtml-component');
-const beautify = require('posthtml-beautify');
-const anchor = require('markdown-it-anchor');
 const markdownIt = require('posthtml-markdownit');
+const anchor = require('markdown-it-anchor');
 const markdownItToc = require('markdown-it-toc-done-right');
+const beautify = require('posthtml-beautify');
 
 // Lodash
 const each = require('lodash/each');
@@ -28,7 +28,37 @@ const src = './docs-src/pages/';
 const dist = './docs/';
 const md = './docs-src';
 
+const markdownPlugins = [
+  {
+    plugin: anchor,
+    options: {
+      level: [1, 2, 3],
+      permalink: anchor.permalink.linkInsideHeader({
+        symbol: '#',
+        placement: 'before'
+      })
+    }
+  },
+  {
+    plugin: markdownItToc,
+    options: {
+      level: [1, 2, 3],
+      containerClass: 'h-100 flex-column align-items-stretch ps-4 p-3 bg-white rounded-3 doc-shadow',
+      containerId: 'header-toc',
+      listClass: 'nav flex-column',
+      itemClass: 'nav-item',
+      linkClass: 'nav-link',
+      listType: 'ul'
+    }
+  }
+];
+
 const plugins = [
+  markdownIt({
+    root: md,
+    plugins: markdownPlugins
+  }),
+
   components({
     root: './docs-src',
     folders: ['components', 'layouts'],
@@ -62,30 +92,7 @@ const plugins = [
 
   markdownIt({
     root: md,
-    plugins: [
-      {
-        plugin: anchor,
-        options: {
-          level: [1, 2, 3],
-          permalink: anchor.permalink.linkInsideHeader({
-            symbol: '#',
-            placement: 'before'
-          })
-        }
-      },
-      {
-        plugin: markdownItToc,
-        options: {
-          level: [1, 2, 3],
-          containerClass: 'h-100 flex-column align-items-stretch ps-4 p-3 bg-white rounded-3 doc-shadow',
-          containerId: 'header-toc',
-          listClass: 'nav flex-column',
-          itemClass: 'nav-item',
-          linkClass: 'nav-link',
-          listType: 'ul'
-        }
-      }
-    ]
+    plugins: markdownPlugins
   }),
 
   beautify({
@@ -126,7 +133,8 @@ function processCodeTags() {
         } else if (contentNode.tag === 'code' && contentNode.attrs?.class?.startsWith('language-') && Array.isArray(contentNode.content)) {
           contentNode.content.forEach((c, i) => {
             contentNode.content[i] = c.trim()
-              .replace(/(\r\n|\r|\n){2}/g, '$1');
+              // .replace(/(\r\n|\r|\n){2}/g, '$1') // Remove double new lines
+              .replace(/(=&quot;&quot;)/g, ''); // Remove all empty attributes, e.g. primary="" => primary
           });
         }
 

@@ -21,4 +21,24 @@
       </p>
     </div>
   </div>
+
+  <x-ui::modal
+    id="modalChangelog"
+    backdrop="true"
+    keyboard="true"
+    scrollable="false"
+    centered="true"
+    size="lg"
+    fullscreen="lg"
+  >
+    <x-ui::modal.header>
+      <h5 class="modal-title" id="modalChangelogLabel">Changelog</h5>
+    </x-ui::modal.header>
+
+    <x-ui::modal.body>
+      <markdown src="md/changelog.md"></markdown>
+    </x-ui::modal.body>
+
+    <x-ui::modal.footer></x-ui::modal.footer>
+  </x-ui::modal>
 </x-page>

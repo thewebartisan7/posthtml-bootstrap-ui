@@ -1,1 +1,55 @@
-<a href="#" class="btn"><yield></yield></a>
+<script props>
+  /**
+   * Buttons
+   * @see https://getbootstrap.com/docs/5.2/components/buttons/
+   */
+  let buttonType = props.type;
+
+  const outline = isUndefined(props.outline) ? '-' : '-outline-'
+
+  let size = isUndefined(props.size) ? '' : ` btn-${props.size}`;
+  let sm = !isUndefined(props.sm);
+  let lg = !isUndefined(props.lg);
+
+  if (!size && (sm || lg)) {
+    size = sm ? ' btn-sm' : ' btn-lg';
+  }
+
+  const types = {
+    primary: ` btn${outline}primary`,
+    secondary: ` btn${outline}secondary`,
+    success: ` btn${outline}success`,
+    danger: ` btn${outline}danger`,
+    warning: ` btn${outline}warning`,
+    info: ` btn${outline}info`,
+    light: ` btn${outline}light`,
+    dark: ` btn${outline}dark`,
+    link: ` btn${outline}link`,
+  };
+
+  let type = has(types, buttonType) ? types[buttonType] : '';
+
+  if (!type) {
+    each(types, (value, key) => {
+      if (has(props, key)) {
+        buttonType = key;
+        type = types[buttonType];
+        return false;
+      }
+    });
+  }
+
+  module.exports = {
+    // Set type or default 'btn-primary only if class was not provided
+    type: type || (props.class ? '' : ` btn${outline}primary`),
+
+    // Prevent attribute type (primary, secondary, etc.) being added as an attribute
+    [buttonType]: '',
+
+    size,
+    outline,
+    sm,
+    lg,
+  };
+</script>
+<a href="#" class="btn{{ type }}{{ size }}" role="button"><yield></yield></a>
