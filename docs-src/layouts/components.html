@@ -1,0 +1,94 @@
+<script props>
+  module.exports = {
+    active: props.active || false
+  };
+</script>
+
+<x-base active="{{ active }}">
+  <div class="row">
+    <div class="col-12 col-xl-3 order-1 order-xl-2 toc">
+      <div class="mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-muted">
+        <strong class="d-none d-xl-block h6 my-2">On this page</strong>
+        <hr class="d-none d-xl-block invisible my-2">
+        <div class="collapse d-xl-block" id="collapse-toc">
+          <nav id="header-toc" class="h-100 flex-column align-items-stretch ps-4 p-3 bg-white rounded-3 doc-shadow"></nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-xl-9 order-2 order-xl-1" data-app-toggle="toc">
+      <yield></yield>
+    </div>
+  </div>
+</x-base>
+
+<push name="foot">
+  <script>
+    // Generate TOC
+    window.addEventListener('DOMContentLoaded', () => {
+      const content = document.querySelector('[data-app-toggle="toc"]');
+
+      if(!content) {
+        return;
+      }
+
+      const headings = content.querySelectorAll("h2, h3");
+      const toc = document.getElementById("header-toc");
+
+      if(headings.length === 0 || !toc) {
+        return;
+      }
+
+      const ul = document.createElement("ul");
+      ul.classList.add('nav', 'flex-column');
+
+      const tocFragment = new DocumentFragment();
+      let mainLi = null;
+      let subUl = null;
+      let subLi = null;
+      let isSibling = false;
+
+      for (let element of headings) {
+        const anchor = document.createElement("a");
+        anchor.classList.add('nav-link');
+
+        const anchorText = element.innerText;
+        anchor.innerText = anchorText;
+
+        const elementId = anchorText.trim().replaceAll(" ", "-").toLowerCase();
+        anchor.href = "#" + elementId;
+        element.id = elementId;
+
+        if (element.nodeName === "H3") {
+          if (mainLi) {
+            subLi = document.createElement("li");
+            subLi.classList.add('nav-item');
+            subLi.appendChild(anchor);
+
+            if (isSibling === false) {
+              subUl = document.createElement("ul");
+              subUl.classList.add('nav', 'flex-column');
+            }
+
+            subUl.appendChild(subLi);
+            mainLi.appendChild(subUl);
+
+            isSibling = true;
+          }
+        } else {
+          mainLi = document.createElement("li");
+          mainLi.classList.add('nav-item');
+          mainLi.appendChild(anchor);
+
+          tocFragment.appendChild(mainLi);
+
+          isSibling = false;
+          subUl = null;
+        }
+      }
+
+      ul.append(tocFragment);
+      toc.append(ul);
+    });
+  </script>
+</push>

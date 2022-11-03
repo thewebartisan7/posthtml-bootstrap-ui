@@ -1,3 +1,9 @@
+<script props>
+  module.exports = {
+    active: props.active || false
+  };
+</script>
+
 <x-ui::html class="h-100" title="PostHTML Bootstrap UI">
   <x-ui::body class="d-flex flex-column h-100 bg-light">
     <x-ui::header size="lg" class="py-3 mb-4">
@@ -9,7 +15,13 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><x-nav-link href="index.html">Home</x-nav-link></li>
           <li><x-nav-link href="docs.html">Docs</x-nav-link></li>
-          <li><x-nav-link href="components.html">Components</x-nav-link></li>
+          <li>
+            <x-nav-link class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Components</x-nav-link>
+            <ul class="dropdown-menu dropdown-menu-lg-end doc-shadow border-0">
+              <li><a class="dropdown-item {{ active === 'buttons' ? 'active' : '' }}" href="buttons.html">Buttons</a></li>
+              <li><a class="dropdown-item {{ active === 'modals' ? 'active' : '' }}" href="modals.html">Modals</a></li>
+            </ul>
+          </li>
           <li class="d-block d-md-none"><x-nav-link href="https://www.npmjs.com/package/posthtml-bootstrap-ui" target="_blank">NPM</x-nav-link></li>
           <li class="d-block d-md-none"><x-nav-link href="https://github.com/thewebartisan7/posthtml-bootstrap-ui" target="_blank">GitHub</x-nav-link></li>
         </ul>
@@ -22,7 +34,7 @@
     </x-ui::header>
 
     <main id="page" class="flex-shrink-0">
-      <div class="container-lg">
+      <div class="container-lg mb-5">
         <yield></yield>
       </div>
     </main>
@@ -99,6 +111,10 @@
       }
     }
 
+    #header-toc {
+      display: none;
+    }
+
     #header-toc .nav-link {
       color: #6c757d;
       padding: 0;
@@ -141,6 +157,7 @@
       const source = document.getElementById('header-toc');
       if (destination && source) {
         destination.appendChild(source);
+        source.style.display = 'block';
       }
 
       const code = document.querySelectorAll("pre code");

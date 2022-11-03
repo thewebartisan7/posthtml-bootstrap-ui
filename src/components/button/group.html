@@ -14,16 +14,16 @@
     size = sm ? ' btn-group-sm' : ' btn-group-lg';
   }
 
-  const vertical = isUndefined(props.vertical) ? '' : ` btn-group-vertical`;
+  const orientation = isUndefined(props.vertical) ? 'btn-group' : ` btn-group-vertical`;
 
   module.exports = {
     size,
     sm,
     lg,
-    vertical,
+    orientation,
     label: props.label || 'Button group'
   };
 </script>
-<div class="btn-group{{ size }}{{ vertical }}" role="group" arial-label="{{ label }}">
+<div class="{{ orientation }}{{ size }}" role="group" arial-label="{{ label }}">
   <yield></yield>
 </div>

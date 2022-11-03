@@ -58,6 +58,10 @@
       }
     }
 
+    #header-toc {
+      display: none;
+    }
+
     #header-toc .nav-link {
       color: #6c757d;
       padding: 0;
@@ -97,19 +101,27 @@
           <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none h5 font-monospace">&lt;x-bui/&gt;</a>
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li>
-              <a class="nav-link px-2 link-dark" href="index.html">Home</a>
+              <a href="index.html" class="nav-link px-2 link-dark">Home</a>
             </li>
             <li>
-              <a class="nav-link px-2 link-dark" href="docs.html">Docs</a>
+              <a href="docs.html" class="nav-link px-2 link-dark">Docs</a>
             </li>
             <li>
-              <a class="nav-link px-2 link-dark" href="components.html">Components</a>
+              <a href="#" class="nav-link px-2 link-dark dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Components</a>
+              <ul class="dropdown-menu dropdown-menu-lg-end doc-shadow border-0">
+                <li>
+                  <a class="dropdown-item active" href="buttons.html">Buttons</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="modals.html">Modals</a>
+                </li>
+              </ul>
             </li>
             <li class="d-block d-md-none">
-              <a class="nav-link px-2 link-dark" href="https://www.npmjs.com/package/posthtml-bootstrap-ui" target="_blank">NPM</a>
+              <a href="https://www.npmjs.com/package/posthtml-bootstrap-ui" class="nav-link px-2 link-dark" target="_blank">NPM</a>
             </li>
             <li class="d-block d-md-none">
-              <a class="nav-link px-2 link-dark" href="https://github.com/thewebartisan7/posthtml-bootstrap-ui" target="_blank">GitHub</a>
+              <a href="https://github.com/thewebartisan7/posthtml-bootstrap-ui" class="nav-link px-2 link-dark" target="_blank">GitHub</a>
             </li>
           </ul>
           <div class="col-md-3 text-end d-none d-md-block">
@@ -120,9 +132,18 @@
       </div>
     </header>
     <main id="page" class="flex-shrink-0">
-      <div class="container-lg">
+      <div class="container-lg mb-5">
         <div class="row">
-          <div class="col-12 col-md-9 col-lg-10">
+          <div class="col-12 col-xl-3 order-1 order-xl-2 toc">
+            <div class="mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-muted">
+              <strong class="d-none d-xl-block h6 my-2">On this page</strong>
+              <hr class="d-none d-xl-block invisible my-2">
+              <div class="collapse d-xl-block" id="collapse-toc">
+                <nav id="header-toc" class="h-100 flex-column align-items-stretch ps-4 p-3 bg-white rounded-3 doc-shadow"></nav>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-xl-9 order-2 order-xl-1" data-app-toggle="toc">
             <h2 id="default" tabindex="-1">
               <a class="header-anchor" href="#default">#</a>
               Default
@@ -200,6 +221,22 @@
               <button type="button" class="btn btn-primary">Default</button>
               <button type="button" class="btn btn-primary btn-lg">Large</button>
             </div>
+            <h2 id="props-disabled" tabindex="-1">
+              <a class="header-anchor" href="#props-disabled">#</a>
+              Props
+              <code>disabled</code>
+            </h2>
+            <p>
+              For make a button or link disabled, use the prop
+              <code>disabled</code>
+              , as shown below.
+            </p>
+            <pre><code class="language-html">&lt;x-button primary disabled&gt;Disabled&lt;/x-button&gt;
+&lt;x-button.link primary disabled&gt;A disabled link&lt;/x-button.link&gt;</code></pre>
+            <div class="bg-white p-3 doc-shadow rounded-3">
+              <button type="button" class="btn btn-primary" disabled>Disabled</button>
+              <a href="#" class="btn btn-primary disabled" role="button" aria-disabled="true" tabindex="-1">A disabled link</a>
+            </div>
             <h2 id="custom-class" tabindex="-1">
               <a class="header-anchor" href="#custom-class">#</a>
               Custom class
@@ -229,13 +266,13 @@ This is intentionally for allow to style the button as you wish.
               Combine all
             </h2>
             <p>
-              Find below an example with all props combined: a large button with dark outline style and custom class
+              Find below an example with all props combined: a large disabled button with dark outline style and custom class
               <code>btn-custom</code>
               .
             </p>
-            <pre><code class="language-html">&lt;x-button class=&quot;btn-custom&quot; dark outline lg&gt;Dark outline large&lt;/x-button&gt;</code></pre>
+            <pre><code class="language-html">&lt;x-button class=&quot;btn-custom&quot; dark outline lg disabled&gt;Dark outline large&lt;/x-button&gt;</code></pre>
             <div class="bg-white p-3 doc-shadow rounded-3">
-              <button type="button" class="btn btn-outline-dark btn-lg btn-custom">Dark outline large</button>
+              <button type="button" class="btn btn-outline-dark btn-lg btn-custom" disabled>Dark outline large</button>
             </div>
             <h2 id="link-tag" tabindex="-1">
               <a class="header-anchor" href="#link-tag">#</a>
@@ -266,35 +303,98 @@ Everything else works like for button tag explained above.
             <div class="bg-white p-3 doc-shadow rounded-3">
               <a href="https://github.com/thewebartisan7/posthtml-components" class="btn btn-primary" role="button" target="_blank">Link with target blank</a>
             </div>
-            <h2 id="disabled" tabindex="-1">
-              <a class="header-anchor" href="#disabled">#</a>
-              Disabled
+            <h2 id="close-button" tabindex="-1">
+              <a class="header-anchor" href="#close-button">#</a>
+              Close button
+            </h2>
+            <p>A generic close button for dismissing content like modals and alerts.</p>
+            <pre><code class="language-html">&lt;!-- Default --&gt;
+&lt;x-button.close&gt;&lt;/x-button.close&gt;
+
+&lt;!-- With custom aria-label (default &quot;Close&quot;) --&gt;
+&lt;x-button.close label=&quot;Close label&quot;&gt;&lt;/x-button.close&gt;
+
+&lt;!-- Light --&gt;
+&lt;x-button.close light&gt;&lt;/x-button.close&gt;</code></pre>
+            <div class="bg-white p-3 doc-shadow rounded-3">
+              <button type="button" class="btn-close" aria-label="Close"></button>
+              <button type="button" class="btn-close" aria-label="Close label"></button>
+            </div>
+            <div class="p-3 doc-shadow rounded-3 bg-dark mt-3">
+              <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
+            </div>
+            <h2 id="button-group" tabindex="-1">
+              <a class="header-anchor" href="#button-group">#</a>
+              Button group
             </h2>
             <p>
-              For make a button or link disabled, pass a class
-              <code>disabled</code>
-              and
-              <code>aria-disabled=&quot;true&quot;</code>
-              , as shown below.
-For link as explained
-              <a href="https://getbootstrap.com/docs/5.2/components/buttons/#link-functionality-caveat">here</a>
-              for disabled link
-use also
-              <code>tabindex=&quot;-1&quot;</code>
+              Group a series of buttons together on a single line or stack them in a vertical column.
             </p>
-            <pre><code class="language-html">&lt;x-button class=&quot;disabled&quot; aria-disabled=&quot;true&quot; primary&gt;Disabled&lt;/x-button&gt;
-&lt;x-button.link class=&quot;disabled&quot; aria-disabled=&quot;true&quot; tabindex=&quot;-1&quot; primary&gt;A disabled link&lt;/x-button.link&gt;</code></pre>
+            <pre><code class="language-html">&lt;!-- Default --&gt;
+&lt;x-button.group&gt;
+  &lt;x-button&gt;Left&lt;/x-button&gt;
+  &lt;x-button&gt;Middle&lt;/x-button&gt;
+  &lt;x-button&gt;Right&lt;/x-button&gt;
+&lt;/x-button.group&gt;
+
+&lt;!-- Size small via prop size (support also size=&quot;lg&quot;) --&gt;
+&lt;x-button.group size=&quot;sm&quot;&gt;
+  &lt;x-button&gt;Left&lt;/x-button&gt;
+  &lt;x-button&gt;Middle&lt;/x-button&gt;
+  &lt;x-button&gt;Right&lt;/x-button&gt;
+&lt;/x-button.group&gt;
+
+&lt;!-- Size large via attribute lg (support also &quot;sm&quot;) --&gt;
+&lt;x-button.group lg&gt;
+  &lt;x-button&gt;Left&lt;/x-button&gt;
+  &lt;x-button&gt;Middle&lt;/x-button&gt;
+  &lt;x-button&gt;Right&lt;/x-button&gt;
+&lt;/x-button.group&gt;
+
+&lt;!-- Vertical + custom aria-label (default &quot;Button group&quot;) --&gt;
+&lt;x-button.group label=&quot;My button group&quot; vertical&gt;
+  &lt;x-button&gt;Left&lt;/x-button&gt;
+  &lt;x-button&gt;Middle&lt;/x-button&gt;
+  &lt;x-button&gt;Right&lt;/x-button&gt;
+&lt;/x-button.group&gt;
+
+&lt;!-- Vertical + size --&gt;
+&lt;x-button.group vertical lg&gt;
+  &lt;x-button&gt;Left&lt;/x-button&gt;
+  &lt;x-button&gt;Middle&lt;/x-button&gt;
+  &lt;x-button&gt;Right&lt;/x-button&gt;
+&lt;/x-button.group&gt;</code></pre>
             <div class="bg-white p-3 doc-shadow rounded-3">
-              <button type="button" class="btn btn-primary disabled" aria-disabled="">Disabled</button>
-              <a href="#" class="btn btn-primary disabled" role="button" aria-disabled="" tabindex="">A disabled link</a>
+              <div class="btn-group" role="group" arial-label="Button group">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+              <hr class="invisible">
+              <div class="btn-group btn-group-sm" role="group" arial-label="Button group">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+              <hr class="invisible">
+              <div class="btn-group btn-group-lg" role="group" arial-label="Button group">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+              <hr class="invisible">
+              <div class="btn-group-vertical" role="group" arial-label="My button group" vertical="">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
+              <hr class="invisible">
+              <div class="btn-group-vertical btn-group-lg" role="group" arial-label="Button group" vertical="">
+                <button type="button" class="btn btn-primary">Left</button>
+                <button type="button" class="btn btn-primary">Middle</button>
+                <button type="button" class="btn btn-primary">Right</button>
+              </div>
             </div>
-          </div>
-          <div class="col-3 col-lg-2 d-none d-md-block">
-            <nav class="nav flex-column doc-shadow bg-white rounded-3">
-              <!-- TODO add aria-current="page" -->
-              <a class="nav-link active" href="buttons.html">Buttons</a>
-              <a class="nav-link text-muted" href="modals.html">Modals</a>
-            </nav>
           </div>
         </div>
       </div>
@@ -324,6 +424,7 @@ use also
         const source = document.getElementById('header-toc');
         if (destination && source) {
           destination.appendChild(source);
+          source.style.display = 'block';
         }
 
         const code = document.querySelectorAll("pre code");
@@ -345,5 +446,73 @@ use also
         }
       });
     </script>
+    <script>
+    // Generate TOC
+    window.addEventListener('DOMContentLoaded', () => {
+      const content = document.querySelector('[data-app-toggle="toc"]');
+
+      if (!content) {
+        return;
+      }
+
+      const headings = content.querySelectorAll("h2, h3");
+      const toc = document.getElementById("header-toc");
+
+      if (headings.length === 0 || !toc) {
+        return;
+      }
+
+      const ul = document.createElement("ul");
+      ul.classList.add('nav', 'flex-column');
+
+      const tocFragment = new DocumentFragment();
+      let mainLi = null;
+      let subUl = null;
+      let subLi = null;
+      let isSibling = false;
+
+      for (let element of headings) {
+        const anchor = document.createElement("a");
+        anchor.classList.add('nav-link');
+
+        const anchorText = element.innerText;
+        anchor.innerText = anchorText;
+
+        const elementId = anchorText.trim().replaceAll(" ", "-").toLowerCase();
+        anchor.href = "#" + elementId;
+        element.id = elementId;
+
+        if (element.nodeName === "H3") {
+          if (mainLi) {
+            subLi = document.createElement("li");
+            subLi.classList.add('nav-item');
+            subLi.appendChild(anchor);
+
+            if (isSibling === false) {
+              subUl = document.createElement("ul");
+              subUl.classList.add('nav', 'flex-column');
+            }
+
+            subUl.appendChild(subLi);
+            mainLi.appendChild(subUl);
+
+            isSibling = true;
+          }
+        } else {
+          mainLi = document.createElement("li");
+          mainLi.classList.add('nav-item');
+          mainLi.appendChild(anchor);
+
+          tocFragment.appendChild(mainLi);
+
+          isSibling = false;
+          subUl = null;
+        }
+      }
+
+      ul.append(tocFragment);
+      toc.append(ul);
+    });
+  </script>
   </body>
 </html>

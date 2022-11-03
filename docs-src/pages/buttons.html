@@ -1,4 +1,4 @@
-<x-page-components active="buttons">
+<x-components active="buttons">
 <md>
 ## Default
 
@@ -98,6 +98,22 @@
 </x-box>
 
 <md>
+## Props `disabled`
+
+For make a button or link disabled, use the prop `disabled`, as shown below.
+
+```html
+<x-button primary disabled>Disabled</x-button>
+<x-button.link primary disabled>A disabled link</x-button.link>
+```
+</md>
+
+<x-box>
+  <x-ui::button primary disabled>Disabled</x-ui::button>
+  <x-ui::button.link primary disabled>A disabled link</x-ui::button.link>
+</x-box>
+
+<md>
 ## Custom class
 
 You can set any custom class you want. In this case take into account that only `btn` class will be added, and not `btn-primary` like default.
@@ -127,15 +143,15 @@ This is intentionally for allow to style the button as you wish.
 <md>
 ## Combine all
 
-Find below an example with all props combined: a large button with dark outline style and custom class `btn-custom`.
+Find below an example with all props combined: a large disabled button with dark outline style and custom class `btn-custom`.
 
 ```html
-<x-button class="btn-custom" dark outline lg>Dark outline large</x-button>
+<x-button class="btn-custom" dark outline lg disabled>Dark outline large</x-button>
 ```
 </md>
 
 <x-box>
-  <x-ui::button class="btn-custom" dark outline lg>Dark outline large</x-ui::button>
+  <x-ui::button class="btn-custom" dark outline lg disabled>Dark outline large</x-ui::button>
 </x-box>
 
 <md>
@@ -168,19 +184,128 @@ You can pass any additional attributes like for example a `target`:
 </x-box>
 
 <md>
-## Disabled
+## Close button
 
-For make a button or link disabled, pass a class `disabled` and `aria-disabled="true"`, as shown below.
-For disabled link as explained [here](https://getbootstrap.com/docs/5.2/components/buttons/#link-functionality-caveat) add also `tabindex="-1"`.
+A generic close button for dismissing content like modals and alerts.
 
 ```html
-<x-button class="disabled" aria-disabled="true" primary>Disabled</x-button>
-<x-button.link class="disabled" aria-disabled="true" tabindex="-1" primary>A disabled link</x-button.link>
+<!-- Default -->
+<x-button.close></x-button.close>
+
+<!-- With custom aria-label (default "Close") -->
+<x-button.close label="Close label"></x-button.close>
+
+<!-- Light -->
+<x-button.close light></x-button.close>
 ```
 </md>
 
 <x-box>
-  <x-ui::button class="disabled" aria-disabled="true" primary>Disabled</x-ui::button>
-  <x-ui::button.link class="disabled" aria-disabled="true" tabindex="-1" primary>A disabled link</x-ui::button.link>
+  <x-ui::button.close></x-ui::button.close>
+  <x-ui::button.close label="Close label"></x-ui::button.close>
 </x-box>
-</x-page-components>
+
+<x-box override:class="p-3 doc-shadow rounded-3 bg-dark mt-3">
+  <x-ui::button.close light></x-ui::button.close>
+</x-box>
+
+<md>
+## Button group
+
+Group a series of buttons together on a single line or stack them in a vertical column.
+
+```html
+<!-- Default -->
+<x-button.group>
+  <x-button>Left</x-button>
+  <x-button>Middle</x-button>
+  <x-button>Right</x-button>
+</x-button.group>
+
+<!-- Size small via prop size (support also size="lg") -->
+<x-button.group size="sm">
+  <x-button>Left</x-button>
+  <x-button>Middle</x-button>
+  <x-button>Right</x-button>
+</x-button.group>
+
+<!-- Size large via attribute lg (support also "sm") -->
+<x-button.group lg>
+  <x-button>Left</x-button>
+  <x-button>Middle</x-button>
+  <x-button>Right</x-button>
+</x-button.group>
+
+<!-- Vertical + custom aria-label (default "Button group") -->
+<x-button.group label="My button group" vertical>
+  <x-button>Left</x-button>
+  <x-button>Middle</x-button>
+  <x-button>Right</x-button>
+</x-button.group>
+
+<!-- Vertical + size -->
+<x-button.group vertical lg>
+  <x-button>Left</x-button>
+  <x-button>Middle</x-button>
+  <x-button>Right</x-button>
+</x-button.group>
+```
+</md>
+
+<x-box>
+  <x-ui::button.group>
+    <x-ui::button>Left</x-ui::button>
+    <x-ui::button>Middle</x-ui::button>
+    <x-ui::button>Right</x-ui::button>
+  </x-ui::button.group>
+
+  <hr class="invisible">
+
+  <x-ui::button.group size="sm">
+    <x-ui::button>Left</x-ui::button>
+    <x-ui::button>Middle</x-ui::button>
+    <x-ui::button>Right</x-ui::button>
+  </x-ui::button.group>
+
+  <hr class="invisible">
+
+  <x-ui::button.group lg>
+    <x-ui::button>Left</x-ui::button>
+    <x-ui::button>Middle</x-ui::button>
+    <x-ui::button>Right</x-ui::button>
+  </x-ui::button.group>
+
+  <hr class="invisible">
+
+  <x-ui::button.group label="My button group" vertical>
+    <x-ui::button>Left</x-ui::button>
+    <x-ui::button>Middle</x-ui::button>
+    <x-ui::button>Right</x-ui::button>
+  </x-ui::button.group>
+
+  <hr class="invisible">
+
+  <x-ui::button.group vertical lg>
+    <x-ui::button>Left</x-ui::button>
+    <x-ui::button>Middle</x-ui::button>
+    <x-ui::button>Right</x-ui::button>
+  </x-ui::button.group>
+</x-box>
+
+<fill:toc>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" href="#default">Default</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#prop-type">Prop `type`</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#basic-example">Basic example</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#options">Options</a>
+    </li>
+  </ul>
+</fill:toc>
+</x-components>

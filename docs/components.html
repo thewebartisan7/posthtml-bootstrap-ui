@@ -97,19 +97,27 @@
           <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none h5 font-monospace">&lt;x-bui/&gt;</a>
           <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
             <li>
-              <a class="nav-link px-2 link-dark" href="index.html">Home</a>
+              <a href="index.html" class="nav-link px-2 link-dark">Home</a>
             </li>
             <li>
-              <a class="nav-link px-2 link-dark" href="docs.html">Docs</a>
+              <a href="docs.html" class="nav-link px-2 link-dark">Docs</a>
             </li>
             <li>
-              <a class="nav-link px-2 link-dark" href="components.html">Components</a>
+              <a href="#" class="nav-link px-2 link-dark dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Components</a>
+              <ul class="dropdown-menu dropdown-menu-lg-end doc-shadow border-0">
+                <li>
+                  <a class="dropdown-item" href="buttons.html">Buttons</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="modals.html">Modals</a>
+                </li>
+              </ul>
             </li>
             <li class="d-block d-md-none">
-              <a class="nav-link px-2 link-dark" href="https://www.npmjs.com/package/posthtml-bootstrap-ui" target="_blank">NPM</a>
+              <a href="https://www.npmjs.com/package/posthtml-bootstrap-ui" class="nav-link px-2 link-dark" target="_blank">NPM</a>
             </li>
             <li class="d-block d-md-none">
-              <a class="nav-link px-2 link-dark" href="https://github.com/thewebartisan7/posthtml-bootstrap-ui" target="_blank">GitHub</a>
+              <a href="https://github.com/thewebartisan7/posthtml-bootstrap-ui" class="nav-link px-2 link-dark" target="_blank">GitHub</a>
             </li>
           </ul>
           <div class="col-md-3 text-end d-none d-md-block">
@@ -120,7 +128,7 @@
       </div>
     </header>
     <main id="page" class="flex-shrink-0">
-      <div class="container-lg">
+      <div class="container-lg mb-5">
         <h1>Components</h1>
         <ul>
           <li>

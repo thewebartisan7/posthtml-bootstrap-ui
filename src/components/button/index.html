@@ -3,10 +3,6 @@
    * Buttons
    * @see https://getbootstrap.com/docs/5.2/components/buttons/
    */
-  let buttonType = props.type;
-
-  const outline = isUndefined(props.outline) ? '-' : '-outline-'
-
   let size = isUndefined(props.size) ? '' : ` btn-${props.size}`;
   let sm = !isUndefined(props.sm);
   let lg = !isUndefined(props.lg);
@@ -14,6 +10,9 @@
   if (!size && (sm || lg)) {
     size = sm ? ' btn-sm' : ' btn-lg';
   }
+
+  let buttonType = props.type;
+  const outline = isUndefined(props.outline) ? '-' : '-outline-';
 
   const types = {
     primary: ` btn${outline}primary`,
@@ -52,4 +51,7 @@
     lg,
   };
 </script>
-<button type="button" class="btn{{ type }}{{ size }}"><yield></yield></button>
+<button
+  type="button"
+  class="btn{{ type }}{{ size }}"
+><yield></yield></button>

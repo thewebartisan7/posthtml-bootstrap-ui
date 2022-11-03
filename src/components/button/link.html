@@ -39,6 +39,11 @@
     });
   }
 
+  let disabled = false;
+  if (!isUndefined(props.disabled)) {
+    disabled = true;
+  }
+
   module.exports = {
     // Set type or default 'btn-primary only if class was not provided
     type: type || (props.class ? '' : ` btn${outline}primary`),
@@ -50,6 +55,13 @@
     outline,
     sm,
     lg,
+    disabled
   };
 </script>
-<a href="#" class="btn{{ type }}{{ size }}" role="button"><yield></yield></a>
+<a
+  href="#"
+  class="btn{{ type }}{{ size }}{{ disabled ? ' disabled' : ''}}"
+  role="button"
+  aria-disabled="{{ disabled ? 'true' : null }}"
+  tabindex="{{ disabled ? '-1' : null }}"
+><yield></yield></a>
