@@ -18,13 +18,6 @@
       }
     }
 
-    h1,
-    h2,
-    h3 {
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
-    }
-
     .header-anchor,
     h1 .header-anchor,
     h2 .header-anchor,
@@ -86,12 +79,6 @@
       rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
       rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;
     }
-
-    /* Disable collapse when it's already open */
-    .doc-demo-toggler[aria-expanded="true"] {
-      cursor: not-allowed !important;
-      pointer-events: none !important;
-    }
     </style>
   </head>
   <body class="d-flex flex-column h-100 bg-light">
@@ -114,6 +101,9 @@
                 </li>
                 <li>
                   <a class="dropdown-item" href="modals.html">Modals</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="accordions.html">Accordions</a>
                 </li>
               </ul>
             </li>
@@ -149,18 +139,20 @@
               Default
             </h2>
             <pre><code class="language-html">&lt;x-button&gt;Primary&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-primary">Primary</button>
             </div>
+            <hr class="invisible">
             <h2 id="prop-type" tabindex="-1">
               <a class="header-anchor" href="#prop-type">#</a>
               Prop
               <code>type</code>
             </h2>
             <pre><code class="language-html">&lt;x-button type=&quot;warning&quot;&gt;Warning&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-warning">Warning</button>
             </div>
+            <hr class="invisible">
             <h3 id="alternative-way-to-set-type" tabindex="-1">
               <a class="header-anchor" href="#alternative-way-to-set-type">#</a>
               Alternative way to set type
@@ -174,7 +166,7 @@
 &lt;x-button light&gt;Light&lt;/x-button&gt;
 &lt;x-button dark&gt;Dark&lt;/x-button&gt;
 &lt;x-button link&gt;Link&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-primary">Primary</button>
               <button type="button" class="btn btn-secondary">Secondary</button>
               <button type="button" class="btn btn-success">Success</button>
@@ -185,6 +177,7 @@
               <button type="button" class="btn btn-dark">Dark</button>
               <button type="button" class="btn btn-link">Link</button>
             </div>
+            <hr class="invisible">
             <h2 id="prop-outline" tabindex="-1">
               <a class="header-anchor" href="#prop-outline">#</a>
               Prop
@@ -192,10 +185,11 @@
             </h2>
             <pre><code class="language-html">&lt;x-button outline&gt;Primary outline&lt;/x-button&gt;
 &lt;x-button success outline&gt;Success outline&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-outline-primary">Primary outline</button>
               <button type="button" class="btn btn-outline-success">Success outline</button>
             </div>
+            <hr class="invisible">
             <h2 id="prop-size" tabindex="-1">
               <a class="header-anchor" href="#prop-size">#</a>
               Prop
@@ -204,11 +198,12 @@
             <pre><code class="language-html">&lt;x-button size=&quot;sm&quot;&gt;Small&lt;/x-button&gt;
 &lt;x-button&gt;Default&lt;/x-button&gt;
 &lt;x-button size=&quot;lg&quot;&gt;Large&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-primary btn-sm">Small</button>
               <button type="button" class="btn btn-primary">Default</button>
               <button type="button" class="btn btn-primary btn-lg">Large</button>
             </div>
+            <hr class="invisible">
             <h3 id="alternative-way-to-set-size" tabindex="-1">
               <a class="header-anchor" href="#alternative-way-to-set-size">#</a>
               Alternative way to set size
@@ -216,11 +211,12 @@
             <pre><code class="language-html">&lt;x-button sm&gt;Small&lt;/x-button&gt;
 &lt;x-button&gt;Default&lt;/x-button&gt;
 &lt;x-button lg&gt;Large&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-primary btn-sm">Small</button>
               <button type="button" class="btn btn-primary">Default</button>
               <button type="button" class="btn btn-primary btn-lg">Large</button>
             </div>
+            <hr class="invisible">
             <h2 id="props-disabled" tabindex="-1">
               <a class="header-anchor" href="#props-disabled">#</a>
               Props
@@ -233,10 +229,11 @@
             </p>
             <pre><code class="language-html">&lt;x-button primary disabled&gt;Disabled&lt;/x-button&gt;
 &lt;x-button.link primary disabled&gt;A disabled link&lt;/x-button.link&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-primary" disabled>Disabled</button>
               <a href="#" class="btn btn-primary disabled" role="button" aria-disabled="true" tabindex="-1">A disabled link</a>
             </div>
+            <hr class="invisible">
             <h2 id="custom-class" tabindex="-1">
               <a class="header-anchor" href="#custom-class">#</a>
               Custom class
@@ -250,17 +247,19 @@
 This is intentionally for allow to style the button as you wish.
             </p>
             <pre><code class="language-html">&lt;x-button class=&quot;bg-info text-white&quot;&gt;Custom&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn bg-info text-white">Custom</button>
             </div>
+            <hr class="invisible">
             <h2 id="override-class" tabindex="-1">
               <a class="header-anchor" href="#override-class">#</a>
               Override class
             </h2>
             <pre><code class="language-html">&lt;x-button override:class=&quot;btn bg-warning text-white&quot;&gt;Override&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn bg-warning text-white">Override</button>
             </div>
+            <hr class="invisible">
             <h2 id="combine-all" tabindex="-1">
               <a class="header-anchor" href="#combine-all">#</a>
               Combine all
@@ -271,9 +270,10 @@ This is intentionally for allow to style the button as you wish.
               .
             </p>
             <pre><code class="language-html">&lt;x-button class=&quot;btn-custom&quot; dark outline lg disabled&gt;Dark outline large&lt;/x-button&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn btn-outline-dark btn-lg btn-custom" disabled>Dark outline large</button>
             </div>
+            <hr class="invisible">
             <h2 id="link-tag" tabindex="-1">
               <a class="header-anchor" href="#link-tag">#</a>
               Link tag
@@ -287,9 +287,10 @@ This is intentionally for allow to style the button as you wish.
 Everything else works like for button tag explained above.
             </p>
             <pre><code class="language-html">&lt;x-button.link href=&quot;https://github.com/thewebartisan7/posthtml-components&quot;&gt;As link tag&lt;/x-button.link&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <a href="https://github.com/thewebartisan7/posthtml-components" class="btn btn-primary" role="button">As link tag</a>
             </div>
+            <hr class="invisible">
             <h2 id="additional-attributes" tabindex="-1">
               <a class="header-anchor" href="#additional-attributes">#</a>
               Additional attributes
@@ -300,9 +301,10 @@ Everything else works like for button tag explained above.
               :
             </p>
             <pre><code class="language-html">&lt;x-button.link href=&quot;https://github.com/thewebartisan7/posthtml-components&quot; target=&quot;_blank&quot;&gt;Link with target blank&lt;/x-button.link&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <a href="https://github.com/thewebartisan7/posthtml-components" class="btn btn-primary" role="button" target="_blank">Link with target blank</a>
             </div>
+            <hr class="invisible">
             <h2 id="close-button" tabindex="-1">
               <a class="header-anchor" href="#close-button">#</a>
               Close button
@@ -316,13 +318,14 @@ Everything else works like for button tag explained above.
 
 &lt;!-- Light --&gt;
 &lt;x-button.close light&gt;&lt;/x-button.close&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <button type="button" class="btn-close" aria-label="Close"></button>
               <button type="button" class="btn-close" aria-label="Close label"></button>
             </div>
             <div class="p-3 doc-shadow rounded-3 bg-dark mt-3">
               <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
             </div>
+            <hr class="invisible">
             <h2 id="button-group" tabindex="-1">
               <a class="header-anchor" href="#button-group">#</a>
               Button group
@@ -364,7 +367,7 @@ Everything else works like for button tag explained above.
   &lt;x-button&gt;Middle&lt;/x-button&gt;
   &lt;x-button&gt;Right&lt;/x-button&gt;
 &lt;/x-button.group&gt;</code></pre>
-            <div class="bg-white p-3 doc-shadow rounded-3">
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <div class="btn-group" role="group" arial-label="Button group">
                 <button type="button" class="btn btn-primary">Left</button>
                 <button type="button" class="btn btn-primary">Middle</button>
@@ -472,15 +475,20 @@ Everything else works like for button tag explained above.
       let isSibling = false;
 
       for (let element of headings) {
+        if (element.closest('.doc-demo')) {
+          continue;
+        }
+
         const anchor = document.createElement("a");
         anchor.classList.add('nav-link');
 
-        const anchorText = element.innerText;
+        const anchorText = element.innerText.replace('#', '').trim();
         anchor.innerText = anchorText;
 
         const elementId = anchorText.trim().replaceAll(" ", "-").toLowerCase();
         anchor.href = "#" + elementId;
         element.id = elementId;
+        // element.classList.add('mt-5', 'mb-3');
 
         if (element.nodeName === "H3") {
           if (mainLi) {

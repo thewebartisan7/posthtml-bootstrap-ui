@@ -3,7 +3,7 @@
    * Buttons
    * @see https://getbootstrap.com/docs/5.2/components/buttons/
    */
-  let size = isUndefined(props.size) ? '' : ` btn-${props.size}`;
+  let size = !isUndefined(props.size) && ['sm', 'lg'].includes(props.size) ? ` btn-${props.size}` : '';
   let sm = !isUndefined(props.sm);
   let lg = !isUndefined(props.lg);
 
@@ -49,9 +49,16 @@
     outline,
     sm,
     lg,
+    toggle: props.toggle,
+    target: props.target
   };
 </script>
+
 <button
   type="button"
   class="btn{{ type }}{{ size }}"
-><yield></yield></button>
+  data-bs-toggle="{{ toggle }}"
+  data-bs-target="{{ target }}"
+>
+  <yield></yield>
+</button>

@@ -49,15 +49,20 @@
       let isSibling = false;
 
       for (let element of headings) {
+        if (element.closest('.doc-demo')) {
+          continue;
+        }
+
         const anchor = document.createElement("a");
         anchor.classList.add('nav-link');
 
-        const anchorText = element.innerText;
+        const anchorText = element.innerText.replace('#', '').trim();
         anchor.innerText = anchorText;
 
         const elementId = anchorText.trim().replaceAll(" ", "-").toLowerCase();
         anchor.href = "#" + elementId;
         element.id = elementId;
+        // element.classList.add('mt-5', 'mb-3');
 
         if (element.nodeName === "H3") {
           if (mainLi) {

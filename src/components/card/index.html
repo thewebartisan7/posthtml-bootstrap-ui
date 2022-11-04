@@ -1,0 +1,21 @@
+<div class="card">
+  <if condition="$slots.header?.filled">
+    <x-ui::card.header>
+      {{{ $slots.header?.source }}}
+    </x-ui::card.header>
+  </if>
+
+  <if condition="$slots.body?.filled">
+    <x-ui::card.body>
+      {{{ $slots.body?.source }}}
+    </x-ui::card.body>
+  </if>
+
+  <if condition="$slots.footer?.filled">
+    <x-ui::card.footer>
+      {{{ $slots.footer?.source }}}
+    </x-ui::card.footer>
+  </if>
+
+  <yield></yield>
+</div>

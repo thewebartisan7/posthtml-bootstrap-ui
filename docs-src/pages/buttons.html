@@ -7,9 +7,11 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button>Primary</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Prop `type`
@@ -19,9 +21,11 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button type="warning">Warning</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ### Alternative way to set type
@@ -39,7 +43,7 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button primary>Primary</x-ui::button>
   <x-ui::button secondary>Secondary</x-ui::button>
   <x-ui::button success>Success</x-ui::button>
@@ -49,7 +53,9 @@
   <x-ui::button light>Light</x-ui::button>
   <x-ui::button dark>Dark</x-ui::button>
   <x-ui::button link>Link</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Prop `outline`
@@ -60,10 +66,12 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button outline>Primary outline</x-ui::button>
   <x-ui::button success outline>Success outline</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Prop `size`
@@ -75,11 +83,13 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button size="sm">Small</x-ui::button>
   <x-ui::button>Default</x-ui::button>
   <x-ui::button size="lg">Large</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ### Alternative way to set size
@@ -91,11 +101,13 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button sm>Small</x-ui::button>
   <x-ui::button>Default</x-ui::button>
   <x-ui::button lg>Large</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Props `disabled`
@@ -108,10 +120,12 @@ For make a button or link disabled, use the prop `disabled`, as shown below.
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button primary disabled>Disabled</x-ui::button>
   <x-ui::button.link primary disabled>A disabled link</x-ui::button.link>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Custom class
@@ -124,9 +138,11 @@ This is intentionally for allow to style the button as you wish.
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button class="bg-info text-white">Custom</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Override class
@@ -136,9 +152,11 @@ This is intentionally for allow to style the button as you wish.
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button override:class="btn bg-warning text-white">Override</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Combine all
@@ -150,9 +168,11 @@ Find below an example with all props combined: a large disabled button with dark
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button class="btn-custom" dark outline lg disabled>Dark outline large</x-ui::button>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Link tag
@@ -165,9 +185,11 @@ Everything else works like for button tag explained above.
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button.link href="https://github.com/thewebartisan7/posthtml-components">As link tag</x-ui::button.link>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Additional attributes
@@ -179,9 +201,11 @@ You can pass any additional attributes like for example a `target`:
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button.link href="https://github.com/thewebartisan7/posthtml-components" target="_blank">Link with target blank</x-ui::button.link>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Close button
@@ -200,14 +224,16 @@ A generic close button for dismissing content like modals and alerts.
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button.close></x-ui::button.close>
   <x-ui::button.close label="Close label"></x-ui::button.close>
-</x-box>
+</x-demo>
 
-<x-box override:class="p-3 doc-shadow rounded-3 bg-dark mt-3">
+<x-demo override:class="p-3 doc-shadow rounded-3 bg-dark mt-3">
   <x-ui::button.close light></x-ui::button.close>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Button group
@@ -252,7 +278,7 @@ Group a series of buttons together on a single line or stack them in a vertical 
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button.group>
     <x-ui::button>Left</x-ui::button>
     <x-ui::button>Middle</x-ui::button>
@@ -290,7 +316,7 @@ Group a series of buttons together on a single line or stack them in a vertical 
     <x-ui::button>Middle</x-ui::button>
     <x-ui::button>Right</x-ui::button>
   </x-ui::button.group>
-</x-box>
+</x-demo>
 
 <fill:toc>
   <ul class="nav flex-column">

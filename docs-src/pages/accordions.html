@@ -1,0 +1,116 @@
+<x-components active="accordions">
+<md>
+## Default
+
+It's important to prepend `aware:` to the prop `id` so that the component `x-accordion.item` has access to the `id`
+in order to set the `data-bs-parent` in the `.accordion-collapse` element.
+
+You don't need to set the `id` of `x-accordion.item` as this will be generated.
+But in case you want, you can use the prop `name`. It should be a valid selector name.
+
+Use prop `open` to keep accordion item open.
+
+```html
+<x-accordion aware:id="first-accordion">
+  <x-accordion.item title="First item" open>
+    First accordion item content
+  </x-accordion.item>
+
+  <x-accordion.item title="Second item">
+    Second accordion item content
+  </x-accordion.item>
+
+  <x-accordion.item title="Third item">
+    Third accordion item content
+  </x-accordion.item>
+</x-accordion>
+```
+</md>
+
+<x-demo>
+  <x-ui::accordion aware:id="first-accordion">
+    <x-ui::accordion.item title="First item" open>
+      First accordion item content
+    </x-ui::accordion.item>
+
+    <x-ui::accordion.item title="Second item">
+      Second accordion item content
+    </x-ui::accordion.item>
+
+    <x-ui::accordion.item title="Third item">
+      Third accordion item content
+    </x-ui::accordion.item>
+  </x-ui::accordion>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Prop `flush`
+
+Add `.accordion-flush` to remove the default background-color, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.
+
+```html
+<x-accordion aware:id="second-accordion" flush>
+  ...
+</x-accordion>
+```
+</md>
+
+<x-demo>
+  <x-ui::accordion aware:id="second-accordion" flush>
+    <x-ui::accordion.item title="First item">
+      First accordion item content
+    </x-ui::accordion.item>
+
+    <x-ui::accordion.item title="Second item">
+      Second accordion item content
+    </x-ui::accordion.item>
+
+    <x-ui::accordion.item title="Third item">
+      Third accordion item content
+    </x-ui::accordion.item>
+  </x-ui::accordion>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Prop `alwaysOpen`
+
+With prop `alwaysOpen` you can omit the `data-bs-parent` attribute on each `.accordion-collapse` to make accordion items stay open when another item is opened.
+The prop must have `aware:` as it's being used by `x-accordion.items`.
+Alternative way is to set the prop `alwaysOpen` without the `aware:` to each `x-accordion.item`.
+
+```html
+<x-accordion aware:id="third-accordion" aware:alwaysOpen>
+  ...
+</x-accordion>
+
+<!-- or -->
+
+<x-accordion aware:id="third-accordion">
+  <x-accordion.item title="First item" alwaysOpen>
+    ...
+  </x-accordion.item>
+  ...
+</x-accordion>
+```
+</md>
+
+<x-demo>
+  <x-ui::accordion aware:id="third-accordion" aware:alwaysOpen>
+    <x-ui::accordion.item title="First item">
+      First accordion item content
+    </x-ui::accordion.item>
+
+    <x-ui::accordion.item title="Second item">
+      Second accordion item content
+    </x-ui::accordion.item>
+
+    <x-ui::accordion.item title="Third item">
+      Third accordion item content
+    </x-ui::accordion.item>
+  </x-ui::accordion>
+</x-demo>
+</x-components>

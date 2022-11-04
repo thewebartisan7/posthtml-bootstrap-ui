@@ -22,6 +22,7 @@ const isBoolean = require('lodash/isBoolean');
 const isUndefined = require('lodash/isUndefined'); // value === undefined
 const isNull = require('lodash/isNull'); // value === null
 const isNil = require('lodash/isNil'); // value == null
+const uniqueId = require('lodash/uniqueId');
 // end
 
 const src = './docs-src/pages/';
@@ -53,66 +54,65 @@ const markdownPlugins = [
   }
 ];
 
-const plugins = [
-  markdownIt({
-    root: md,
-    plugins: markdownPlugins
-  }),
-
-  components({
-    root: './docs-src',
-    folders: ['components', 'layouts'],
-    namespaces: {
-      name: 'ui',
-      root: './src'
-    },
-    strict: true,
-    expressions: {
-      locals: {
-        title: 'PostHTML UI'
-      }
-    },
-    utilities: {
-      each,
-      defaults,
-      assign: assignWith,
-      merge: mergeWith,
-      template,
-      get,
-      has,
-      isObject: isObjectLike,
-      isArray,
-      isEmpty,
-      isBoolean,
-      isUndefined,
-      isNull,
-      isNil
-    }
-  }),
-
-  markdownIt({
-    root: md,
-    plugins: markdownPlugins
-  }),
-
-  beautify({
-    rules: {
-      indent: 2,
-      blankLines: false,
-      sortAttr: false
-    }
-  }),
-
-  processCodeTags()
-];
-
 const options = {};
 
 readdirSync(src).forEach(file => {
   if (file.endsWith('.html')) {
     const html = readFileSync(path.resolve(`${src}${file}`), 'utf-8');
 
-    posthtml(plugins)
+    posthtml([
+        markdownIt({
+          root: md,
+          plugins: markdownPlugins
+        }),
+
+        components({
+          root: './docs-src',
+          folders: ['components', 'layouts'],
+          namespaces: {
+            name: 'ui',
+            root: './src'
+          },
+          strict: true,
+          expressions: {
+            locals: {
+              title: 'PostHTML UI'
+            }
+          },
+          utilities: {
+            each,
+            defaults,
+            assign: assignWith,
+            merge: mergeWith,
+            template,
+            get,
+            has,
+            isObject: isObjectLike,
+            isArray,
+            isEmpty,
+            isBoolean,
+            isUndefined,
+            isNull,
+            isNil,
+            uniqueId
+          }
+        }),
+
+        markdownIt({
+          root: md,
+          plugins: markdownPlugins
+        }),
+
+        beautify({
+          rules: {
+            indent: 2,
+            blankLines: false,
+            sortAttr: false
+          }
+        }),
+
+        processCodeTags()
+      ])
       .process(html, options)
       .then(result => {
         writeFileSync(path.resolve(`${dist}${file}`), result.html, 'utf-8');
@@ -134,7 +134,7 @@ function processCodeTags() {
           contentNode.content.forEach((c, i) => {
             contentNode.content[i] = c.trim()
               // .replace(/(\r\n|\r|\n){2}/g, '$1') // Remove double new lines
-              .replace(/(=&quot;&quot;)/g, ''); // Remove all empty attributes, e.g. primary="" => primary
+              .replace(/(=&quot;&quot;)/g, ''); // Remove all empty attributes, e.g. primary="" => primary in x-tag
           });
         }
 

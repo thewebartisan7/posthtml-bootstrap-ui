@@ -103,7 +103,7 @@
                   <a class="dropdown-item" href="modals.html">Modals</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="accordions.html">Accordions</a>
+                  <a class="dropdown-item active" href="accordions.html">Accordions</a>
                 </li>
               </ul>
             </li>
@@ -123,57 +123,43 @@
     </header>
     <main id="page" class="flex-shrink-0">
       <div class="container-lg mb-5">
-        <div class="row justify-content-center align-items-center">
-          <div class="col-lg-8 text-center">
-            <h1 class="display-1 fw-bold mb-4">Build the web with PostHTML &amp; Bootstrap</h1>
-            <p class="lead mb-4">
-              Quickly design and customize responsive mobile-first sites with Bootstrap, the world's most popular front-end open source toolkit, and with
-        PostHTML, the simple, yet powerful tool for transforming HTML/XML with JS plugins.
-        Fueled with
-              <strong class="font-monospace">x-components</strong>
-              plugin which give you additional superpowers!
-            </p>
-            <div class="text-center mb-4">
-              <a class="btn btn-light bg-white doc-shadow border-white btn-lg me-3" href="docs.html">Read the docs</a>
-              <a class="btn btn-light bg-white doc-shadow border-white btn-lg" href="https://www.npmjs.com/package/posthtml-component" target="_blank">Download</a>
+        <div class="row">
+          <div class="col-12 col-xl-3 order-1 order-xl-2 toc">
+            <div class="mt-3 mb-5 my-lg-0 ps-xl-3 mb-lg-5 text-muted">
+              <strong class="d-none d-xl-block h6 my-2">On this page</strong>
+              <hr class="d-none d-xl-block invisible my-2">
+              <div class="collapse d-xl-block" id="collapse-toc">
+                <nav id="header-toc" class="h-100 flex-column align-items-stretch ps-4 p-3 bg-white rounded-3 doc-shadow"></nav>
+              </div>
             </div>
-            <p class="text-muted">
-              Currently
-              <strong>v1.0.0-beta.1</strong>
-              <span class="px-1">·</span>
-              <a href="#" class="link-secondary" data-bs-toggle="modal" data-bs-target="#modalChangelog">Changelog</a>
-            </p>
+          </div>
+          <div class="col-12 col-xl-9 order-2 order-xl-1" data-app-toggle="toc">
+            <h2 id="default" tabindex="-1">
+              <a class="header-anchor" href="#default">#</a>
+              Default
+            </h2>
+            <pre><code class="language-html">&lt;x-card&gt;
+  &lt;x-card.header&gt;
+    Card header
+  &lt;/x-card.header&gt;
+
+  &lt;x-card.body&gt;
+    Card body
+  &lt;/x-card.body&gt;
+
+  &lt;x-card.footer&gt;
+    Card footer
+  &lt;/x-card.footer&gt;
+&lt;/x-card&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="card">
+                <div class="card-header">Card header</div>
+                <div class="card-body">Card body</div>
+                <div class="card-footer">Card footer</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="modal fade" data-bs-backdrop="true" data-bs-keyboard="true" aria-labelledby="modalChangelog" tabindex="-1" aria-hidden="true" aria-modal="true" role="dialog" id="modalChangelog">
-          <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="modalChangelogLabel">Changelog</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <!-- /.modal-header -->
-              <div class="modal-body">
-                <h2 id="1.0.0-beta.1-(2022-10-30)" tabindex="-1">
-                  <a class="header-anchor" href="#1.0.0-beta.1-(2022-10-30)">#</a>
-                  1.0.0-beta.1 (2022-10-30)
-                </h2>
-                <ul>
-                  <li>First beta release</li>
-                </ul>
-              </div>
-              <!-- /.modal-body -->
-              <div class="modal-footer">
-                ¨
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              </div>
-              <!-- /.modal-footer -->
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
       </div>
     </main>
     <footer class="footer mt-auto py-3">
@@ -223,5 +209,78 @@
         }
       });
     </script>
+    <script>
+    // Generate TOC
+    window.addEventListener('DOMContentLoaded', () => {
+      const content = document.querySelector('[data-app-toggle="toc"]');
+
+      if (!content) {
+        return;
+      }
+
+      const headings = content.querySelectorAll("h2, h3");
+      const toc = document.getElementById("header-toc");
+
+      if (headings.length === 0 || !toc) {
+        return;
+      }
+
+      const ul = document.createElement("ul");
+      ul.classList.add('nav', 'flex-column');
+
+      const tocFragment = new DocumentFragment();
+      let mainLi = null;
+      let subUl = null;
+      let subLi = null;
+      let isSibling = false;
+
+      for (let element of headings) {
+        if (element.closest('.doc-demo')) {
+          continue;
+        }
+
+        const anchor = document.createElement("a");
+        anchor.classList.add('nav-link');
+
+        const anchorText = element.innerText.replace('#', '').trim();
+        anchor.innerText = anchorText;
+
+        const elementId = anchorText.trim().replaceAll(" ", "-").toLowerCase();
+        anchor.href = "#" + elementId;
+        element.id = elementId;
+        // element.classList.add('mt-5', 'mb-3');
+
+        if (element.nodeName === "H3") {
+          if (mainLi) {
+            subLi = document.createElement("li");
+            subLi.classList.add('nav-item');
+            subLi.appendChild(anchor);
+
+            if (isSibling === false) {
+              subUl = document.createElement("ul");
+              subUl.classList.add('nav', 'flex-column');
+            }
+
+            subUl.appendChild(subLi);
+            mainLi.appendChild(subUl);
+
+            isSibling = true;
+          }
+        } else {
+          mainLi = document.createElement("li");
+          mainLi.classList.add('nav-item');
+          mainLi.appendChild(anchor);
+
+          tocFragment.appendChild(mainLi);
+
+          isSibling = false;
+          subUl = null;
+        }
+      }
+
+      ul.append(tocFragment);
+      toc.append(ul);
+    });
+  </script>
   </body>
 </html>

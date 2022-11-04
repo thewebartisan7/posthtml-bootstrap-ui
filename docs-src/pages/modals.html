@@ -19,7 +19,7 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button data-bs-toggle="modal" data-bs-target="#myModal">Launch default modal</x-ui::button>
   <x-ui::modal id="myModal">
     <x-ui::modal.header>
@@ -32,7 +32,9 @@
 
     <x-ui::modal.footer></x-ui::modal.footer>
   </x-ui::modal>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Customize with props
@@ -62,7 +64,7 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button data-bs-toggle="modal" data-bs-target="#myModuleCustomized">Launch customized modal</x-ui::button>
   <x-ui::modal
     id="myModuleCustomized"
@@ -83,7 +85,9 @@
 
     <x-ui::modal.footer></x-ui::modal.footer>
   </x-ui::modal>
-</x-box>
+</x-demo>
+
+<hr class="invisible">
 
 <md>
 ## Using slots
@@ -104,7 +108,7 @@
 ```
 </md>
 
-<x-box>
+<x-demo>
   <x-ui::button data-bs-toggle="modal" data-bs-target="#myModalWithSlots">Launch modal with modal</x-ui::button>
   <x-ui::modal id="myModalWithSlots">
     <fill:header>
@@ -117,5 +121,5 @@
 
     <fill:footer></fill:footer>
   </x-ui::modal>
-</x-box>
+</x-demo>
 </x-components>

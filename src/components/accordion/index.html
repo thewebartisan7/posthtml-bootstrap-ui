@@ -1,0 +1,13 @@
+<script props>
+  module.exports = {
+    id: props.id,
+    flush: isUndefined(props.flush) ? '' : ' accordion-flush'
+  };
+</script>
+
+<div
+  id="{{ id }}"
+  class="accordion{{ flush }}"
+>
+  <yield></yield>
+</div>

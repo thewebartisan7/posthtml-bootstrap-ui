@@ -1,0 +1,37 @@
+<script props>
+  const name = isUndefined(props.name) ? `${props.id}-item-${uniqueId()}` : props.name;
+
+  module.exports = {
+    id: `collapse-${name}`,
+    name,
+    title: props.title || '',
+    open: !isUndefined(props.open),
+    parent: isUndefined(props.alwaysOpen) ? `#${props.id}` : null
+  };
+</script>
+
+<div class="accordion-item">
+  <h2 class="accordion-header" id="heading-{{ name }}">
+    <x-ui::button
+      class="accordion-button{{ open ? '' : ' collapsed' }}"
+      toggle="collapse"
+      data-bs-target="#collapse-{{ name }}"
+      aria-expanded="{{ open }}"
+      aria-controls="collapse-{{ name }}"
+    >
+      {{ title }}
+    </x-ui::button>
+  </h2>
+
+  <div
+    id="{{ id }}"
+    class="accordion-collapse collapse{{ open ? ' show' : '' }}"
+    data-bs-parent="{{ parent }}"
+    aria-labelledby="heading-{{ name }}"
+    attributes
+  >
+    <div class="accordion-body">
+      <yield></yield>
+    </div>
+  </div>
+</div>
