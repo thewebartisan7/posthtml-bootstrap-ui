@@ -1,15 +1,10 @@
 <script props>
   module.exports = {
-    dark: props.dark === true,
-    end: isUndefined(props.end) ? '' : (props.end === '' ? ' dropdown-menu-end' : ` dropdown-menu-${props.end}-end`),
-    start: isUndefined(props.start) ? '' : (props.start === '' ? ' dropdown-menu-start' : ` dropdown-menu-${props.start}-start`),
-    display: (!isUndefined(props.end) || !isUndefined(props.start)) ? 'static' : null
+    dark: props.dark === true
   };
 </script>
-{{ end }} {{ start }}
 <div
-  class="dropdown-menu{{ end }}{{ start }}"
-  data-bs-display="{{ display }}"
+  class="dropdown-menu"
 >
   <yield></yield>
 </div>
