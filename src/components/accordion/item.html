@@ -1,9 +1,6 @@
 <script props>
-  const name = isUndefined(props.name) ? `${props.id}-item-${uniqueId()}` : props.name;
-
   module.exports = {
-    id: `collapse-${name}`,
-    name,
+    name: isUndefined(props.name) ? `${props.id}-item-${uniqueId()}` : props.name,
     title: props.title || '',
     open: !isUndefined(props.open),
     parent: isUndefined(props.alwaysOpen) ? `#${props.id}` : null
@@ -24,11 +21,10 @@
   </h2>
 
   <div
-    id="{{ id }}"
+    id="collapse-{{ name }}"
     class="accordion-collapse collapse{{ open ? ' show' : '' }}"
     data-bs-parent="{{ parent }}"
     aria-labelledby="heading-{{ name }}"
-    attributes
   >
     <div class="accordion-body">
       <yield></yield>

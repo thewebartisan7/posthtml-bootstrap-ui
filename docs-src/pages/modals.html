@@ -3,7 +3,7 @@
 ## Default
 
 ```html
-<x-button data-bs-toggle="modal" data-bs-target="#myModal">Launch default modal</x-button>
+<x-button toggle="modal" target="#myModal">Launch default modal</x-button>
 
 <x-modal id="myModal">
   <x-modal.header>
@@ -20,7 +20,8 @@
 </md>
 
 <x-demo>
-  <x-ui::button data-bs-toggle="modal" data-bs-target="#myModal">Launch default modal</x-ui::button>
+  <x-ui::button toggle="modal" target="#myModal">Launch default modal</x-ui::button>
+
   <x-ui::modal id="myModal">
     <x-ui::modal.header>
       <h5 class="modal-title" id="myModalLabel">Modal</h5>
@@ -40,7 +41,8 @@
 ## Customize with props
 
 ```html
-<x-button data-bs-toggle="modal" data-bs-target="#myModal">Launch customized modal</x-button>
+<x-button toggle="modal" target="#myModal">Launch customized modal</x-button>
+
 <x-modal
   id="myModal"
   backdrop="true"
@@ -65,7 +67,8 @@
 </md>
 
 <x-demo>
-  <x-ui::button data-bs-toggle="modal" data-bs-target="#myModuleCustomized">Launch customized modal</x-ui::button>
+  <x-ui::button toggle="modal" target="#myModuleCustomized">Launch customized modal</x-ui::button>
+
   <x-ui::modal
     id="myModuleCustomized"
     backdrop="true"
@@ -93,7 +96,8 @@
 ## Using slots
 
 ```html
-<x-button data-bs-toggle="modal" data-bs-target="#myModalWithSlots">Launch modal with slots</x-button>
+<x-button toggle="modal" target="#myModalWithSlots">Launch modal with slots</x-button>
+
 <x-modal id="myModalWithSlots">
   <fill:header>
     <h5 class="modal-title" id="myModalWithSlotsLabel">Modal title</h5>
@@ -109,7 +113,8 @@
 </md>
 
 <x-demo>
-  <x-ui::button data-bs-toggle="modal" data-bs-target="#myModalWithSlots">Launch modal with modal</x-ui::button>
+  <x-ui::button toggle="modal" target="#myModalWithSlots">Launch modal with modal</x-ui::button>
+
   <x-ui::modal id="myModalWithSlots">
     <fill:header>
       <h5 class="modal-title" id="myModalWithSlotsLabel">Modal title</h5>

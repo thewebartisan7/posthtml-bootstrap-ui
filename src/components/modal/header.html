@@ -3,9 +3,15 @@
     close: isUndefined(props.close) ? true : props.close
   };
 </script>
+
 <div class="modal-header">
   <yield></yield>
   <if condition="close">
-    <x-ui::button override:class="btn-close" data-bs-dismiss="modal" aria-label="Close"></x-ui::button>
+    <x-ui::button
+      override:class="btn-close"
+      dismiss="modal"
+      aria-label="Close"
+    >
+    </x-ui::button>
   </if>
 </div><!-- /.modal-header -->

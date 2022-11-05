@@ -3,9 +3,15 @@
     close: isBoolean(props.close) ? props.close : true
   };
 </script>
-<div class="modal-footer">¨
+
+<div class="modal-footer">
   <if condition="close">
-    <x-ui::button class="btn-secondary" data-bs-dismiss="modal">Close</x-ui::button>
+    <x-ui::button
+      class="btn-secondary"
+      dismiss="modal"
+    >
+      Close
+    </x-ui::button>
   </if>
   <yield></yield>
 </div><!-- /.modal-footer -->

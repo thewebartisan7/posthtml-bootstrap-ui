@@ -58,10 +58,13 @@
     disabled
   };
 </script>
+
 <a
   href="#"
   class="btn{{ type }}{{ size }}{{ disabled ? ' disabled' : ''}}"
   role="button"
   aria-disabled="{{ disabled ? 'true' : null }}"
   tabindex="{{ disabled ? '-1' : null }}"
-><yield></yield></a>
+>
+  <yield></yield>
+</a>

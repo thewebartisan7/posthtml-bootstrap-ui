@@ -318,20 +318,28 @@ Group a series of buttons together on a single line or stack them in a vertical 
   </x-ui::button.group>
 </x-demo>
 
-<fill:toc>
-  <ul class="nav flex-column">
-    <li class="nav-item">
-      <a class="nav-link" href="#default">Default</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#prop-type">Prop `type`</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#basic-example">Basic example</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#options">Options</a>
-    </li>
-  </ul>
-</fill:toc>
+<hr class="invisible">
+
+<md>
+## Bootstrap `data-bs-*` attributes
+
+When you need to make a button works with a Bootstrap components such as Modal, Accordion, etc. then you need to use Bootstrap specific `data-bs-*` attributes.
+For example for open a Bootstrap Modal component you need to use `data-bs-toggle="modal"` and `data-bs-target="#myModalId"`.
+You can use pass this attributes directly to the button, or also use the props `toggle`, `target` and `dismiss`.
+
+```html
+<x-button toggle="modal" target="#myModal">Launch modal</x-button>
+<x-button dismiss="modal">Close modal</x-button>
+```
+</md>
+
+<x-demo>
+  <x-ui::button toggle="modal" target="#myModal">Launch modal</x-ui::button>
+  <x-ui::button dismiss="modal">Close modal</x-ui::button>
+</x-demo>
+
+<p class="mt-3">
+  There is no modal here to launch or close, but inspect the source to see the output.
+  You can find modals demo <a href="modals.html">here</a>.
+</p>
 </x-components>

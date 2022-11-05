@@ -138,7 +138,7 @@
               <a class="header-anchor" href="#default">#</a>
               Default
             </h2>
-            <pre><code class="language-html">&lt;x-button data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#myModal&quot;&gt;Launch default modal&lt;/x-button&gt;
+            <pre><code class="language-html">&lt;x-button toggle=&quot;modal&quot; target=&quot;#myModal&quot;&gt;Launch default modal&lt;/x-button&gt;
 
 &lt;x-modal id=&quot;myModal&quot;&gt;
   &lt;x-modal.header&gt;
@@ -166,7 +166,6 @@
                     </div>
                     <!-- /.modal-body -->
                     <div class="modal-footer">
-                      ¨
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                     <!-- /.modal-footer -->
@@ -182,7 +181,8 @@
               <a class="header-anchor" href="#customize-with-props">#</a>
               Customize with props
             </h2>
-            <pre><code class="language-html">&lt;x-button data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#myModal&quot;&gt;Launch customized modal&lt;/x-button&gt;
+            <pre><code class="language-html">&lt;x-button toggle=&quot;modal&quot; target=&quot;#myModal&quot;&gt;Launch customized modal&lt;/x-button&gt;
+
 &lt;x-modal id=&quot;myModal&quot; backdrop=&quot;true&quot; keyboard=&quot;true&quot; scrollable=&quot;false&quot; centered=&quot;true&quot; size=&quot;lg&quot; fullscreen=&quot;lg&quot; aware:close=&quot;false&quot;&gt;
   &lt;x-modal.header&gt;
     &lt;h5 class=&quot;modal-title&quot; id=&quot;myModalLabel&quot;&gt;Modal title&lt;/h5&gt;
@@ -209,7 +209,6 @@
                     </div>
                     <!-- /.modal-body -->
                     <div class="modal-footer">
-                      ¨
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                     <!-- /.modal-footer -->
@@ -225,7 +224,8 @@
               <a class="header-anchor" href="#using-slots">#</a>
               Using slots
             </h2>
-            <pre><code class="language-html">&lt;x-button data-bs-toggle=&quot;modal&quot; data-bs-target=&quot;#myModalWithSlots&quot;&gt;Launch modal with slots&lt;/x-button&gt;
+            <pre><code class="language-html">&lt;x-button toggle=&quot;modal&quot; target=&quot;#myModalWithSlots&quot;&gt;Launch modal with slots&lt;/x-button&gt;
+
 &lt;x-modal id=&quot;myModalWithSlots&quot;&gt;
   &lt;fill:header&gt;
     &lt;h5 class=&quot;modal-title&quot; id=&quot;myModalWithSlotsLabel&quot;&gt;Modal title&lt;/h5&gt;
@@ -252,7 +252,6 @@
                     </div>
                     <!-- /.modal-body -->
                     <div class="modal-footer">
-                      ¨
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                     <!-- /.modal-footer -->

@@ -138,24 +138,161 @@
               <a class="header-anchor" href="#default">#</a>
               Default
             </h2>
-            <pre><code class="language-html">&lt;x-card&gt;
-  &lt;x-card.header&gt;
-    Card header
-  &lt;/x-card.header&gt;
-
-  &lt;x-card.body&gt;
-    Card body
-  &lt;/x-card.body&gt;
-
-  &lt;x-card.footer&gt;
-    Card footer
-  &lt;/x-card.footer&gt;
-&lt;/x-card&gt;</code></pre>
+            <pre><code class="language-html">&lt;x-dropdown&gt;
+  &lt;x-button toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Toggle dropdown&lt;/x-button&gt;
+  &lt;x-dropdown.menu&gt;
+    &lt;x-dropdown.item.a&gt;First item&lt;/x-dropdown.item.a&gt;
+    &lt;x-dropdown.item.a&gt;Second item&lt;/x-dropdown.item.a&gt;
+    &lt;x-dropdown.item.a&gt;Third item&lt;/x-dropdown.item.a&gt;
+  &lt;/x-dropdown.menu&gt;
+&lt;/x-dropdown&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div class="card">
-                <div class="card-header">Card header</div>
-                <div class="card-body">Card body</div>
-                <div class="card-footer">Card footer</div>
+              <div class="dropdown">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Toggle dropdown</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+            </div>
+            <hr class="invisible">
+            <h2 id="directions" tabindex="-1">
+              <a class="header-anchor" href="#directions">#</a>
+              Directions
+            </h2>
+            <pre><code class="language-html">&lt;x-dropdown centered&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown up&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown start&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown end&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown up-centered&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown direction=&quot;centered&quot;&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown direction=&quot;up&quot;&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown direction=&quot;start&quot;&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown direction=&quot;end&quot;&gt;
+  ...
+&lt;/x-dropdown&gt;
+
+&lt;x-dropdown direction=&quot;up-centered&quot;&gt;
+  ...
+&lt;/x-dropdown&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="dropdown-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Centered</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropup">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropstart">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropstart</button>
+                dropdown-menu-start
+                <div class="dropdown-menu dropdown-menu-start" data-bs-display="static">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropend">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropend</button>
+                dropdown-menu-end
+                <div class="dropdown-menu dropdown-menu-end" data-bs-display="static">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropup-center dropup">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup centered</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropdown-center">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Centered using prop "direction"</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropup">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup using prop "direction"</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropstart">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropstart using prop "direction"</button>
+                dropdown-menu-start
+                <div class="dropdown-menu dropdown-menu-start" data-bs-display="static">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropend">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropend using prop "direction"</button>
+                dropdown-menu-end
+                <div class="dropdown-menu dropdown-menu-end" data-bs-display="static">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
+              </div>
+              <hr class="invisible">
+              <div class="dropup-center dropup">
+                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup centered using prop "direction"</button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item">First item</a>
+                  <a class="dropdown-item">Second item</a>
+                  <a class="dropdown-item">Third item</a>
+                </div>
               </div>
             </div>
           </div>

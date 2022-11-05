@@ -1,0 +1,10 @@
+<script props>
+  module.exports = {
+    active: isUndefined(props.active) ? '' : ' active',
+    disabled: isUndefined(props.disabled) ? '' : ' disabled',
+  };
+</script>
+
+<a class="dropdown-item{{ active }}{{ disabled }}">
+  <yield></yield>
+</a>

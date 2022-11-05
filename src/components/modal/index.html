@@ -17,9 +17,9 @@
     keyboard: props.backdrop === "static" || props.keyboard === true,
     scrollable: props.scrollable === true ? 'modal-dialog-scrollable' : '',
     centered: props.centered === true ? 'modal-dialog-centered' : '',
-    size: props.size ? `modal-${props.size}` : '',
+    size: ['sm', 'lg', 'xl'].includes(props.size) ? `modal-${props.size}` : '',
     fullscreen: [true, "sm", "md", "lg", "xl", "xxl"].includes(props.fullscreen)
-      ? (props.fullscreen === true ? "modal-fullscreen" : `modal-fullscreen-${props.fullscreen}-down`)
+      ? (props.fullscreen === true ? 'modal-fullscreen' : `modal-fullscreen-${props.fullscreen}-down`)
       : ''
   };
 </script>

@@ -1,0 +1,35 @@
+<script props>
+  const directions = {
+    centered: 'dropdown-center',
+    up: 'dropup',
+    end: 'dropend',
+    start: 'dropstart',
+    'up-centered': 'dropup-center dropup',
+  };
+
+  let propDirection = props.direction;
+  let direction = has(directions, propDirection) ? directions[propDirection] : '';
+
+  if (!direction) {
+    each(directions, (value, key) => {
+      if (has(props, key)) {
+        propDirection = key;
+        direction = directions[propDirection];
+        return false;
+      }
+    });
+  }
+
+  module.exports = {
+    // Prevent prop direction (dropup, dropend, etc.) being added as an attribute
+    [propDirection]: '',
+
+    direction: direction || 'dropdown',
+  }
+</script>
+
+<div
+  class="{{ direction }}"
+>
+  <yield></yield>
+</div>

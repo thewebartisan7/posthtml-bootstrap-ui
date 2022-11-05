@@ -50,7 +50,8 @@
     sm,
     lg,
     toggle: props.toggle,
-    target: props.target
+    target: props.target,
+    dismiss: props.dismiss
   };
 </script>
 
@@ -59,6 +60,7 @@
   class="btn{{ type }}{{ size }}"
   data-bs-toggle="{{ toggle }}"
   data-bs-target="{{ target }}"
+  data-bs-dismiss="{{ dismiss }}"
 >
   <yield></yield>
 </button>

@@ -1,0 +1,185 @@
+<x-components active="dropdown">
+<md>
+## Default
+
+```html
+<x-dropdown>
+  <x-button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-button>
+  <x-dropdown.menu>
+    <x-dropdown.item.a>First item</x-dropdown.item.a>
+    <x-dropdown.item.a>Second item</x-dropdown.item.a>
+    <x-dropdown.item.a>Third item</x-dropdown.item.a>
+  </x-dropdown.menu>
+</x-dropdown>
+```
+</md>
+
+<x-demo>
+  <x-ui::dropdown>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Directions
+
+```html
+<x-dropdown centered>
+  ...
+</x-dropdown>
+
+<x-dropdown up>
+  ...
+</x-dropdown>
+
+<x-dropdown start>
+  ...
+</x-dropdown>
+
+<x-dropdown end>
+  ...
+</x-dropdown>
+
+<x-dropdown up-centered>
+  ...
+</x-dropdown>
+
+<x-dropdown direction="centered">
+  ...
+</x-dropdown>
+
+<x-dropdown direction="up">
+  ...
+</x-dropdown>
+
+<x-dropdown direction="start">
+  ...
+</x-dropdown>
+
+<x-dropdown direction="end">
+  ...
+</x-dropdown>
+
+<x-dropdown direction="up-centered">
+  ...
+</x-dropdown>
+```
+</md>
+
+<x-demo>
+  <x-ui::dropdown centered>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Centered</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown up>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropup</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown start>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropstart</x-ui::button>
+    <x-ui::dropdown.menu start>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown end>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropend</x-ui::button>
+    <x-ui::dropdown.menu end>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown up-centered>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropup centered</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown direction="centered">
+    <x-ui::button toggle="dropdown" aria-expanded="false">Centered using prop "direction"</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown direction="up">
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropup using prop "direction"</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown direction="start">
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropstart using prop "direction"</x-ui::button>
+    <x-ui::dropdown.menu start>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown direction="end">
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropend using prop "direction"</x-ui::button>
+    <x-ui::dropdown.menu end>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+
+  <hr class="invisible">
+
+  <x-ui::dropdown direction="up-centered">
+    <x-ui::button toggle="dropdown" aria-expanded="false">Dropup centered using prop "direction"</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+</x-demo>
+</x-components>
