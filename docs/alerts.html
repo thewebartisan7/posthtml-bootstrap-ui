@@ -100,7 +100,7 @@
                   <a class="dropdown-item" href="accordions.html">Accordions</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="alerts.html">Alerts</a>
+                  <a class="dropdown-item active" href="alerts.html">Alerts</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="buttons.html">Buttons</a>
@@ -109,7 +109,7 @@
                   <a class="dropdown-item" href="cards.html">Cards</a>
                 </li>
                 <li>
-                  <a class="dropdown-item active" href="dropdown.html">Dropdown</a>
+                  <a class="dropdown-item" href="dropdown.html">Dropdown</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="accordions.html">Icons</a>
@@ -150,238 +150,11 @@
               <a class="header-anchor" href="#default">#</a>
               Default
             </h2>
-            <pre><code class="language-html">&lt;x-dropdown&gt;
-  &lt;x-button toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Toggle dropdown&lt;/x-button&gt;
-  &lt;x-dropdown.menu&gt;
-    &lt;x-dropdown.item.a href=&quot;#&quot;&gt;First item&lt;/x-dropdown.item.a&gt;
-    &lt;x-dropdown.item.a&gt;Second item&lt;/x-dropdown.item.a&gt;
-    &lt;x-dropdown.item.a&gt;Third item&lt;/x-dropdown.item.a&gt;
-  &lt;/x-dropdown.menu&gt;
-&lt;/x-dropdown&gt;</code></pre>
+            <pre><code class="language-html">&lt;x-alert&gt;
+  My alert content...
+&lt;/x-alert&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div class="dropdown">
-                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Toggle dropdown</button>
-                <div class="dropdown-menu">
-                  <a href="#" class="dropdown-item">First item</a>
-                  <a href="#" class="dropdown-item">Second item</a>
-                  <a href="#" class="dropdown-item">Third item</a>
-                </div>
-              </div>
-            </div>
-            <hr class="invisible">
-            <h2 id="directions" tabindex="-1">
-              <a class="header-anchor" href="#directions">#</a>
-              Directions
-            </h2>
-            <pre><code class="language-html">&lt;x-dropdown centered&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown up&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown start&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown end&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown up-centered&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown direction=&quot;centered&quot;&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown direction=&quot;up&quot;&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown direction=&quot;start&quot;&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown direction=&quot;end&quot;&gt;
-  ...
-&lt;/x-dropdown&gt;
-
-&lt;x-dropdown direction=&quot;up-centered&quot;&gt;
-  ...
-&lt;/x-dropdown&gt;</code></pre>
-            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div class="d-grid gap-3 col-6 mx-auto">
-                <div class="dropdown-center">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Centered</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropup">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropstart">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropstart</button>
-                  <div class="dropdown-menu" start="">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropend">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropend</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropup-center dropup">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup centered</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropdown-center">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Centered using prop "direction"</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropup">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup using prop "direction"</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropstart">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropstart using prop "direction"</button>
-                  <div class="dropdown-menu" start="">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropend">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropend using prop "direction"</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-                <div class="dropup-center dropup">
-                  <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Dropup centered using prop "direction"</button>
-                  <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">First item</a>
-                    <a href="#" class="dropdown-item">Second item</a>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <hr class="invisible">
-            <h2 id="dropdown-menu-as-ul-list" tabindex="-1">
-              <a class="header-anchor" href="#dropdown-menu-as-ul-list">#</a>
-              Dropdown menu as
-              <code>ul</code>
-              list
-            </h2>
-            <p>
-              By default, the dropdown use a
-              <code>div</code>
-              tag for
-              <code>.dropdown-menu</code>
-              . In case you want a
-              <code>ul</code>
-              tag, use the prop
-              <code>list</code>
-              .
-For avoid to add to each dropdown item, you can add once to
-              <code>x-dropdown.menu</code>
-              by using
-              <code>aware:list</code>
-              .
-It can be just
-              <code>aware:list</code>
-              or
-              <code>aware:list=&quot;true&quot;</code>
-              for use list and
-              <code>aware:list=&quot;false&quot;</code>
-              for use
-              <code>div</code>
-              .
-            </p>
-            <pre><code class="language-html">&lt;x-dropdown&gt;
-  &lt;x-button toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Toggle dropdown&lt;/x-button&gt;
-  &lt;x-dropdown.menu aware:list&gt;
-    &lt;x-dropdown.item.a href=&quot;https://github.com&quot;&gt;First item&lt;/x-dropdown.item.a&gt;
-    &lt;x-dropdown.item.a&gt;Second item&lt;/x-dropdown.item.a&gt;
-    &lt;x-dropdown.item.a&gt;Third item&lt;/x-dropdown.item.a&gt;
-  &lt;/x-dropdown.menu&gt;
-&lt;/x-dropdown&gt;</code></pre>
-            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div class="dropdown">
-                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Toggle dropdown</button>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="https://github.com" class="dropdown-item">First item</a>
-                  </li>
-                  <li>
-                    <a href="#" class="dropdown-item">Second item</a>
-                  </li>
-                  <li>
-                    <a href="#" class="dropdown-item">Third item</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <hr class="invisible">
-            <h2 id="dropdown-item-as-link%2C-button-or-text" tabindex="-1">
-              <a class="header-anchor" href="#dropdown-item-as-link%2C-button-or-text">#</a>
-              Dropdown item as link, button or text
-            </h2>
-            <p>
-              By default the dropdown item use link, if you want to use a button instead, then use
-              <code>x-dropdown.item.button</code>
-              .
-Dropdown item can also be any content, so you can use the
-              <code>x-dropdown.item.text</code>
-              component as shown below.
-            </p>
-            <pre><code class="language-html">&lt;x-dropdown&gt;
-  &lt;x-button toggle=&quot;dropdown&quot; aria-expanded=&quot;false&quot;&gt;Toggle dropdown&lt;/x-button&gt;
-  &lt;x-dropdown.menu&gt;
-    &lt;x-dropdown.item.text&gt;Dropdown item text&lt;/x-dropdown.item.text&gt;
-    &lt;x-dropdown.item.a href=&quot;https://github.com&quot;&gt;Dropdown item link&lt;/x-dropdown.item.a&gt;
-    &lt;x-dropdown.item.button&gt;Dropdown item button&lt;/x-dropdown.item.button&gt;
-  &lt;/x-dropdown.menu&gt;
-&lt;/x-dropdown&gt;</code></pre>
-            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div class="dropdown">
-                <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">Toggle dropdown</button>
-                <div class="dropdown-menu">
-                  <span class="dropdown-item-text">Dropdown item text</span>
-                  <a href="https://github.com" class="dropdown-item">Dropdown item link</a>
-                  <button class="dropdown-item">Dropdown item button</button>
-                </div>
-              </div>
+              <div class="alert alert-primary" role="alert">My alert content...</div>
             </div>
           </div>
         </div>

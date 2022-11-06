@@ -1,0 +1,17 @@
+<script props>
+  const {readFileSync} = require('fs');
+
+  let svg;
+
+  try {
+    svg = readFileSync(require.resolve(`bootstrap-icons/icons/${props.name}.svg`), 'utf8');
+  } catch {
+    svg = `<span class="text-danger">Icon <strong>${props.name}</strong> not found</span>`;
+  }
+
+  module.exports = {
+    svg
+  };
+</script>
+
+{{{ svg }}}

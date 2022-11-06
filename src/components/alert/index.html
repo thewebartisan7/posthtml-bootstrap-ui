@@ -1,0 +1,43 @@
+<script props>
+  let alertType = props.type;
+
+  const types = {
+    primary: ' alert-primary',
+    secondary: ' alert-secondary',
+    success: ' alert-success',
+    danger: ' alert-danger',
+    warning: ' alert-warning',
+    info: ' alert-info',
+    light: ' alert-light',
+    dark: ' alert-dark',
+  };
+
+  let type = has(types, alertType) ? types[alertType] : '';
+
+  if (!type) {
+    each(types, (value, key) => {
+      if (has(props, key)) {
+        alertType = key;
+        type = types[alertType];
+        return false;
+      }
+    });
+  }
+
+  module.exports = {
+    // Set type or default 'alert-primary' only if class was not provided
+    type: type || (props.class ? '' : ' alert-primary'),
+
+    // Prevent attribute type (primary, secondary, etc.) being added as an attribute
+    [alertType]: '',
+
+    dismissable: isEnabled(props.dismissable)
+  };
+</script>
+
+<div class="alert{{ type }}" role="alert">
+  <yield></yield>
+  <if condition="dismissable">
+    <x-ui::button.close dismiss="alert"></x-ui::button.close>
+  </if>
+</div>

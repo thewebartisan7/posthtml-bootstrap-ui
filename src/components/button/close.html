@@ -7,8 +7,9 @@
    */
   module.exports = {
     label: props.label || 'Close',
-    light: isUndefined(props.light) ? '' : ' btn-close-white'
+    light: isUndefined(props.light) ? '' : ' btn-close-white',
+    dismiss: props.dismiss
   };
 </script>
 
-<button type="button" class="btn-close{{ light }}" aria-label="{{ label }}"></button>
+<button type="button" class="btn-close{{ light }}" data-bs-dismiss="{{ dismiss }}" aria-label="{{ label }}"></button>
