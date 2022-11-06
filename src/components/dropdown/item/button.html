@@ -1,20 +1,20 @@
 <script props>
   module.exports = {
     active: isUndefined(props.active) ? '' : ' active',
-    disabled: isUndefined(props.disabled) ? '' : ' disabled',
+    disabled: props.disabled,
     list: isEnabled(props.list)
   };
 </script>
 <if condition="list">
   <li>
-    <a href="#" class="dropdown-item{{ active }}{{ disabled }}" attributes>
+    <button class="dropdown-item{{ active }}" disabled="{{ disabled }}" attributes>
       <yield></yield>
-    </a>
+    </button>
   </li>
 </if>
 
 <else>
-  <a href="#" class="dropdown-item{{ active }}{{ disabled }}">
+  <button class="dropdown-item{{ active }}" disabled="{{ disabled }}">
     <yield></yield>
-  </a>
+  </button>
 </else>

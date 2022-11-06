@@ -6,7 +6,7 @@
 <x-dropdown>
   <x-button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-button>
   <x-dropdown.menu>
-    <x-dropdown.item.a>First item</x-dropdown.item.a>
+    <x-dropdown.item.a href="#">First item</x-dropdown.item.a>
     <x-dropdown.item.a>Second item</x-dropdown.item.a>
     <x-dropdown.item.a>Third item</x-dropdown.item.a>
   </x-dropdown.menu>
@@ -18,7 +18,7 @@
   <x-ui::dropdown>
     <x-ui::button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-ui::button>
     <x-ui::dropdown.menu>
-      <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
       <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
       <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
     </x-ui::dropdown.menu>
@@ -78,7 +78,7 @@
     <x-ui::dropdown centered>
       <x-ui::button toggle="dropdown" aria-expanded="false">Centered</x-ui::button>
       <x-ui::dropdown.menu>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -87,7 +87,7 @@
     <x-ui::dropdown up>
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropup</x-ui::button>
       <x-ui::dropdown.menu>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -96,7 +96,7 @@
     <x-ui::dropdown start>
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropstart</x-ui::button>
       <x-ui::dropdown.menu start>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -105,7 +105,7 @@
     <x-ui::dropdown end>
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropend</x-ui::button>
       <x-ui::dropdown.menu end>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -114,7 +114,7 @@
     <x-ui::dropdown up-centered>
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropup centered</x-ui::button>
       <x-ui::dropdown.menu>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -123,7 +123,7 @@
     <x-ui::dropdown direction="centered">
       <x-ui::button toggle="dropdown" aria-expanded="false">Centered using prop "direction"</x-ui::button>
       <x-ui::dropdown.menu>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -132,7 +132,7 @@
     <x-ui::dropdown direction="up">
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropup using prop "direction"</x-ui::button>
       <x-ui::dropdown.menu>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -141,7 +141,7 @@
     <x-ui::dropdown direction="start">
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropstart using prop "direction"</x-ui::button>
       <x-ui::dropdown.menu start>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -150,7 +150,7 @@
     <x-ui::dropdown direction="end">
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropend using prop "direction"</x-ui::button>
       <x-ui::dropdown.menu end>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
@@ -159,11 +159,74 @@
     <x-ui::dropdown direction="up-centered">
       <x-ui::button toggle="dropdown" aria-expanded="false">Dropup centered using prop "direction"</x-ui::button>
       <x-ui::dropdown.menu>
-        <x-ui::dropdown.item.a>First item</x-ui::dropdown.item.a>
+        <x-ui::dropdown.item.a href="#">First item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
         <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
       </x-ui::dropdown.menu>
     </x-ui::dropdown>
   </div>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Dropdown menu as `ul` list
+
+By default, the dropdown use a `div` tag for `.dropdown-menu`. In case you want a `ul` tag, use the prop `list`.
+For avoid to add to each dropdown item, you can add once to `x-dropdown.menu` by using `aware:list`.
+It can be just `aware:list` or `aware:list="true"` for use list and `aware:list="false"` for use `div`.
+
+```html
+<x-dropdown>
+  <x-button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-button>
+  <x-dropdown.menu aware:list>
+    <x-dropdown.item.a href="https://github.com">First item</x-dropdown.item.a>
+    <x-dropdown.item.a>Second item</x-dropdown.item.a>
+    <x-dropdown.item.a>Third item</x-dropdown.item.a>
+  </x-dropdown.menu>
+</x-dropdown>
+```
+</md>
+
+<x-demo>
+  <x-ui::dropdown>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-ui::button>
+    <x-ui::dropdown.menu aware:list>
+      <x-ui::dropdown.item.a href="https://github.com">First item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Second item</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.a>Third item</x-ui::dropdown.item.a>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Dropdown item as link, button or text
+
+By default the dropdown item use link, if you want to use a button instead, then use `x-dropdown.item.button`.
+Dropdown item can also be any content, so you can use the `x-dropdown.item.text` component as shown below.
+
+```html
+<x-dropdown>
+  <x-button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-button>
+  <x-dropdown.menu>
+    <x-dropdown.item.text>Dropdown item text</x-dropdown.item.text>
+    <x-dropdown.item.a href="https://github.com">Dropdown item link</x-dropdown.item.a>
+    <x-dropdown.item.button>Dropdown item button</x-dropdown.item.button>
+  </x-dropdown.menu>
+</x-dropdown>
+  ```
+</md>
+
+<x-demo>
+  <x-ui::dropdown>
+    <x-ui::button toggle="dropdown" aria-expanded="false">Toggle dropdown</x-ui::button>
+    <x-ui::dropdown.menu>
+      <x-ui::dropdown.item.text>Dropdown item text</x-ui::dropdown.item.text>
+      <x-ui::dropdown.item.a href="https://github.com">Dropdown item link</x-ui::dropdown.item.a>
+      <x-ui::dropdown.item.button>Dropdown item button</x-ui::dropdown.item.button>
+    </x-ui::dropdown.menu>
+  </x-ui::dropdown>
 </x-demo>
 </x-components>

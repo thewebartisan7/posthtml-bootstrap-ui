@@ -1,0 +1,23 @@
+<script props>
+  module.exports = {
+    dark: isEnabled(props.dark) ? ' dropdown-menu-dark' : '',
+    end: isEnabled(props.dark) ? ' dropdown-menu-end' : '',
+    list: isEnabled(props.list)
+  };
+</script>
+
+<if condition="list">
+  <ul
+    class="dropdown-menu{{ dark }}"
+  >
+    <yield></yield>
+  </ul>
+</if>
+
+<else>
+  <div
+    class="dropdown-menu{{ dark }}"
+  >
+    <yield></yield>
+  </div>
+</else>
