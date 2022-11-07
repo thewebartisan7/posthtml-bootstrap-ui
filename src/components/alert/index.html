@@ -31,12 +31,25 @@
     // Prevent attribute type (primary, secondary, etc.) being added as an attribute
     [alertType]: '',
 
-    dismissable: isEnabled(props.dismissable)
+    dismissable: isEnabled(props.dismissable) ? ' alert-dismissible' : '',
+
+    icon: props.icon || ''
   };
 </script>
 
-<div class="alert{{ type }}" role="alert">
-  <yield></yield>
+<div class="alert{{ type }}{{ dismissable }}{{ icon ? ' d-flex align-items-center' : '' }}" role="alert">
+  <if condition="icon">
+    <x-ui::icon class="flex-shrink-0 me-2" name="{{ icon }}"></x-ui::icon>
+
+    <div class="flex-fill">
+      <yield></yield>
+    </div>
+  </if>
+
+  <else>
+    <yield></yield>
+  </else>
+
   <if condition="dismissable">
     <x-ui::button.close dismiss="alert"></x-ui::button.close>
   </if>

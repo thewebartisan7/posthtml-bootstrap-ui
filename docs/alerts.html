@@ -155,6 +155,87 @@
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <div class="alert alert-primary" role="alert">My alert content...</div>
             </div>
+            <hr class="invisible">
+            <h2 id="prop-type" tabindex="-1">
+              <a class="header-anchor" href="#prop-type">#</a>
+              Prop
+              <code>type</code>
+            </h2>
+            <pre><code class="language-html">&lt;x-alert type=&quot;primary&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;secondary&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;success&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;danger&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;warning&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;info&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;light&quot;&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert type=&quot;dark&quot;&gt;My alert content...&lt;/x-alert&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="alert alert-primary" role="alert">My alert content...</div>
+              <div class="alert alert-secondary" role="alert">My alert content...</div>
+              <div class="alert alert-success" role="alert">My alert content...</div>
+              <div class="alert alert-danger" role="alert">My alert content...</div>
+              <div class="alert alert-warning" role="alert">My alert content...</div>
+              <div class="alert alert-info" role="alert">My alert content...</div>
+              <div class="alert alert-light" role="alert">My alert content...</div>
+              <div class="alert alert-dark" role="alert">My alert content...</div>
+            </div>
+            <hr class="invisible">
+            <h3 id="alternative-way-to-set-type" tabindex="-1">
+              <a class="header-anchor" href="#alternative-way-to-set-type">#</a>
+              Alternative way to set type
+            </h3>
+            <pre><code class="language-html">&lt;x-alert primary&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert secondary&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert success&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert danger&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert warning&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert info&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert light&gt;My alert content...&lt;/x-alert&gt;
+&lt;x-alert dark&gt;My alert content...&lt;/x-alert&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="alert alert-primary" role="alert">My alert content...</div>
+              <div class="alert alert-secondary" role="alert">My alert content...</div>
+              <div class="alert alert-success" role="alert">My alert content...</div>
+              <div class="alert alert-danger" role="alert">My alert content...</div>
+              <div class="alert alert-warning" role="alert">My alert content...</div>
+              <div class="alert alert-info" role="alert">My alert content...</div>
+              <div class="alert alert-light" role="alert">My alert content...</div>
+              <div class="alert alert-dark" role="alert">My alert content...</div>
+            </div>
+            <hr class="invisible">
+            <h2 id="prop-icon" tabindex="-1">
+              <a class="header-anchor" href="#prop-icon">#</a>
+              Prop
+              <code>icon</code>
+            </h2>
+            <pre><code class="language-html">&lt;x-alert icon=&quot;info-circle&quot;&gt;
+  My alert content...
+&lt;/x-alert&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="alert alert-primary d-flex align-items-center" role="alert">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle flex-shrink-0 me-2" viewbox="0 0 16 16" name="info-circle">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                  <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                </svg>
+                <div class="flex-fill">My alert content...</div>
+              </div>
+            </div>
+            <hr class="invisible">
+            <h2 id="prop-dismissable" tabindex="-1">
+              <a class="header-anchor" href="#prop-dismissable">#</a>
+              Prop
+              <code>dismissable</code>
+            </h2>
+            <pre><code class="language-html">&lt;x-alert dismissable&gt;
+  My alert content...
+&lt;/x-alert&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="alert alert-primary alert-dismissible" role="alert">
+                My alert content...
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+            </div>
+            <hr class="invisible">
           </div>
         </div>
       </div>
