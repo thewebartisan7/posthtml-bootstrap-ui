@@ -1,0 +1,41 @@
+<script props>
+  let size = !isUndefined(props.size) && ['sm', 'lg'].includes(props.size) ? ` form-control-${props.size}` : '';
+  let sm = !isUndefined(props.sm);
+  let lg = !isUndefined(props.lg);
+
+  if (!size && (sm || lg)) {
+    size = sm ? ' form-control-sm' : ' form-control-lg';
+  }
+
+  module.exports = {
+    type: props.type || 'text',
+    id: props.id || props.name,
+    isCheckInput: ['checkbox', 'radio'].includes(props.type),
+    size,
+    sm,
+    lg,
+    help: props.help,
+    label: props.label,
+    error: isEnabled(props.error) ? ' is-invalid' : ''
+  };
+</script>
+
+<if condition="label">
+  <label for="{{ id }}" class="{{ isCheckInput ? 'form-check-label' : 'form-label' }}">
+    {{ label }}
+  </label>
+</if>
+
+<input
+  type="{{ type }}"
+  name="{{ name }}"
+  id="{{ id }}"
+  class="{{ isCheckInput ? 'form-check-input' : 'form-control' }}{{ size }}{{ error }}"
+  aria-describedby="{{ help ? `${name}-help` : null }}"
+>
+
+<if condition="help">
+  <div id="{{ help ? `${name}-help` : null }}" class="form-text">
+    {{ help }}
+  </div>
+</if>

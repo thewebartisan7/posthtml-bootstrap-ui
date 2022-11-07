@@ -96,7 +96,7 @@
               <a href="#" class="nav-link px-2 link-dark dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">Components</a>
               <ul class="dropdown-menu dropdown-menu-lg-end doc-shadow border-0">
                 <li>
-                  <a class="dropdown-item active" href="accordions.html">Accordions</a>
+                  <a class="dropdown-item" href="accordions.html">Accordions</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="alerts.html">Alerts</a>
@@ -111,7 +111,7 @@
                   <a class="dropdown-item" href="dropdown.html">Dropdown</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="forms.html">Forms</a>
+                  <a class="dropdown-item active" href="forms.html">Forms</a>
                 </li>
                 <li>
                   <a class="dropdown-item" href="icons.html">Icons</a>
@@ -148,187 +148,110 @@
             </div>
           </div>
           <div class="col-12 col-xl-9 order-2 order-xl-1" data-app-toggle="toc">
-            <h2 id="default" tabindex="-1">
-              <a class="header-anchor" href="#default">#</a>
-              Default
+            <h2 id="form" tabindex="-1">
+              <a class="header-anchor" href="#form">#</a>
+              Form
             </h2>
-            <p>
-              It's important to prepend
-              <code>aware:</code>
-              to the prop
-              <code>id</code>
-              so that the component
-              <code>x-accordion.item</code>
-              has access to the
-              <code>id</code>
-              in order to set the
-              <code>data-bs-parent</code>
-              in the
-              <code>.accordion-collapse</code>
-              element.
-            </p>
-            <p>
-              You don't need to set the
-              <code>id</code>
-              of
-              <code>x-accordion.item</code>
-              as this will be generated.
-But in case you want, you can use the prop
-              <code>name</code>
-              . It should be a valid selector name.
-            </p>
-            <p>
-              Use prop
-              <code>open</code>
-              to keep accordion item open.
-            </p>
-            <pre><code class="language-html">&lt;x-accordion aware:id=&quot;first-accordion&quot;&gt;
-  &lt;x-accordion.item title=&quot;First item&quot; open&gt;
-    First accordion item content
-  &lt;/x-accordion.item&gt;
+            <pre><code class="language-html">&lt;!-- Default method=&quot;post&quot; --&gt;
+&lt;x-form&gt;&lt;/x-form&gt;
 
-  &lt;x-accordion.item title=&quot;Second item&quot;&gt;
-    Second accordion item content
-  &lt;/x-accordion.item&gt;
+&lt;!-- Two ways to set method=&quot;get&quot; --&gt;
+&lt;x-form method=&quot;get&quot;&gt;&lt;/x-form&gt;
+&lt;x-form get&gt;&lt;/x-form&gt;
 
-  &lt;x-accordion.item title=&quot;Third item&quot;&gt;
-    Third accordion item content
-  &lt;/x-accordion.item&gt;
-&lt;/x-accordion&gt;</code></pre>
+&lt;!-- Two ways to set method=&quot;post&quot; --&gt;
+&lt;x-form method=&quot;post&quot;&gt;&lt;/x-form&gt;
+&lt;x-form post&gt;&lt;/x-form&gt;
+
+&lt;!-- With file --&gt;
+&lt;x-form file=&quot;true&quot;&gt;&lt;/x-form&gt;
+&lt;x-form file&gt;&lt;/x-form&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div id="first-accordion" class="accordion">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-first-accordion-item-1">
-                    <button type="button" class="btn accordion-button" data-bs-toggle="collapse" data-bs-target="#collapse-first-accordion-item-1" aria-expanded="true" aria-controls="collapse-first-accordion-item-1">First item</button>
-                  </h2>
-                  <div id="collapse-first-accordion-item-1" class="accordion-collapse collapse show" data-bs-parent="#first-accordion" aria-labelledby="heading-first-accordion-item-1">
-                    <div class="accordion-body">First accordion item content</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-first-accordion-item-2">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-first-accordion-item-2" aria-expanded="false" aria-controls="collapse-first-accordion-item-2">Second item</button>
-                  </h2>
-                  <div id="collapse-first-accordion-item-2" class="accordion-collapse collapse" data-bs-parent="#first-accordion" aria-labelledby="heading-first-accordion-item-2">
-                    <div class="accordion-body">Second accordion item content</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-first-accordion-item-3">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-first-accordion-item-3" aria-expanded="false" aria-controls="collapse-first-accordion-item-3">Third item</button>
-                  </h2>
-                  <div id="collapse-first-accordion-item-3" class="accordion-collapse collapse" data-bs-parent="#first-accordion" aria-labelledby="heading-first-accordion-item-3">
-                    <div class="accordion-body">Third accordion item content</div>
-                  </div>
-                </div>
-              </div>
+              <form method="post">Form method post... view source to see output</form>
+              <form method="get">Form method get... view source to see output</form>
+              <form method="get">Form method get... view source to see output</form>
+              <form method="post">Form method post... view source to see output</form>
+              <form method="post">Form method post... view source to see output</form>
+              <form method="post" enctype="multipart/form-data">Form with file... view source to see output</form>
+              <form method="post" enctype="multipart/form-data">Form with file... view source to see output</form>
             </div>
             <hr class="invisible">
-            <h2 id="prop-flush" tabindex="-1">
-              <a class="header-anchor" href="#prop-flush">#</a>
-              Prop
-              <code>flush</code>
+            <h2 id="form-input" tabindex="-1">
+              <a class="header-anchor" href="#form-input">#</a>
+              Form input
             </h2>
-            <p>
-              Add
-              <code>.accordion-flush</code>
-              to remove the default background-color, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.
-            </p>
-            <pre><code class="language-html">&lt;x-accordion aware:id=&quot;second-accordion&quot; flush&gt;
-  ...
-&lt;/x-accordion&gt;</code></pre>
+            <pre><code class="language-html">&lt;!-- Default only `id` or `name` is required --&gt;
+&lt;x-form.input name=&quot;name&quot;&gt;&lt;/x-form.input&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div id="second-accordion" class="accordion accordion-flush">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-second-accordion-item-4">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-second-accordion-item-4" aria-expanded="false" aria-controls="collapse-second-accordion-item-4">First item</button>
-                  </h2>
-                  <div id="collapse-second-accordion-item-4" class="accordion-collapse collapse" data-bs-parent="#second-accordion" aria-labelledby="heading-second-accordion-item-4">
-                    <div class="accordion-body">First accordion item content</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-second-accordion-item-5">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-second-accordion-item-5" aria-expanded="false" aria-controls="collapse-second-accordion-item-5">Second item</button>
-                  </h2>
-                  <div id="collapse-second-accordion-item-5" class="accordion-collapse collapse" data-bs-parent="#second-accordion" aria-labelledby="heading-second-accordion-item-5">
-                    <div class="accordion-body">Second accordion item content</div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-second-accordion-item-6">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-second-accordion-item-6" aria-expanded="false" aria-controls="collapse-second-accordion-item-6">Third item</button>
-                  </h2>
-                  <div id="collapse-second-accordion-item-6" class="accordion-collapse collapse" data-bs-parent="#second-accordion" aria-labelledby="heading-second-accordion-item-6">
-                    <div class="accordion-body">Third accordion item content</div>
-                  </div>
-                </div>
-              </div>
+              <input type="text" name="name" id="name" class="form-control">
             </div>
             <hr class="invisible">
-            <h2 id="prop-alwaysopen" tabindex="-1">
-              <a class="header-anchor" href="#prop-alwaysopen">#</a>
+            <h3 id="prop-size" tabindex="-1">
+              <a class="header-anchor" href="#prop-size">#</a>
               Prop
-              <code>alwaysOpen</code>
-            </h2>
-            <p>
-              With prop
-              <code>alwaysOpen</code>
-              you can omit the
-              <code>data-bs-parent</code>
-              attribute on each
-              <code>.accordion-collapse</code>
-              to make accordion items stay open when another item is opened.
-The prop must have
-              <code>aware:</code>
-              as it's being used by
-              <code>x-accordion.items</code>
-              .
-Alternative way is to set the prop
-              <code>alwaysOpen</code>
-              without the
-              <code>aware:</code>
-              to each
-              <code>x-accordion.item</code>
-              .
-            </p>
-            <pre><code class="language-html">&lt;x-accordion aware:id=&quot;third-accordion&quot; aware:alwaysOpen&gt;
-  ...
-&lt;/x-accordion&gt;
-
-&lt;!-- or --&gt;
-
-&lt;x-accordion aware:id=&quot;third-accordion&quot;&gt;
-  &lt;x-accordion.item title=&quot;First item&quot; alwaysOpen&gt;
-    ...
-  &lt;/x-accordion.item&gt;
-  ...
-&lt;/x-accordion&gt;</code></pre>
+              <code>size</code>
+            </h3>
+            <pre><code class="language-html">&lt;!-- Two ways to set size --&gt;
+&lt;x-form.input name=&quot;name&quot; size=&quot;sm&quot;&gt;&lt;/x-form.input&gt;
+&lt;x-form.input name=&quot;name&quot; size=&quot;lg&quot;&gt;&lt;/x-form.input&gt;
+&lt;x-form.input name=&quot;name&quot; sm&gt;&lt;/x-form.input&gt;
+&lt;x-form.input name=&quot;name&quot; lg&gt;&lt;/x-form.input&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <div id="third-accordion" class="accordion" alwaysopen="">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-third-accordion-item-7">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-third-accordion-item-7" aria-expanded="false" aria-controls="collapse-third-accordion-item-7">First item</button>
-                  </h2>
-                  <div id="collapse-third-accordion-item-7" class="accordion-collapse collapse" aria-labelledby="heading-third-accordion-item-7">
-                    <div class="accordion-body">First accordion item content</div>
-                  </div>
+              <input type="text" name="name" id="name" class="form-control form-control-sm mb-3" placeholder="Size small via size prop">
+              <input type="text" name="name" id="name" class="form-control form-control-lg mb-3" placeholder="Size large via size prop">
+              <input type="text" name="name" id="name" class="form-control form-control-sm mb-3" placeholder="Size small via sm prop">
+              <input type="text" name="name" id="name" class="form-control form-control-lg" placeholder="Size large via lg prop">
+            </div>
+            <hr class="invisible">
+            <h3 id="prop-label-and-help" tabindex="-1">
+              <a class="header-anchor" href="#prop-label-and-help">#</a>
+              Prop
+              <code>label</code>
+              and
+              <code>help</code>
+            </h3>
+            <pre><code class="language-html">&lt;x-form.input type=&quot;email&quot; name=&quot;email&quot; label=&quot;Email address&quot; help=&quot;We'll never share your email with anyone else.&quot;&gt;&lt;/x-form.input&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <label for="email" class="form-label" name="email">Email address</label>
+              <input type="email" name="email" id="email" class="form-control" aria-describedby="email-help">
+              <div id="email-help" class="form-text">We&#039;ll never share your email with anyone else.</div>
+            </div>
+            <hr class="invisible">
+            <h3 id="label-and-help-component" tabindex="-1">
+              <a class="header-anchor" href="#label-and-help-component">#</a>
+              Label and help component
+            </h3>
+            <p>
+              Sometimes the HTML structure of label, input and help is different, for example using
+              <a href="https://getbootstrap.com/docs/5.2/forms/layout/">form layouts</a>
+              .
+In this case you can use
+              <code>label</code>
+              and
+              <code>help</code>
+              component.
+            </p>
+            <pre><code class="language-html">&lt;div class=&quot;row g-3 align-items-center&quot;&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;
+    &lt;x-form.label override:class=&quot;col-form-label&quot;&gt;Password&lt;/x-form.label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;
+    &lt;x-form.input type=&quot;password&quot; name=&quot;password&quot; aria-describedby=&quot;password-help&quot;&gt;&lt;/x-form.input&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-auto&quot;&gt;
+    &lt;x-form.help id=&quot;password&quot; inline&gt;Must be 8-20 characters long.&lt;/x-form.help&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                  <label class="col-form-label">Password</label>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-third-accordion-item-8">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-third-accordion-item-8" aria-expanded="false" aria-controls="collapse-third-accordion-item-8">Second item</button>
-                  </h2>
-                  <div id="collapse-third-accordion-item-8" class="accordion-collapse collapse" aria-labelledby="heading-third-accordion-item-8">
-                    <div class="accordion-body">Second accordion item content</div>
-                  </div>
+                <div class="col-auto">
+                  <input type="password" name="password" id="password" class="form-control" aria-describedby="password-help">
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="heading-third-accordion-item-9">
-                    <button type="button" class="btn accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse-third-accordion-item-9" aria-expanded="false" aria-controls="collapse-third-accordion-item-9">Third item</button>
-                  </h2>
-                  <div id="collapse-third-accordion-item-9" class="accordion-collapse collapse" aria-labelledby="heading-third-accordion-item-9">
-                    <div class="accordion-body">Third accordion item content</div>
-                  </div>
+                <div class="col-auto">
+                  <div id="password-help" class="form-text d-inline">Must be 8-20 characters long.</div>
                 </div>
               </div>
             </div>

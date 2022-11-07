@@ -1,0 +1,10 @@
+<script props>
+  module.exports = {
+    id: props.id || props.name,
+    inline: isEnabled(props.inline) ? ' d-inline' : ''
+  };
+</script>
+
+<div id="{{ `${id}-help` }}" class="form-text{{ inline }}">
+  <yield></yield>
+</div>

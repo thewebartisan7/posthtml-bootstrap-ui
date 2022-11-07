@@ -1,0 +1,19 @@
+<script props>
+  let size = !isUndefined(props.size) && ['sm', 'lg'].includes(props.size) ? ` col-form-label-${props.size}` : '';
+  let sm = !isUndefined(props.sm);
+  let lg = !isUndefined(props.lg);
+
+  if (!size && (sm || lg)) {
+    size = sm ? ' col-form-label-sm' : ' col-form-label-lg';
+  }
+
+  module.exports = {
+    for: props.for || props.id || props.name,
+    isCheckInput: ['checkbox', 'radio'].includes(props.type),
+    size
+  };
+</script>
+
+<label for="{{ for }}" class="{{ isCheckInput ? 'form-check-label' : 'form-label' }}{{ size }}">
+  <yield></yield>
+</label>

@@ -1,0 +1,20 @@
+<script props>
+  let method = ['post', 'get'].includes(props.method) ? props.method : '';
+  let post = !isUndefined(props.post);
+  let get = !isUndefined(props.get);
+
+  if (!method && (post || get)) {
+    method = post ? 'post' : 'get';
+  }
+
+  module.exports = {
+    file: isEnabled(props.file) ? 'multipart/form-data' : null,
+    method: method || 'post',
+    post,
+    get
+  };
+</script>
+
+<form method="{{ method }}" enctype="{{ file }}">
+  <yield></yield>
+</form>

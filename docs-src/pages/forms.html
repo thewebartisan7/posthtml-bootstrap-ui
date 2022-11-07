@@ -1,0 +1,129 @@
+<x-components active="forms">
+<md>
+## Form
+
+```html
+<!-- Default method="post" -->
+<x-form></x-form>
+
+<!-- Two ways to set method="get" -->
+<x-form method="get"></x-form>
+<x-form get></x-form>
+
+<!-- Two ways to set method="post" -->
+<x-form method="post"></x-form>
+<x-form post></x-form>
+
+<!-- With file -->
+<x-form file="true"></x-form>
+<x-form file></x-form>
+```
+</md>
+
+<x-demo>
+  <x-ui::form>Form method post... view source to see output</x-ui::form>
+  <x-ui::form method="get">Form method get... view source to see output</x-ui::form>
+  <x-ui::form get>Form method get... view source to see output</x-ui::form>
+  <x-ui::form method="post">Form method post... view source to see output</x-ui::form>
+  <x-ui::form post>Form method post... view source to see output</x-ui::form>
+  <x-ui::form file="true">Form with file... view source to see output</x-ui::form>
+  <x-ui::form file>Form with file... view source to see output</x-ui::form>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Form input
+
+```html
+<!-- Default only `id` or `name` is required -->
+<x-form.input name="name"></x-form.input>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.input name="name"></x-ui::form.input>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+### Prop `size`
+
+```html
+<!-- Two ways to set size -->
+<x-form.input name="name" size="sm"></x-form.input>
+<x-form.input name="name" size="lg"></x-form.input>
+<x-form.input name="name" sm></x-form.input>
+<x-form.input name="name" lg></x-form.input>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.input name="name" size="sm" class="mb-3" placeholder="Size small via size prop"></x-ui::form.input>
+  <x-ui::form.input name="name" size="lg" class="mb-3" placeholder="Size large via size prop"></x-ui::form.input>
+  <x-ui::form.input name="name" sm class="mb-3" placeholder="Size small via sm prop"></x-ui::form.input>
+  <x-ui::form.input name="name" lg placeholder="Size large via lg prop"></x-ui::form.input>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+### Prop `label` and `help`
+
+```html
+<x-form.input
+  type="email"
+  name="email"
+  label="Email address"
+  help="We'll never share your email with anyone else."
+></x-form.input>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.input
+    type="email"
+    name="email"
+    label="Email address"
+    help="We'll never share your email with anyone else."
+  ></x-ui::form.input>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+### Label and help component
+
+Sometimes the HTML structure of label, input and help is different, for example using [form layouts](https://getbootstrap.com/docs/5.2/forms/layout/).
+In this case you can use `label` and `help` component.
+
+```html
+<div class="row g-3 align-items-center">
+  <div class="col-auto">
+    <x-form.label override:class="col-form-label">Password</x-form.label>
+  </div>
+  <div class="col-auto">
+    <x-form.input type="password" name="password" aria-describedby="password-help"></x-form.input>
+  </div>
+  <div class="col-auto">
+    <x-form.help id="password" inline>Must be 8-20 characters long.</x-form.help>
+  </div>
+</div>
+```
+</md>
+
+<x-demo>
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <x-ui::form.label override:class="col-form-label">Password</x-ui::form.label>
+    </div>
+    <div class="col-auto">
+      <x-ui::form.input type="password" name="password" aria-describedby="password-help"></x-ui::form.input>
+    </div>
+    <div class="col-auto">
+      <x-ui::form.help id="password" inline>Must be 8-20 characters long.</x-ui::form.help>
+    </div>
+  </div>
+</x-demo>
+</x-components>
