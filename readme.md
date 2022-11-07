@@ -14,6 +14,16 @@
 npm i -D posthtml-bootstrap-ui
 ```
 
+If you want to publish all Boostrap UI components in your project, so without using the `ui` namespace then run below command.
+
+```bash
+npm explore posthtml-bootstrap-ui -- npm run publish
+```
+
+All components will be copied inside `src/components` and `src/layouts` without the `ui` namespace.
+
+See also the [starter template here](https://github.com/thewebartisan7/posthtml-bootstrap-ui-starter).
+
 ## Introduction
 
 The PostHTML Bootstrap UI is a set of components made with [PostHTML X Components plugin](https://github.com/thewebartisan7/posthtml-components).
