@@ -1,0 +1,20 @@
+<script props>
+
+  module.exports = {
+    backdrop: isUndefined(props.backdrop) ? true : props.backdrop,
+    scroll: isEnabled(props.scroll),
+    dark: isEnabled(props.dark),
+    bp: ["sm", "md", "lg", "xl", "xxl"].includes(props.bp) ? `offcanvas-${props.bp}` : 'offcanvas',
+    placement: ["start", "end", "top", "bottom"].includes(props.placement) ? ` offcanvas-${props.placement}` : '',
+  };
+</script>
+
+<div
+  class="{{ bp }}{{ placement }}{{ dark ? ' text-bg-dark' : '' }}"
+  data-bs-backdrop="{{ backdrop }}"
+  data-bs-scroll="{{ scroll }}"
+  tabindex="-1"
+  aria-labelledby="{{ id }}Label"
+>
+  <yield></yield>
+</div>

@@ -1,0 +1,13 @@
+<script props>
+  module.exports = {
+    close: isUndefined(props.close) ? true : props.close,
+    dark: isEnabled(props.dark) ? true : null
+  };
+</script>
+
+<div class="offcanvas-header">
+  <yield></yield>
+  <if condition="close">
+    <x-ui::button.close dismiss="offcanvas" light="{{ dark }}"></x-ui::button.close>
+  </if>
+</div><!-- /.offcanvas-header -->
