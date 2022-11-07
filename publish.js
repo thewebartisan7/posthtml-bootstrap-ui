@@ -13,7 +13,7 @@ const path = require('path');
 const posthtml = require('posthtml');
 
 const src = path.resolve('./src/');
-const dist = path.resolve('../../views/');
+const dist = path.resolve('../../src/');
 
 if (!existsSync(dist)) {
   mkdirSync(dist);
