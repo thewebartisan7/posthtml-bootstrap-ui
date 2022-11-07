@@ -37,3 +37,15 @@ Output:
     Hi, there! I'm an alert type danger component.     
 </div>
 ```
+
+**NOTE**
+
+The components documentation show always the code example without the `ui` namespace.
+If you didn't publish the ui as explained in installation, then you have to use the `ui` namespace.
+For example the alert component would be:
+
+```html
+<x-ui::alert type="danger">
+  Hi, there! I'm an alert type danger component.
+</x-ui::alert>
+```
