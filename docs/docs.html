@@ -154,31 +154,35 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#introduction">Introduction</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#contributing">Contributing</a>
-                </li>
               </ul>
             </nav>
             <h2 id="installation" tabindex="-1">
               <a class="header-anchor" href="#installation">#</a>
               Installation
             </h2>
-            <pre><code class="language-bash">npm i -D posthtml-ui</code></pre>
+            <pre><code class="language-bash">npm i -D posthtml-bootstrap-ui</code></pre>
             <h2 id="introduction" tabindex="-1">
               <a class="header-anchor" href="#introduction">#</a>
               Introduction
             </h2>
-            <h2 id="contributing" tabindex="-1">
-              <a class="header-anchor" href="#contributing">#</a>
-              Contributing
-            </h2>
             <p>
-              See
-              <a href="https://github.com/posthtml/posthtml/tree/master/docs">PostHTML Guidelines</a>
-              and
-              <a href="CONTRIBUTING.md">contribution guide</a>
+              The PostHTML Bootstrap UI is a set of components made with
+              <a href="https://github.com/thewebartisan7/posthtml-components">PostHTML X Components plugin</a>
               .
             </p>
+            <p>
+              The components are designed to render Bootstrap components out-of-the-box, meaning you just write x-components syntax by passing props and it will be processed to a fully working HTML markup for Boostrap.
+            </p>
+            <p>
+              To give you a practical introduction example, let's look at the way how a few Bootstrap component can be rendered.
+            </p>
+            <pre><code class="language-html">&lt;x-alert type=&quot;danger&quot;&gt;
+  Hi, there! I'm an alert type danger component.
+&lt;/x-alert&gt;</code></pre>
+            <p>Output:</p>
+            <pre><code class="language-html">&lt;div class=&quot;alert alert-danger&quot; role=&quot;alert&quot;&gt;
+    Hi, there! I'm an alert type danger component.     
+&lt;/div&gt;</code></pre>
           </div>
         </div>
       </div>

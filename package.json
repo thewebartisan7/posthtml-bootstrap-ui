@@ -13,7 +13,8 @@
     "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md",
     "test": "c8 ava",
     "pretest": "clinton && xo",
-    "build": "node build.js"
+    "build": "node build.js",
+    "publish": "node publish.js"
   },
   "keywords": [
     "posthtml",
