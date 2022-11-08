@@ -297,6 +297,20 @@ In this case you can use
               </select>
             </div>
             <hr class="invisible">
+            <h2 id="checks%2C-radios-and-switches" tabindex="-1">
+              <a class="header-anchor" href="#checks%2C-radios-and-switches">#</a>
+              Checks, radios and switches
+            </h2>
+            <pre><code class="language-html">&lt;!-- Only `id` or `name` is required --&gt;
+&lt;x-form.group check&gt;
+  &lt;x-form.input type=&quot;checkbox&quot; id=&quot;checkbox&quot; label=&quot;Default checkbox&quot;&gt;&lt;/x-form.input&gt;
+&lt;/x-form.group&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="form-check">
+                <label for="defaultCheckbox" class="form-check-label">Default checkbox</label>
+                <input type="checkbox" name="defaultCheckbox" id="defaultCheckbox" class="form-check-input">
+              </div>
+            </div>
           </div>
         </div>
       </div>

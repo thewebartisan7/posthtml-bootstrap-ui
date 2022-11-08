@@ -1,0 +1,91 @@
+<script props>
+  // check, switch, prepend, append, floating
+
+  let type = !isUndefined(props.check) && ['check', 'switch', 'prepend', 'append', 'floating'].includes(props.type) ? props.type : '';
+
+  if (!type) {
+    if (!isUndefined(props.check)) {
+      type = 'check';
+    } else if(!isUndefined(props.switch)) {
+      type = 'switch';
+    } else if(!isUndefined(props.prepend)) {
+      type = 'prepend';
+    } else if(!isUndefined(props.append)) {
+      type = 'append';
+    } else if(!isUndefined(props.floating)) {
+      type = 'floating';
+    }
+  }
+
+  if (['prepend', 'append'].includes(type)) {
+    type = 'input-group';
+    if (props.size || props.sm || props.lg) {
+      type = props.size ? `${type}-${props.size}` : (props.sm ? `${type}-sm` : `${type}-lg`);
+    }
+  }
+
+  if (['check', 'switch'].includes(type)) {
+    type = 'form-check';
+    if (type === 'switch') {
+      type += ' form-switch';
+    } else if (isEnabled(props.inline)) {
+      type += ' form-check-inline';
+    }
+  }
+
+  if (type === 'floating') {
+    type = 'form-floating';
+  }
+
+  module.exports = {
+    type: type || 'mb-3',
+    id: props.id || props.name,
+    name: props.name || props.id,
+    label: props.label,
+    help: props.help,
+
+    // Define as props for prevent being added as attributes
+    inline: props.inline,
+    check: props.check,
+    switch: props.switch,
+    prepend: props.prepend,
+    append: props.append,
+    floating: props.floating
+  }
+</script>
+
+<if condition="label && !check && (prepend || append)">
+  <label for="{{ id }}" class="form-label">
+    {{ label }}
+  </label>
+</if>
+
+<div
+  class="{{ type }}"
+>
+  <if condition="prepend">
+    <if condition="$slots.prepend?.filled">
+      <div class="input-group-text">{{{ $slots.prepend?.source }}}</div>
+    </if>
+    <else>
+      <div class="input-group-text">{{ prepend }}</div>
+    </else>
+  </if>
+
+  <yield></yield>
+
+  <if condition="append">
+    <if condition="$slots.append?.filled">
+      <div class="input-group-text">{{{ $slots.append?.source }}}</div>
+    </if>
+    <else>
+      <div class="input-group-text">{{ append }}</div>
+    </else>
+  </if>
+</div>
+
+<if condition="help">
+  <div id="{{ help ? `${name}-help` : null }}" class="form-text">
+    {{ help }}
+  </div>
+</if>

@@ -1,16 +1,12 @@
 <script props>
   let placement = ["start", "end", "top", "bottom"].includes(props.placement) ? `offcanvas-${props.placement}` : '';
-  let start = !isUndefined(props.start);
-  let end = !isUndefined(props.end);
-  let top = !isUndefined(props.top);
-  let bottom = !isUndefined(props.bottom);
 
   if (!placement) {
-    if (end) {
+    if (!isUndefined(props.end)) {
       placement = 'offcanvas-end';
-    } else if (top) {
+    } else if (!isUndefined(props.top)) {
       placement = 'offcanvas-top';
-    } else if (bottom) {
+    } else if (!isUndefined(props.bottom)) {
       placement = 'offcanvas-bottom';
     } else {
       placement = 'offcanvas-start';
@@ -22,7 +18,13 @@
     bp: ["sm", "md", "lg", "xl", "xxl"].includes(props.bp) ? `offcanvas-${props.bp}` : 'offcanvas',
     backdrop: isUndefined(props.backdrop) ? true : props.backdrop,
     scroll: isEnabled(props.scroll),
-    dark: isEnabled(props.dark)
+    dark: isEnabled(props.dark),
+
+    // Define as props for prevent being added as attributes
+    start: props.start,
+    end: props.end,
+    top: props.top,
+    bottom: props.bottom
   };
 </script>
 
