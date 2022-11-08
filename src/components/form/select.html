@@ -1,0 +1,54 @@
+<script props>
+  let size = !isUndefined(props.size) && ['sm', 'lg'].includes(props.size) ? ` form-select-${props.size}` : '';
+  let sm = !isUndefined(props.sm);
+  let lg = !isUndefined(props.lg);
+
+  if (!size && (sm || lg)) {
+    size = sm ? ' form-select-sm' : ' form-select-lg';
+  }
+
+  module.exports = {
+    id: props.id || props.name,
+    name: props.name || props.id,
+    size,
+    sm,
+    lg,
+    help: props.help,
+    label: props.label,
+    multiple: props.multiple,
+    selected: props.selected || '',
+    defaultOption: props.defaultOption || "Select an option",
+    options: isObject(props.options) ? props.options : {},
+    hasOptions: !isUndefined(props.options) && isObject(props.options)
+  };
+</script>
+
+<if condition="label">
+  <label for="{{ id }}" class="form-label">
+    {{ label }}
+  </label>
+</if>
+
+<select
+  class="form-select{{ size }}"
+  name="{{ name }}"
+  id="{{ id }}"
+  attributes
+>
+  <if condition="hasOptions">
+    <option value="" selected="{{ selected == defaultOption || selected === '' ? 'selected' : null }}">{{ defaultOption }}</option>
+    <each loop="label, value in options">
+      <option value="{{ value }}" selected="{{ value == selected ? 'selected' : null }}">{{ label }}</option>
+    </each>
+  </if>
+
+  <else>
+    <yield></yield>
+  </else>
+</select>
+
+<if condition="help">
+  <div id="{{ help ? `${name}-help` : null }}" class="form-text">
+    {{ help }}
+  </div>
+</if>

@@ -33,10 +33,10 @@
 <hr class="invisible">
 
 <md>
-## Form input
+## Input
 
 ```html
-<!-- Default only `id` or `name` is required -->
+<!-- Only `id` or `name` is required -->
 <x-form.input name="name"></x-form.input>
 ```
 </md>
@@ -126,4 +126,59 @@ In this case you can use `label` and `help` component.
     </div>
   </div>
 </x-demo>
+
+<hr class="invisible">
+
+<md>
+## Select
+
+```html
+<!-- Only `id` or `name` is required -->
+<x-form.select name="name" label="Make your choice">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</x-form.select>
+
+<!-- Pass options via prop "options", set selected via prop "selected" and default option via prop "defaultOption" -->
+<x-form.select
+  name="name"
+  label="Make your choice"
+  defaultOption="Select an option"
+  selected="2"
+  options='Pass valid JSON object with value: label'
+></x-form.select>
+```
+</md>
+
+<x-ui::alert>
+  Example of valid JSON for options:
+  <code>
+    { "1", "One", "2": "Two", "3": "Three" }
+  </code>
+</x-ui::alert>
+
+<x-demo>
+  <div class="mb-3">
+    <x-ui::form.select name="name" label="Make your choice">
+      <option selected>Select an option</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </x-ui::form.select>
+  </div>
+
+  <!-- Pass options via prop "options" -->
+  <x-ui::form.select
+    label="Make your choice"
+    name="name"
+    defaultOption="Select an option"
+    selected="2"
+    options='{ "1": "One", "2": "Two", "3": "Three" }'
+  ></x-ui::form.select>
+</x-demo>
+
+<hr class="invisible">
+
 </x-components>

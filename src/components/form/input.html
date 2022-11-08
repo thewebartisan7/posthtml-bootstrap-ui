@@ -10,6 +10,7 @@
   module.exports = {
     type: props.type || 'text',
     id: props.id || props.name,
+    name: props.name || props.id,
     isCheckInput: ['checkbox', 'radio'].includes(props.type),
     size,
     sm,
@@ -32,6 +33,7 @@
   id="{{ id }}"
   class="{{ isCheckInput ? 'form-check-input' : 'form-control' }}{{ size }}{{ error }}"
   aria-describedby="{{ help ? `${name}-help` : null }}"
+  attributes
 >
 
 <if condition="help">

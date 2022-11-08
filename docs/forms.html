@@ -179,11 +179,11 @@
               <form method="post" enctype="multipart/form-data">Form with file... view source to see output</form>
             </div>
             <hr class="invisible">
-            <h2 id="form-input" tabindex="-1">
-              <a class="header-anchor" href="#form-input">#</a>
-              Form input
+            <h2 id="input" tabindex="-1">
+              <a class="header-anchor" href="#input">#</a>
+              Input
             </h2>
-            <pre><code class="language-html">&lt;!-- Default only `id` or `name` is required --&gt;
+            <pre><code class="language-html">&lt;!-- Only `id` or `name` is required --&gt;
 &lt;x-form.input name=&quot;name&quot;&gt;&lt;/x-form.input&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <input type="text" name="name" id="name" class="form-control">
@@ -215,7 +215,7 @@
             </h3>
             <pre><code class="language-html">&lt;x-form.input type=&quot;email&quot; name=&quot;email&quot; label=&quot;Email address&quot; help=&quot;We'll never share your email with anyone else.&quot;&gt;&lt;/x-form.input&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
-              <label for="email" class="form-label" name="email">Email address</label>
+              <label for="email" class="form-label">Email address</label>
               <input type="email" name="email" id="email" class="form-control" aria-describedby="email-help">
               <div id="email-help" class="form-text">We&#039;ll never share your email with anyone else.</div>
             </div>
@@ -258,6 +258,45 @@ In this case you can use
                 </div>
               </div>
             </div>
+            <hr class="invisible">
+            <h2 id="select" tabindex="-1">
+              <a class="header-anchor" href="#select">#</a>
+              Select
+            </h2>
+            <pre><code class="language-html">&lt;!-- Only `id` or `name` is required --&gt;
+&lt;x-form.select name=&quot;name&quot; label=&quot;Make your choice&quot;&gt;
+  &lt;option selected&gt;Open this select menu&lt;/option&gt;
+  &lt;option value=&quot;1&quot;&gt;One&lt;/option&gt;
+  &lt;option value=&quot;2&quot;&gt;Two&lt;/option&gt;
+  &lt;option value=&quot;3&quot;&gt;Three&lt;/option&gt;
+&lt;/x-form.select&gt;
+
+&lt;!-- Pass options via prop &quot;options&quot;, set selected via prop &quot;selected&quot; and default option via prop &quot;defaultOption&quot; --&gt;
+&lt;x-form.select name=&quot;name&quot; label=&quot;Make your choice&quot; defaultOption=&quot;Select an option&quot; selected=&quot;2&quot; options=&quot;Pass valid JSON object with value: label&quot;&gt;&lt;/x-form.select&gt;</code></pre>
+            <div class="alert alert-primary" role="alert">
+              Example of valid JSON for options:
+              <code>{ "1", "One", "2": "Two", "3": "Three" }</code>
+            </div>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="mb-3">
+                <label for="name" class="form-label">Make your choice</label>
+                <select class="form-select" name="name" id="name">
+                  <option selected>Select an option</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+              <!-- Pass options via prop "options" -->
+              <label for="name" class="form-label">Make your choice</label>
+              <select class="form-select" name="name" id="name">
+                <option value="">Select an option</option>
+                <option value="1">One</option>
+                <option value="2" selected>Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <hr class="invisible">
           </div>
         </div>
       </div>
