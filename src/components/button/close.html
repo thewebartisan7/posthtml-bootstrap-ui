@@ -7,7 +7,7 @@
    */
   module.exports = {
     label: props.label || 'Close',
-    light: isUndefined(props.light) ? '' : ' btn-close-white',
+    light: isEnabled(props.light) ? ' btn-close-white' : '',
     dismiss: props.dismiss
   };
 </script>

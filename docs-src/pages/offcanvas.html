@@ -1,0 +1,298 @@
+<x-components active="modals">
+<h2>Props</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Prop</th>
+    <th scope="col">Type</th>
+    <th scope="col">Default</th>
+    <th scope="col">Values</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="row">placement</th>
+    <td>string</td>
+    <td class="font-monospace">'start'</td>
+    <td>start|end|top|bottom</td>
+    <td>Set offcanvas placement.</td>
+  </tr>
+
+  <tr>
+    <th scope="row">bp</th>
+    <td>string</td>
+    <td class="font-monospace"></td>
+    <td>sm|md|lg|xl|xxl</td>
+    <td>Hide content outside the viewport from a specified breakpoint and down.</td>
+  </tr>
+
+  <tr>
+    <th scope="row">backdrop</th>
+    <td>string|boolean</td>
+    <td class="font-monospace">true</td>
+    <td>true|false|'static'</td>
+    <td>Show or hide backdrop. When `static` the offcanvas will not close when clicking outside of it.</td>
+  </tr>
+
+  <tr>
+    <th scope="row">scroll</th>
+    <td>boolean</td>
+    <td class="font-monospace">false</td>
+    <td>true|false</td>
+    <td>Use this prop to enable `body` scrolling.</td>
+  </tr>
+
+  <tr>
+    <th scope="row">dark</th>
+    <td>boolean</td>
+    <td class="font-monospace">false</td>
+    <td>true|false</td>
+    <td>Set dark offcanvas.</td>
+  </tr>
+  </tbody>
+</table>
+
+<hr class="invisible">
+
+<md>
+## Default
+
+```html
+<x-button toggle="offcanvas" target="#myOffcanvas">Launch default offcanvas</x-button>
+
+<x-offcanvas id="myOffcanvas">
+  <x-offcanvas.header>
+    <h5 class="offcanvas-title" id="myOffcanvasLabel">Offcanvas title</h5>
+  </x-offcanvas.header>
+
+  <x-offcanvas.body>
+    Offcanvas content...
+  </x-offcanvas.body>
+</x-offcanvas>
+```
+</md>
+
+<x-demo>
+  <x-ui::button toggle="offcanvas" target="#myOffcanvas">Launch default offcanvas</x-ui::button>
+
+  <x-ui::offcanvas id="myOffcanvas">
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasLabel">Offcanvas title</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Prop `placement`
+
+Set offcanvas placement using prop `placement`. Default is `start`.
+
+```html
+<x-offcanvas id="myOffcanvas" placement="start">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" placement="end">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" placement="top">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" placement="bottom">
+  ...
+</x-offcanvas>
+```
+</md>
+
+<x-demo>
+  <x-ui::button toggle="offcanvas" target="#myOffcanvasEnd">Launch offcanvas placement end</x-ui::button>
+
+  <x-ui::offcanvas id="myOffcanvasEnd" placement="end">
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasEndLabel">Offcanvas end</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+
+  <x-ui::button toggle="offcanvas" target="#myOffcanvasBottom">Launch offcanvas placement bottom</x-ui::button>
+
+  <x-ui::offcanvas id="myOffcanvasBottom" placement="bottom">
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasBottomLabel">Offcanvas bottom</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+
+  <x-ui::button toggle="offcanvas" target="#myOffcanvasTop">Launch offcanvas placement top</x-ui::button>
+
+  <x-ui::offcanvas id="myOffcanvasTop" placement="top">
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasTopLabel">Offcanvas top</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+### Alternative way to set placement
+
+Use prop `start`, `end`, `top`, and `bottom` to set placement.
+
+```html
+<x-offcanvas id="myOffcanvas" start>
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" end>
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" top>
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" bottom>
+  ...
+</x-offcanvas>
+```
+</md>
+
+<hr class="invisible">
+
+<md>
+## Prop `bp`
+
+Use prop `bp` (breakpoint) for control [responsive offcanvas](https://getbootstrap.com/docs/5.2/components/offcanvas/#responsive)
+which hide content outside the viewport from a specified breakpoint and down.
+Above that breakpoint, the contents within will behave as usual.
+For example, `bp="lg"` hides content in an offcanvas below the `lg` breakpoint, but shows the content above the `lg` breakpoint.
+
+```html
+<x-button toggle="offcanvas" target="#myOffcanvas">Launch default offcanvas</x-button>
+
+<x-offcanvas id="myOffcanvas" bp="sm">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" bp="md">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" bp="lg">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" bp="xl">
+  ...
+</x-offcanvas>
+
+<x-offcanvas id="myOffcanvas" bp="xxl">
+  ...
+</x-offcanvas>
+```
+</md>
+
+<x-demo>
+  <x-ui::alert warning>
+    Resize your browser to show the responsive offcanvas toggle.
+  </x-ui::alert>
+
+  <x-ui::button toggle="offcanvas" target="#myOffcanvasLg" class="d-lg-none" primary>Launch offcanvas lg</x-ui::button>
+
+  <x-ui::offcanvas id="myOffcanvasLg" bp="lg">
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasLgLabel">Responsive Offcanvas</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content visible above breakpoint "lg" but hidden below...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+## Prop `backdrop` and `scroll`
+
+Scrolling the `body` element is disabled when an offcanvas and its backdrop are visible.
+Use the prop `scroll` to enable `body` scrolling.
+When `backdrop="static"` the offcanvas will not close when clicking outside of it.
+
+```html
+<!-- Disable backdrop and enable body scrolling -->
+<x-offcanvas id="myOffcanvas" backdrop="false" scroll>
+  ...
+</x-offcanvas>
+
+<!-- Enable backdrop and body scrolling -->
+<x-offcanvas id="myOffcanvas" backdrop="true" scroll>
+  ...
+</x-offcanvas>
+
+<!-- Set static backdrop -->
+<x-offcanvas id="myOffcanvas" backdrop="static">
+  ...
+</x-offcanvas>
+```
+</md>
+
+<x-demo>
+  <div class="d-grid gap-3 col-6 mx-auto">
+    <x-ui::button toggle="offcanvas" target="#myOffcanvasScroll">Launch offcanvas scroll and no backdrop</x-ui::button>
+    <x-ui::button toggle="offcanvas" target="#myOffcanvasScroll2">Launch offcanvas scroll and backdrop</x-ui::button>
+    <x-ui::button toggle="offcanvas" target="#myOffcanvasStatic">Launch offcanvas static backdrop</x-ui::button>
+  </div>
+
+  <x-ui::offcanvas id="myOffcanvasScroll" backdrop="false" scroll>
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasScrollLabel">Offcanvas with scroll</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+
+  <x-ui::offcanvas id="myOffcanvasScroll2" backdrop="true" scroll>
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasScroll2Label">Offcanvas with scroll</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+
+  <x-ui::offcanvas id="myOffcanvasStatic" backdrop="static">
+    <x-ui::offcanvas.header>
+      <h5 class="offcanvas-title" id="myOffcanvasStaticLabel">Offcanvas with static backdrop</h5>
+    </x-ui::offcanvas.header>
+
+    <x-ui::offcanvas.body>
+      Offcanvas content...
+    </x-ui::offcanvas.body>
+  </x-ui::offcanvas>
+</x-demo>
+</x-components>

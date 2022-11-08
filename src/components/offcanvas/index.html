@@ -1,16 +1,33 @@
 <script props>
+  let placement = ["start", "end", "top", "bottom"].includes(props.placement) ? `offcanvas-${props.placement}` : '';
+  let start = !isUndefined(props.start);
+  let end = !isUndefined(props.end);
+  let top = !isUndefined(props.top);
+  let bottom = !isUndefined(props.bottom);
+
+  if (!placement) {
+    if (end) {
+      placement = 'offcanvas-end';
+    } else if (top) {
+      placement = 'offcanvas-top';
+    } else if (bottom) {
+      placement = 'offcanvas-bottom';
+    } else {
+      placement = 'offcanvas-start';
+    }
+  }
 
   module.exports = {
+    placement,
+    bp: ["sm", "md", "lg", "xl", "xxl"].includes(props.bp) ? `offcanvas-${props.bp}` : 'offcanvas',
     backdrop: isUndefined(props.backdrop) ? true : props.backdrop,
     scroll: isEnabled(props.scroll),
-    dark: isEnabled(props.dark),
-    bp: ["sm", "md", "lg", "xl", "xxl"].includes(props.bp) ? `offcanvas-${props.bp}` : 'offcanvas',
-    placement: ["start", "end", "top", "bottom"].includes(props.placement) ? ` offcanvas-${props.placement}` : '',
+    dark: isEnabled(props.dark)
   };
 </script>
 
 <div
-  class="{{ bp }}{{ placement }}{{ dark ? ' text-bg-dark' : '' }}"
+  class="{{ bp }} {{ placement }}{{ dark ? ' text-bg-dark' : '' }}"
   data-bs-backdrop="{{ backdrop }}"
   data-bs-scroll="{{ scroll }}"
   tabindex="-1"
