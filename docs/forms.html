@@ -259,6 +259,49 @@ In this case you can use
               </div>
             </div>
             <hr class="invisible">
+            <h2 id="floating-label" tabindex="-1">
+              <a class="header-anchor" href="#floating-label">#</a>
+              Floating label
+            </h2>
+            <p>
+              Floating label must have prop
+              <code>id</code>
+              or
+              <code>name</code>
+              set in
+              <code>x-form.group</code>
+              component and must be
+              <code>aware</code>
+              for pass down the id to the input,
+for avoiding to set it twice. A
+              <code>placeholder</code>
+              is required on
+              <code>x-form.input</code>
+              according to Bootstrap docs as the method of CSS-only
+floating labels uses the
+              <code>:placeholder-shown</code>
+              pseudo-element.
+            </p>
+            <pre><code class="language-html">&lt;x-form.group aware:id=&quot;floating-input&quot; label=&quot;Floating&quot; floating&gt;
+  &lt;x-form.input placeholder=&quot;Floating&quot;&gt;&lt;/x-form.input&gt;
+&lt;/x-form.group&gt;
+
+&lt;!-- When using the label component it must be after the input --&gt;
+&lt;x-form.group aware:id=&quot;floating-input&quot; floating&gt;
+  &lt;x-form.input placeholder=&quot;Floating&quot;&gt;&lt;/x-form.input&gt;
+  &lt;x-form.label&gt;Floating with label&lt;/x-form.label&gt;
+&lt;/x-form.group&gt;</code></pre>
+            <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
+              <div class="form-floating mb-3">
+                <input type="text" name="floating" id="floating" class="form-control" placeholder="Floating">
+                <label for="floating">Floating</label>
+              </div>
+              <div class="form-floating">
+                <input type="text" name="floating2" id="floating2" class="form-control" placeholder="Floating">
+                <label for="floating2" class="form-label">Floating with label</label>
+              </div>
+            </div>
+            <hr class="invisible">
             <h2 id="select" tabindex="-1">
               <a class="header-anchor" href="#select">#</a>
               Select
@@ -301,14 +344,22 @@ In this case you can use
               <a class="header-anchor" href="#checks%2C-radios-and-switches">#</a>
               Checks, radios and switches
             </h2>
-            <pre><code class="language-html">&lt;!-- Only `id` or `name` is required --&gt;
-&lt;x-form.group check&gt;
+            <pre><code class="language-html">&lt;x-form.group check&gt;
   &lt;x-form.input type=&quot;checkbox&quot; id=&quot;checkbox&quot; label=&quot;Default checkbox&quot;&gt;&lt;/x-form.input&gt;
+&lt;/x-form.group&gt;
+
+&lt;x-form.group switch&gt;
+  &lt;x-form.input type=&quot;checkbox&quot; id=&quot;switch&quot; label=&quot;Default switch&quot; role=&quot;switch&quot;&gt;&lt;/x-form.input&gt;
 &lt;/x-form.group&gt;</code></pre>
             <div class="doc-demo bg-white p-3 doc-shadow rounded-3">
               <div class="form-check">
                 <label for="defaultCheckbox" class="form-check-label">Default checkbox</label>
                 <input type="checkbox" name="defaultCheckbox" id="defaultCheckbox" class="form-check-input">
+              </div>
+              <hr class="invisible">
+              <div class="form-check form-switch">
+                <label for="defaultSwitch" class="form-check-label">Default switch</label>
+                <input type="checkbox" name="defaultSwitch" id="defaultSwitch" class="form-check-input">
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 <script props>
   // check, switch, prepend, append, floating
 
-  let type = !isUndefined(props.check) && ['check', 'switch', 'prepend', 'append', 'floating'].includes(props.type) ? props.type : '';
+  let type = !isUndefined(props.type) && ['check', 'switch', 'prepend', 'append', 'floating'].includes(props.type) ? props.type : '';
 
   if (!type) {
     if (!isUndefined(props.check)) {
@@ -22,18 +22,17 @@
     if (props.size || props.sm || props.lg) {
       type = props.size ? `${type}-${props.size}` : (props.sm ? `${type}-sm` : `${type}-lg`);
     }
-  }
+  } else if (['check', 'switch'].includes(type)) {
+    type = type === 'switch' ? 'form-check form-switch' : 'form-check';
 
-  if (['check', 'switch'].includes(type)) {
-    type = 'form-check';
-    if (type === 'switch') {
-      type += ' form-switch';
-    } else if (isEnabled(props.inline)) {
+    if (isEnabled(props.inline)) {
       type += ' form-check-inline';
     }
-  }
 
-  if (type === 'floating') {
+    if (isEnabled(props.reverse)) {
+      type += ' form-check-reverse';
+    }
+  } else if (type === 'floating') {
     type = 'form-floating';
   }
 
@@ -50,11 +49,11 @@
     switch: props.switch,
     prepend: props.prepend,
     append: props.append,
-    floating: props.floating
+    floating: isEnabled(props.floating)
   }
 </script>
 
-<if condition="label && !check && (prepend || append)">
+<if condition="label && !check && !floating && (prepend || append)">
   <label for="{{ id }}" class="form-label">
     {{ label }}
   </label>
@@ -73,6 +72,12 @@
   </if>
 
   <yield></yield>
+
+  <if condition="label && (check || floating) && !(prepend || append)">
+    <label for="{{ id }}" class="{{ check ? 'form-label' : null }}">
+      {{ label }}
+    </label>
+  </if>
 
   <if condition="append">
     <if condition="$slots.append?.filled">

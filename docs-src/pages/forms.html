@@ -130,6 +130,39 @@ In this case you can use `label` and `help` component.
 <hr class="invisible">
 
 <md>
+## Floating label
+
+Floating label must have prop `id` or `name` set in `x-form.group` component and must be `aware` for pass down the id to the input,
+for avoiding to set it twice. A `placeholder` is required on `x-form.input` according to Bootstrap docs as the method of CSS-only
+floating labels uses the `:placeholder-shown` pseudo-element.
+
+```html
+<x-form.group aware:id="floating-input" label="Floating" floating>
+  <x-form.input placeholder="Floating"></x-form.input>
+</x-form.group>
+
+<!-- When using the label component it must be after the input -->
+<x-form.group aware:id="floating-input" floating>
+  <x-form.input placeholder="Floating"></x-form.input>
+  <x-form.label>Floating with label</x-form.label>
+</x-form.group>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.group class="mb-3" aware:id="floating" label="Floating" floating>
+    <x-ui::form.input placeholder="Floating"></x-ui::form.input>
+  </x-ui::form.group>
+
+  <x-ui::form.group aware:id="floating2" floating>
+    <x-ui::form.input placeholder="Floating"></x-ui::form.input>
+    <x-ui::form.label>Floating with label</x-ui::form.label>
+  </x-ui::form.group>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
 ## Select
 
 ```html
@@ -185,9 +218,12 @@ In this case you can use `label` and `help` component.
 ## Checks, radios and switches
 
 ```html
-<!-- Only `id` or `name` is required -->
 <x-form.group check>
   <x-form.input type="checkbox" id="checkbox" label="Default checkbox"></x-form.input>
+</x-form.group>
+
+<x-form.group switch>
+  <x-form.input type="checkbox" id="switch" label="Default switch" role="switch"></x-form.input>
 </x-form.group>
 ```
 </md>
@@ -195,6 +231,12 @@ In this case you can use `label` and `help` component.
 <x-demo>
   <x-ui::form.group check>
     <x-ui::form.input type="checkbox" id="defaultCheckbox" label="Default checkbox"></x-ui::form.input>
+  </x-ui::form.group>
+
+  <hr class="invisible">
+
+  <x-ui::form.group switch>
+    <x-ui::form.input type="checkbox" id="defaultSwitch" label="Default switch"></x-ui::form.input>
   </x-ui::form.group>
 </x-demo>
 
