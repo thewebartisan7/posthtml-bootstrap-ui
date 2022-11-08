@@ -161,7 +161,7 @@ In this case you can use `label` and `help` component.
 
 <x-demo>
   <div class="mb-3">
-    <x-ui::form.select name="name" label="Make your choice">
+    <x-ui::form.select name="numbers" label="Make your choice">
       <option selected>Select an option</option>
       <option value="1">One</option>
       <option value="2">Two</option>
@@ -172,7 +172,7 @@ In this case you can use `label` and `help` component.
   <!-- Pass options via prop "options" -->
   <x-ui::form.select
     label="Make your choice"
-    name="name"
+    name="numbers2"
     defaultOption="Select an option"
     selected="2"
     options='{ "1": "One", "2": "Two", "3": "Three" }'
