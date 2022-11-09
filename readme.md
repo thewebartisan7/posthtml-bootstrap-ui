@@ -64,11 +64,11 @@ See here more docs: [PostHTML Bootstrap UI docs and demo](https://thewebartisan7
 
 See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs) and [contribution guide](CONTRIBUTING.md).
 
-[npm]: https://img.shields.io/npm/v/posthtml-ui.svg
-[npm-url]: https://www.npmjs.com/package/posthtml-ui
+[npm]: https://img.shields.io/npm/v/posthtml-bootstrap-ui.svg
+[npm-url]: https://www.npmjs.com/package/posthtml-bootstrap-ui
 
 [style]: https://img.shields.io/badge/code_style-XO-5ed9c7.svg
 [style-url]: https://github.com/sindresorhus/xo
 
-[cover]: https://coveralls.io/repos/thewebartisan7/posthtml-ui/badge.svg?branch=main
-[cover-badge]: https://coveralls.io/r/thewebartisan7/posthtml-ui?branch=main
+[cover]: https://coveralls.io/repos/thewebartisan7/posthtml-bootstrap-ui/badge.svg?branch=main
+[cover-badge]: https://coveralls.io/r/thewebartisan7/posthtml-bootstrap-ui?branch=main
