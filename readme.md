@@ -58,6 +58,8 @@ For example the alert component would be:
 </x-ui::alert>
 ```
 
+See here more docs: [PostHTML Bootstrap UI docs and demo](https://thewebartisan7.github.io/posthtml-bootstrap-ui/index.html).
+
 ## Contributing
 
 See [PostHTML Guidelines](https://github.com/posthtml/posthtml/tree/master/docs) and [contribution guide](CONTRIBUTING.md).
