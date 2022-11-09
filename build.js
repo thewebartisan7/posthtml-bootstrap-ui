@@ -43,41 +43,41 @@ readdirSync(src).forEach(file => {
     const html = readFileSync(path.resolve(`${src}${file}`), 'utf-8');
 
     posthtml([
-        markdownIt({
-          root: md,
-          plugins: markdownPlugins
-        }),
+      markdownIt({
+        root: md,
+        plugins: markdownPlugins
+      }),
 
-        components({
-          root: './docs-src',
-          folders: ['components', 'layouts'],
-          namespaces: {
-            name: 'ui',
-            root: './src'
-          },
-          strict: true,
-          expressions: {
-            locals: {
-              title: 'PostHTML UI'
-            }
+      components({
+        root: './docs-src',
+        folders: ['components', 'layouts'],
+        namespaces: {
+          name: 'ui',
+          root: './src'
+        },
+        strict: true,
+        expressions: {
+          locals: {
+            title: 'PostHTML UI'
           }
-        }),
+        }
+      }),
 
-        markdownIt({
-          root: md,
-          plugins: markdownPlugins
-        }),
+      markdownIt({
+        root: md,
+        plugins: markdownPlugins
+      }),
 
-        beautify({
-          rules: {
-            indent: 2,
-            blankLines: false,
-            sortAttr: false
-          }
-        }),
+      beautify({
+        rules: {
+          indent: 2,
+          blankLines: false,
+          sortAttr: false
+        }
+      }),
 
-        processCodeTags()
-      ])
+      processCodeTags()
+    ])
       .process(html, options)
       .then(result => {
         writeFileSync(path.resolve(`${dist}${file}`), result.html, 'utf-8');

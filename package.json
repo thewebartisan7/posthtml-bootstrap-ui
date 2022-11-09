@@ -3,11 +3,11 @@
   "version": "1.0.0-beta.1",
   "description": "PostHTML UI using X Components plugin and Bootstrap",
   "license": "MIT",
-  "repository": "thewebartisan7/posthtml-ui",
+  "repository": "thewebartisan7/posthtml-bootstrap-ui",
   "author": "Damir Grgic <damir@tuta.io> (https://github.com/thewebartisan7)",
   "main": "src",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "scripts": {
     "version": "conventional-changelog -i changelog.md -s -r 0 && git add changelog.md",

@@ -33,10 +33,10 @@ readdirRecursive(src).then(files => {
 
           promises.mkdir(path.dirname(filePath), {recursive: true}).then(() => {
             writeFileSync(filePath, result.html, 'utf-8');
-          })
+          });
         });
     }
-  })
+  });
 });
 
 function removeNamespaces() {
@@ -52,17 +52,17 @@ function removeNamespaces() {
 }
 
 async function readdirRecursive(dir) {
-  const files = await promises.readdir(dir, { withFileTypes: true });
+  const files = await promises.readdir(dir, {withFileTypes: true});
 
   const paths = files.map(async file => {
     const filePath = path.join(dir, file.name);
 
     if (file.isDirectory()) {
-      return await readdirRecursive(filePath);
+      return readdirRecursive(filePath);
     }
 
     return filePath;
   });
 
-  return (await Promise.all(paths)).flat(Infinity);
+  return (await Promise.all(paths)).flat(Number.POSITIVE_INFINITY);
 }
