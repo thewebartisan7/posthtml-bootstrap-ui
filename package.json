@@ -1,5 +1,5 @@
 {
-  "name": "posthtml-ui",
+  "name": "posthtml-bootstrap-ui",
   "version": "1.0.0-beta.1",
   "description": "PostHTML UI using X Components plugin and Bootstrap",
   "license": "MIT",
