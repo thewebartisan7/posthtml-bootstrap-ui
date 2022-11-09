@@ -17,3 +17,4 @@ xo.config.js
 .lintstagedrc
 docs
 docs-src
+.github
