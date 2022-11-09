@@ -18,17 +18,19 @@
 <x-form file="true"></x-form>
 <x-form file></x-form>
 ```
-</md>
 
-<x-demo>
-  <x-ui::form>Form method post... view source to see output</x-ui::form>
-  <x-ui::form method="get">Form method get... view source to see output</x-ui::form>
-  <x-ui::form get>Form method get... view source to see output</x-ui::form>
-  <x-ui::form method="post">Form method post... view source to see output</x-ui::form>
-  <x-ui::form post>Form method post... view source to see output</x-ui::form>
-  <x-ui::form file="true">Form with file... view source to see output</x-ui::form>
-  <x-ui::form file>Form with file... view source to see output</x-ui::form>
-</x-demo>
+Output:
+
+```html
+<form method="post"></form>
+<form method="get"></form>
+<form method="get"></form>
+<form method="post"></form>
+<form method="post"></form>
+<form method="post" enctype="multipart/form-data"></form>
+<form method="post" enctype="multipart/form-data"></form>
+```
+</md>
 
 <hr class="invisible">
 
@@ -101,12 +103,14 @@ In this case you can use `label` and `help` component.
 ```html
 <div class="row g-3 align-items-center">
   <div class="col-auto">
-    <x-form.label override:class="col-form-label">Password</x-form.label>
+    <x-form.label for="password" override:class="col-form-label">Password</x-form.label>
   </div>
   <div class="col-auto">
+    <!-- aria-describedby in this case is required and must end with "-help" -->
     <x-form.input type="password" name="password" aria-describedby="password-help"></x-form.input>
   </div>
   <div class="col-auto">
+    <!-- "id" in this case is required and must NOT end with "-help" -->
     <x-form.help id="password" inline>Must be 8-20 characters long.</x-form.help>
   </div>
 </div>
@@ -130,6 +134,93 @@ In this case you can use `label` and `help` component.
 <hr class="invisible">
 
 <md>
+## Input group
+
+Some inputs like checkbox, radios and switches require a wrapper and by default it can be used to add margin bottom. See the default example below.
+
+```html
+<x-form.group>
+  <x-form.input name="name"></x-form.input>
+</x-form.group>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.group>
+    <x-ui::form.input name="name"></x-ui::form.input>
+  </x-ui::form.group>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+### With label and help
+
+We can set the props with `aware` once in the `x-form.group` component like `id` or `name` and then we don't need to set most of the others props.
+
+```html
+<x-form.group aware:name="fullname">
+  <x-form.label>First and last name</x-form.label>
+  <!-- aria-describedby in this case is required since the input component will add it only when you set the help text via prop `help` -->
+  <x-form.input aria-describedby="fullname-help"></x-form.input>
+  <x-form.help>Please provide your first and last name</x-form.help>
+</x-form.group>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.group aware:name="fullname">
+    <x-ui::form.label>First and last name</x-ui::form.label>
+    <x-ui::form.input aria-describedby="fullname-help"></x-ui::form.input>
+    <x-ui::form.help>Please provide your first and last name</x-ui::form.help>
+  </x-ui::form.group>
+</x-demo>
+
+<hr class="invisible">
+
+<md>
+### Form layouts
+
+The `x-form.group` component can be used also to create form layouts of previous example, and pass props to label, input and help via aware.
+In below example we are setting prop `id` once with `aware`, then we don't need to set the `for` in label, nor the `id` or `name` and `aria-describedby` in input
+and also the `id` in help component.
+
+```html
+<x-form.group aware:id="password" class="row g-3 align-items-center">
+  <div class="col-auto">
+    <x-form.label override:class="col-form-label">Password</x-form.label>
+  </div>
+  <div class="col-auto">
+    <x-form.input type="password"></x-form.input>
+  </div>
+  <div class="col-auto">
+    <x-form.help inline>Must be 8-20 characters long.</x-form.help>
+  </div>
+</x-form.group>
+```
+</md>
+
+<x-demo>
+  <x-ui::form.group aware:id="password2" class="row g-3 align-items-center">
+    <div class="col-auto">
+      <x-ui::form.label override:class="col-form-label">Password</x-ui::form.label>
+    </div>
+    <div class="col-auto">
+      <x-ui::form.input type="password"></x-ui::form.input>
+    </div>
+    <div class="col-auto">
+      <x-ui::form.help inline>Must be 8-20 characters long.</x-ui::form.help>
+    </div>
+  </x-ui::form.group>
+</x-demo>
+
+<p class="mt-3">
+  In next sections we will see more examples of features offered by this component.
+</p>
+
+<hr class="invisible">
+
+<md>
 ## Floating label
 
 Floating label must have prop `id` or `name` set in `x-form.group` component and must be `aware` for pass down the id to the input,
@@ -141,7 +232,7 @@ floating labels uses the `:placeholder-shown` pseudo-element.
   <x-form.input placeholder="Floating"></x-form.input>
 </x-form.group>
 
-<!-- When using the label component it must be after the input -->
+<!-- When using the label component it must be after the input, according to Bootstrap docs -->
 <x-form.group aware:id="floating-input" floating>
   <x-form.input placeholder="Floating"></x-form.input>
   <x-form.label>Floating with label</x-form.label>
@@ -217,9 +308,19 @@ floating labels uses the `:placeholder-shown` pseudo-element.
 <md>
 ## Checks, radios and switches
 
+The props `check` and `switch` can be set also via prop `type="check"` or `type="switch"`.
+
 ```html
 <x-form.group check>
   <x-form.input type="checkbox" id="checkbox" label="Default checkbox"></x-form.input>
+</x-form.group>
+
+<!-- For the same radios set the same `name` but different `id` -->
+<x-form.group check>
+  <x-form.input type="radio" name="radio" id="radio1" label="Default radio"></x-form.input>
+</x-form.group>
+<x-form.group check>
+  <x-form.input type="radio" name="radio" id="radio2" label="Default radio"></x-form.input>
 </x-form.group>
 
 <x-form.group switch>
@@ -231,6 +332,16 @@ floating labels uses the `:placeholder-shown` pseudo-element.
 <x-demo>
   <x-ui::form.group check>
     <x-ui::form.input type="checkbox" id="defaultCheckbox" label="Default checkbox"></x-ui::form.input>
+  </x-ui::form.group>
+
+  <hr class="invisible">
+
+  <x-ui::form.group check>
+    <x-ui::form.input type="radio" name="defaultRadio" id="defaultRadio1" label="Default radio 1"></x-ui::form.input>
+  </x-ui::form.group>
+
+  <x-ui::form.group check>
+    <x-ui::form.input type="radio" name="defaultRadio" id="defaultRadio2" label="Default radio 2"></x-ui::form.input>
   </x-ui::form.group>
 
   <hr class="invisible">
