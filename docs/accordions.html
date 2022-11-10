@@ -124,6 +124,9 @@
                 </li>
               </ul>
             </li>
+            <li>
+              <a href="layouts.html" class="nav-link px-2 link-dark">Layouts</a>
+            </li>
             <li class="d-block d-md-none">
               <a href="https://www.npmjs.com/package/posthtml-bootstrap-ui" class="nav-link px-2 link-dark" target="_blank">NPM</a>
             </li>
@@ -151,6 +154,101 @@
             </div>
           </div>
           <div class="col-12 col-xl-9 order-2 order-xl-1" data-app-toggle="toc">
+            <h2 id="props" tabindex="-1">
+              <a class="header-anchor" href="#props">#</a>
+              Props
+            </h2>
+            <table>
+              <thead>
+                <tr>
+                  <th>Prop</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Values</th>
+                  <th>Description</th>
+                  <th>Component</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>id</td>
+                  <td>string</td>
+                  <td>-</td>
+                  <td>any</td>
+                  <td>Unique ID</td>
+                  <td>
+                    <code>x-accordion</code>
+                    with
+                    <code>aware:</code>
+                    or on each
+                    <code>x-accordion.item</code>
+                    without
+                    <code>aware:</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>flush</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td>true|false</td>
+                  <td>
+                    Add
+                    <code>.accordion-flush</code>
+                    style
+                  </td>
+                  <td>
+                    <code>x-accordion</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>alwaysOpen</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td>true|false</td>
+                  <td>Keep accordion items open when another is opened</td>
+                  <td>
+                    <code>x-accordion</code>
+                    with
+                    <code>aware:</code>
+                    or on each
+                    <code>x-accordion.item</code>
+                    without
+                    <code>aware:</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>name</td>
+                  <td>string</td>
+                  <td>-</td>
+                  <td>any</td>
+                  <td>Optional used as unique ID for accordion item</td>
+                  <td>
+                    <code>x-accordion.item</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>open</td>
+                  <td>boolean</td>
+                  <td>false</td>
+                  <td>true|false</td>
+                  <td>Show accordion item</td>
+                  <td>
+                    <code>x-accordion.item</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>title</td>
+                  <td>string</td>
+                  <td>-</td>
+                  <td>any</td>
+                  <td>Accordion item title</td>
+                  <td>
+                    <code>x-accordion.item</code>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <hr class="invisible">
             <h2 id="default" tabindex="-1">
               <a class="header-anchor" href="#default">#</a>
               Default
@@ -381,7 +479,10 @@ Alternative way is to set the prop
         const table = document.querySelectorAll("table");
         if (table) {
           table.forEach(t => {
-            t.classList.add('table');
+            t.classList.add('table', 'table-striped');
+            t.querySelectorAll('tbody tr').forEach(tr => {
+              tr.querySelector('td').classList.add('fw-bold');
+            });
           })
         }
       });

@@ -1,5 +1,20 @@
 <x-components active="accordions">
 <md>
+## Props
+
+| Prop | Type | Default | Values | Description | Component |
+| -----| ---- | ------- | ------ | ----------- | --------- |
+| id | string | - | any | Unique ID | `x-accordion` with `aware:` or on each `x-accordion.item` without `aware:` |
+| flush | boolean | false | true&#124;false | Add `.accordion-flush` style | `x-accordion` |
+| alwaysOpen | boolean | false | true&#124;false | Keep accordion items open when another is opened | `x-accordion` with `aware:` or on each `x-accordion.item` without `aware:` |
+| name | string | - | any | Optional used as unique ID for accordion item | `x-accordion.item` |
+| open | boolean | false | true&#124;false | Show accordion item | `x-accordion.item` |
+| title | string | - | any | Accordion item title | `x-accordion.item` |
+</md>
+
+<hr class="invisible">
+
+<md>
 ## Default
 
 It's important to prepend `aware:` to the prop `id` so that the component `x-accordion.item` has access to the `id`

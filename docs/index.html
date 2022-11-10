@@ -124,6 +124,9 @@
                 </li>
               </ul>
             </li>
+            <li>
+              <a href="layouts.html" class="nav-link px-2 link-dark">Layouts</a>
+            </li>
             <li class="d-block d-md-none">
               <a href="https://www.npmjs.com/package/posthtml-bootstrap-ui" class="nav-link px-2 link-dark" target="_blank">NPM</a>
             </li>
@@ -234,7 +237,10 @@
         const table = document.querySelectorAll("table");
         if (table) {
           table.forEach(t => {
-            t.classList.add('table');
+            t.classList.add('table', 'table-striped');
+            t.querySelectorAll('tbody tr').forEach(tr => {
+              tr.querySelector('td').classList.add('fw-bold');
+            });
           })
         }
       });

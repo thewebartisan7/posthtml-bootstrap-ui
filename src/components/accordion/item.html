@@ -2,7 +2,7 @@
   module.exports = {
     name: isUndefined(props.name) ? `${props.id}-item-${uniqueId()}` : props.name,
     title: props.title || '',
-    open: !isUndefined(props.open),
+    open: isEnabled(props.open),
     parent: isUndefined(props.alwaysOpen) ? `#${props.id}` : null
   };
 </script>

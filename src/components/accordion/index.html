@@ -1,7 +1,7 @@
 <script props>
   module.exports = {
     id: props.id,
-    flush: isUndefined(props.flush) ? '' : ' accordion-flush'
+    flush: isEnabled(props.flush) ? ' accordion-flush' : ''
   };
 </script>
 

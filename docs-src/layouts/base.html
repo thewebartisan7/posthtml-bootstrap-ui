@@ -29,6 +29,7 @@
               <li><a class="dropdown-item {{ active === 'offcanvas' ? 'active' : '' }}" href="offcanvas.html">Offcanvas</a></li>
             </ul>
           </li>
+          <li><x-nav-link href="layouts.html">Layouts</x-nav-link></li>
           <li class="d-block d-md-none"><x-nav-link href="https://www.npmjs.com/package/posthtml-bootstrap-ui" target="_blank">NPM</x-nav-link></li>
           <li class="d-block d-md-none"><x-nav-link href="https://github.com/thewebartisan7/posthtml-bootstrap-ui" target="_blank">GitHub</x-nav-link></li>
         </ul>
@@ -167,7 +168,10 @@
       const table = document.querySelectorAll("table");
       if (table) {
         table.forEach(t => {
-          t.classList.add('table');
+          t.classList.add('table', 'table-striped');
+          t.querySelectorAll('tbody tr').forEach(tr => {
+            tr.querySelector('td').classList.add('fw-bold');
+          });
         })
       }
     });

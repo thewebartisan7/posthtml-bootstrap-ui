@@ -1,0 +1,83 @@
+<x-components active="alerts">
+<md>
+## Introduction
+
+You can create layouts for pages using layouts components explained below.
+
+An example of a page layout:
+
+```html
+<!-- layouts/base.html -->
+<x-html class="h-100" title="Title of page">
+  <x-body>
+    <x-header size="lg">
+      <!-- Header -->
+    </x-header>
+
+    <main>
+      <!-- Main content -->
+      <yield></yield>
+    </main>
+
+    <x-footer size="lg">
+      <!-- Footer -->
+    </x-footer>
+  </x-body>
+</x-html>
+```
+
+Custom layout:
+
+```html
+<!-- layouts/custom.html -->
+<x-base>
+  <h1>My page content</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <!-- left column -->
+      </div>
+      <div class="col-9">
+        <!-- right column -->
+        <yield></yield>
+      </div>
+    </div>
+  </div>
+</x-base>
+```
+
+Use the custom or base layout to create a page:
+
+```html
+<!-- pages/my-page.html that use layouts/base.html -->
+<x-base>
+  <p>Main content</p>
+</x-base>
+
+<!-- pages/my-page2.html that use layouts/custom.html -->
+<x-custom>
+  <p>Content of right column</p>
+</x-custom>
+```
+</md>
+
+<hr class="invisible">
+
+<md>
+## Push content on head or end of page
+
+```html
+<x-base>
+  <p>My page with pushed content on `head` and end of page (`foot`)</p>
+</x-base>
+
+<push name="head">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</push>
+
+<push name="foot">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+</push>
+```
+</md>
+</x-components>
