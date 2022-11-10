@@ -34,7 +34,7 @@ Output:
 
 ```html
 <div class="alert alert-danger" role="alert">
-    Hi, there! I'm an alert type danger component.     
+  Hi, there! I'm an alert type danger component.
 </div>
 ```
 
@@ -49,3 +49,5 @@ For example the alert component would be:
   Hi, there! I'm an alert type danger component.
 </x-ui::alert>
 ```
+
+See here more docs: [PostHTML Bootstrap UI docs and demo](https://thewebartisan7.github.io/posthtml-bootstrap-ui/index.html).
